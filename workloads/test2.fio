@@ -1,0 +1,26 @@
+[global]
+filename=/home/meen/mnt/test.dat
+ioengine=libaio
+direct=1
+rw=randwrite
+bs=4K
+iodepth=32
+iodepth_batch_submit=1
+time_based=1
+runtime=600
+allow_file_create=0
+overwrite=1
+randrepeat=1
+group_reporting=1
+# 1 GiB / 8,000 IOPS: every logical page is rewritten about every 33 seconds.
+[hot]
+offset=0
+size=1G
+rate_iops=8000
+randseed=20260821
+# 5 GiB / 2,000 IOPS: a full-region rewrite takes about 655 seconds.
+[cold]
+offset=1G
+size=5G
+rate_iops=2000
+randseed=20260822

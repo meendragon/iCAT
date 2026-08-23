@@ -1,0 +1,12 @@
+[global]
+filename=/home/meen/mnt/test.dat
+ioengine=libaio
+direct=1
+rw=write
+bs=128K
+iodepth=32
+iodepth_batch_submit=1
+size=${FIO_TEST_SIZE}
+end_fsync=1
+group_reporting=1
+[preset]

@@ -1,0 +1,32 @@
+[global]
+filename=/home/meen/mnt/test.dat
+ioengine=libaio
+direct=1
+rw=randwrite
+bs=4K
+iodepth=32
+iodepth_batch_submit=1
+time_based=1
+runtime=600
+allow_file_create=0
+overwrite=1
+randrepeat=1
+group_reporting=1
+# 512 MiB / 6,000 IOPS: one full-region rewrite takes about 22 seconds.
+[hot]
+offset=0
+size=512M
+rate_iops=6000
+randseed=20260831
+# 1.5 GiB / 3,000 IOPS: one full-region rewrite takes about 131 seconds.
+[warm]
+offset=512M
+size=1536M
+rate_iops=3000
+randseed=20260901
+# 4 GiB / 1,000 IOPS: one full-region rewrite takes about 1,049 seconds.
+[cold]
+offset=2G
+size=4G
+rate_iops=1000
+randseed=20260902

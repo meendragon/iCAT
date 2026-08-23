@@ -1,0 +1,16 @@
+[global]
+filename=/home/meen/mnt/test.dat
+ioengine=libaio
+direct=1
+rw=randwrite
+bs=4K
+iodepth=32
+iodepth_batch_submit=1
+size=${FIO_TEST_SIZE}
+io_size=${FIO_IO_SIZE}
+allow_file_create=0
+overwrite=1
+randrepeat=1
+randseed=20260821
+group_reporting=1
+[test]
