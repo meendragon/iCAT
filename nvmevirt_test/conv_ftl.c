@@ -10,17 +10,55 @@
 #include "conv_ftl.h"
 
 #if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
+#ifndef CAT_FIG7_SCALE_PCT
+#define CAT_FIG7_SCALE_PCT 100
+#endif
+
+#ifndef CAT_FIG7_AGE_RATIO
+#define CAT_FIG7_AGE_RATIO 7
+#endif
+
+#if CAT_FIG7_SCALE_PCT != 25 && CAT_FIG7_SCALE_PCT != 50 && \
+	CAT_FIG7_SCALE_PCT != 100 && CAT_FIG7_SCALE_PCT != 200 && \
+	CAT_FIG7_SCALE_PCT != 400
+#error "CAT_FIG7_SCALE_PCT must be 25, 50, 100, 200, or 400"
+#endif
+
+#if CAT_FIG7_AGE_RATIO != 4 && CAT_FIG7_AGE_RATIO != 7 && \
+	CAT_FIG7_AGE_RATIO != 16
+#error "CAT_FIG7_AGE_RATIO must be 4, 7, or 16"
+#endif
+
+#define CAT_FIG7_SCALED_NS(seconds) \
+	((uint64_t)(seconds) * NSEC_PER_SEC * CAT_FIG7_SCALE_PCT / 100ULL)
+
+/*
+ * Keep the seven outputs linear and change only max/min age influence.
+ * The factor 6 provides exact integer steps for ratios 4, 7, and 16.
+ * For ratio 7, {6,12,...,42} is order-equivalent to Fig. 7's {1,...,7}.
+ */
+#define CAT_FIG7_AGE_VALUE(level) \
+	(6U + (CAT_FIG7_AGE_RATIO - 1U) * (level))
+
 /* Fig. 7: raw segment age (seconds) -> normalized age level. */
 static const uint64_t cat_fig7_age_threshold_ns[] = {
-	10ULL * NSEC_PER_SEC,
-	20ULL * NSEC_PER_SEC,
-	45ULL * NSEC_PER_SEC,
-	90ULL * NSEC_PER_SEC,
-	180ULL * NSEC_PER_SEC,
-	360ULL * NSEC_PER_SEC,
+	CAT_FIG7_SCALED_NS(10),
+	CAT_FIG7_SCALED_NS(20),
+	CAT_FIG7_SCALED_NS(45),
+	CAT_FIG7_SCALED_NS(90),
+	CAT_FIG7_SCALED_NS(180),
+	CAT_FIG7_SCALED_NS(360),
 };
 
-static const uint32_t cat_fig7_age_value[] = { 1, 2, 3, 4, 5, 6, 7 };
+static const uint32_t cat_fig7_age_value[] = {
+	CAT_FIG7_AGE_VALUE(0),
+	CAT_FIG7_AGE_VALUE(1),
+	CAT_FIG7_AGE_VALUE(2),
+	CAT_FIG7_AGE_VALUE(3),
+	CAT_FIG7_AGE_VALUE(4),
+	CAT_FIG7_AGE_VALUE(5),
+	CAT_FIG7_AGE_VALUE(6),
+};
 
 static uint32_t cat_fig7_transform_age(const struct line *line, uint64_t now_ns)
 {
@@ -78,6 +116,24 @@ static const char *conv_gc_policy_name(void)
 	return "greedy";
 #else
 	return "cat-fig7";
+#endif
+}
+
+static uint32_t conv_gc_policy_scale_pct(void)
+{
+#if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
+	return CAT_FIG7_SCALE_PCT;
+#else
+	return 0;
+#endif
+}
+
+static uint32_t conv_gc_policy_age_ratio(void)
+{
+#if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
+	return CAT_FIG7_AGE_RATIO;
+#else
+	return 0;
 #endif
 }
 
@@ -429,7 +485,9 @@ static void conv_init_ftl(struct conv_ftl *conv_ftl, struct convparams *cpp, str
 
 	NVMEV_INFO("Init FTL instance with %d channels (%ld pages)\n", conv_ftl->ssd->sp.nchs,
 		   conv_ftl->ssd->sp.tt_pgs);
-	NVMEV_INFO("GC victim policy: %s\n", conv_gc_policy_name());
+	NVMEV_INFO("GC victim policy: %s scale_pct=%u age_ratio=%u\n",
+		   conv_gc_policy_name(), conv_gc_policy_scale_pct(),
+		   conv_gc_policy_age_ratio());
 
 	return;
 }
@@ -520,13 +578,15 @@ void conv_remove_namespace(struct nvmev_ns *ns)
 		waf_integer = div64_u64_rem(total_page_writes, host_page_writes, &remainder);
 		waf_milli = div64_u64(remainder * 1000, host_page_writes);
 		NVMEV_INFO("GC stats: policy=%s host_pages=%llu gc_pages=%llu gc_count=%llu "
-			   "WAF=%llu.%03llu\n",
+			   "WAF=%llu.%03llu scale_pct=%u age_ratio=%u\n",
 			   conv_gc_policy_name(), host_page_writes, gc_page_writes, gc_count,
-			   waf_integer, waf_milli);
+			   waf_integer, waf_milli, conv_gc_policy_scale_pct(),
+			   conv_gc_policy_age_ratio());
 	} else {
 		NVMEV_INFO("GC stats: policy=%s host_pages=0 gc_pages=%llu gc_count=%llu "
-			   "WAF=N/A\n",
-			   conv_gc_policy_name(), gc_page_writes, gc_count);
+			   "WAF=N/A scale_pct=%u age_ratio=%u\n",
+			   conv_gc_policy_name(), gc_page_writes, gc_count,
+			   conv_gc_policy_scale_pct(), conv_gc_policy_age_ratio());
 	}
 
 	/* PCIe, Write buffer are shared by all instances*/
