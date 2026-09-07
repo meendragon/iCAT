@@ -1,0 +1,53 @@
+[global]
+filename=/home/meen/mnt/test.dat
+ioengine=libaio
+direct=1
+rw=randwrite
+bs=4K
+iodepth=32
+iodepth_batch_submit=1
+time_based=1
+allow_file_create=0
+overwrite=1
+randrepeat=1
+group_reporting=1
+
+# ============================================================
+# Phase A: 300 sec
+# Total = 40K IOPS
+# ============================================================
+
+[phase_a_front_hot]
+offset=0
+size=2G
+rate_iops=32000
+randseed=20260911
+runtime=300
+
+[phase_a_back_cold]
+offset=2G
+size=4G
+rate_iops=8000
+randseed=20260912
+runtime=300
+
+
+# ============================================================
+# Phase B: starts only after BOTH Phase A jobs finish
+# Total = 40K IOPS
+# ============================================================
+
+[phase_b_front_cold]
+stonewall
+offset=0
+size=2G
+rate_iops=8000
+randseed=20260913
+runtime=300
+
+[phase_b_back_hot]
+offset=2G
+size=4G
+rate_iops=32000
+randseed=20260914
+runtime=300

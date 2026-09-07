@@ -1,0 +1,273 @@
+[DMESG] start marker: iCAT_SQLITE_START module=cat-fig7-k07-s050-r04 workload=a run=20260830-020238-69461
+[START] module=cat-fig7-k07-s050-r04
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 100432f2-b7bd-40bd-9578-16483e92ab38
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[SQLITE] schema setup: /home/meen/mnt/ycsb.db
+wal
+[LOAD] /home/meen/iCAT/workloads/sqlite/workloada
+java -cp /home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/*:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/conf:/home/meen/YCSB/ycsb-0.17.0/conf:/home/meen/YCSB/ycsb-0.17.0/lib/jackson-mapper-asl-1.9.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/HdrHistogram-2.1.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/htrace-core4-4.1.0-incubating.jar:/home/meen/YCSB/ycsb-0.17.0/lib/jackson-core-asl-1.9.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/core-0.17.0.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-collections-3.2.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/sqlite-jdbc-3.36.0.3.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/geronimo-jta_1.1_spec-1.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/geronimo-jms_1.1_spec-1.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-jdbc-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-lib-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-kernel-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/jdbc-binding-0.17.0.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-lang-2.4.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-pool-1.5.4.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/serp-1.13.1.jar site.ycsb.Client -db site.ycsb.db.JdbcDBClient -s -P /home/meen/iCAT/workloads/sqlite/workloada -threads 1 -p db.driver=org.sqlite.JDBC -p db.url=jdbc:sqlite:/home/meen/mnt/ycsb.db -p db.user= -p db.passwd= -p db.batchsize=1000 -p jdbc.autocommit=false -load
+Picked up JAVA_TOOL_OPTIONS: -Xshare:off
+Command line: -db site.ycsb.db.JdbcDBClient -s -P /home/meen/iCAT/workloads/sqlite/workloada -threads 1 -p db.driver=org.sqlite.JDBC -p db.url=jdbc:sqlite:/home/meen/mnt/ycsb.db -p db.user= -p db.passwd= -p db.batchsize=1000 -p jdbc.autocommit=false -load
+YCSB Client 0.17.0
+
+Loading workload...
+Starting test.
+Adding shard node URL: jdbc:sqlite:/home/meen/mnt/ycsb.db
+2026-08-30 02:02:40:175 0 sec: 0 operations; est completion in 0 second 
+Using shards: 1, batchSize:1000, fetchSize: -1
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+2026-08-30 02:02:50:156 10 sec: 639999 operations; 63993.5 current ops/sec; est completion in 53 seconds [INSERT: Count=640253, Max=9543, Min=3, Avg=14.68, 90=9, 99=17, 99.9=1710, 99.99=9135] 
+2026-08-30 02:03:00:156 20 sec: 1166999 operations; 52705.27 current ops/sec; est completion in 49 seconds [INSERT: Count=526746, Max=11143, Min=4, Avg=18.13, 90=11, 99=19, 99.9=874, 99.99=10671] 
+2026-08-30 02:03:10:156 30 sec: 1670999 operations; 50394.96 current ops/sec; est completion in 42 seconds [INSERT: Count=504000, Max=11391, Min=4, Avg=18.98, 90=12, 99=19, 99.9=3541, 99.99=10855] 
+2026-08-30 02:03:20:156 40 sec: 2162461 operations; 49151.12 current ops/sec; est completion in 34 seconds [INSERT: Count=491481, Max=11447, Min=4, Avg=19.5, 90=12, 99=20, 99.9=10103, 99.99=11079] 
+2026-08-30 02:03:30:156 50 sec: 2644481 operations; 48202 current ops/sec; est completion in 26 seconds [INSERT: Count=482014, Max=16543, Min=4, Avg=19.87, 90=12, 99=20, 99.9=899, 99.99=11407] 
+2026-08-30 02:03:40:156 60 sec: 3115999 operations; 47151.8 current ops/sec; est completion in 18 seconds [INSERT: Count=471505, Max=12287, Min=4, Avg=20.34, 90=12, 99=20, 99.9=831, 99.99=11815] 
+2026-08-30 02:03:50:156 70 sec: 3582999 operations; 46700 current ops/sec; est completion in 9 second [INSERT: Count=467000, Max=13495, Min=4, Avg=20.52, 90=12, 99=21, 99.9=1139, 99.99=11999] 
+2026-08-30 02:03:59:288 79 sec: 4000000 operations; 45658.71 current ops/sec; [CLEANUP: Count=1, Max=969, Min=969, Avg=969, 90=969, 99=969, 99.9=969, 99.99=969] [INSERT: Count=417001, Max=13351, Min=4, Avg=21.05, 90=12, 99=21, 99.9=11231, 99.99=12527] 
+[OVERALL], RunTime(ms), 79140
+[OVERALL], Throughput(ops/sec), 50543.34091483447
+[TOTAL_GCS_G1_Young_Generation], Count, 310
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 156
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.19711902956785443
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 310
+[TOTAL_GC_TIME], Time(ms), 156
+[TOTAL_GC_TIME_%], Time(%), 0.19711902956785443
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 969.0
+[CLEANUP], MinLatency(us), 969
+[CLEANUP], MaxLatency(us), 969
+[CLEANUP], 95thPercentileLatency(us), 969
+[CLEANUP], 99thPercentileLatency(us), 969
+[INSERT], Operations, 4000000
+[INSERT], AverageLatency(us), 18.90720975
+[INSERT], MinLatency(us), 3
+[INSERT], MaxLatency(us), 16543
+[INSERT], 95thPercentileLatency(us), 15
+[INSERT], 99thPercentileLatency(us), 20
+[INSERT], Return=OK, 4000000
+[FLUSH] phase=load-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/sqlite/workloada/summary.txt
+[DROP-CACHES] scope=run interval=4s pid=69591
+[RUN] /home/meen/iCAT/workloads/sqlite/workloada
+java -cp /home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/*:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/conf:/home/meen/YCSB/ycsb-0.17.0/conf:/home/meen/YCSB/ycsb-0.17.0/lib/jackson-mapper-asl-1.9.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/HdrHistogram-2.1.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/htrace-core4-4.1.0-incubating.jar:/home/meen/YCSB/ycsb-0.17.0/lib/jackson-core-asl-1.9.4.jar:/home/meen/YCSB/ycsb-0.17.0/lib/core-0.17.0.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-collections-3.2.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/sqlite-jdbc-3.36.0.3.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/geronimo-jta_1.1_spec-1.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/geronimo-jms_1.1_spec-1.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-jdbc-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-lib-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/openjpa-kernel-2.1.1.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/jdbc-binding-0.17.0.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-lang-2.4.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/commons-pool-1.5.4.jar:/home/meen/YCSB/ycsb-0.17.0/jdbc-binding/lib/serp-1.13.1.jar site.ycsb.Client -db site.ycsb.db.JdbcDBClient -s -P /home/meen/iCAT/workloads/sqlite/workloada -threads 1 -p db.driver=org.sqlite.JDBC -p db.url=jdbc:sqlite:/home/meen/mnt/ycsb.db -p db.user= -p db.passwd= -p jdbc.autocommit=true -p hdrhistogram.percentiles=95,99,99.9,99.99,99.999,99.9999 -t
+Picked up JAVA_TOOL_OPTIONS: -Xshare:off
+Command line: -db site.ycsb.db.JdbcDBClient -s -P /home/meen/iCAT/workloads/sqlite/workloada -threads 1 -p db.driver=org.sqlite.JDBC -p db.url=jdbc:sqlite:/home/meen/mnt/ycsb.db -p db.user= -p db.passwd= -p jdbc.autocommit=true -p hdrhistogram.percentiles=95,99,99.9,99.99,99.999,99.9999 -t
+YCSB Client 0.17.0
+
+Loading workload...
+Starting test.
+Adding shard node URL: jdbc:sqlite:/home/meen/mnt/ycsb.db
+2026-08-30 02:03:59:996 0 sec: 0 operations; est completion in 0 second 
+Using shards: 1, batchSize:-1, fetchSize: -1
+DBWrapper: report latency for each error is false and specific error codes to track for latency are: []
+2026-08-30 02:04:09:977 10 sec: 76893 operations; 7687.76 current ops/sec; est completion in 25 minutes [READ: Count=38150, Max=3053, Min=4, Avg=108.43, 90=206, 99=323, 99.9=444, 99.99=653] [UPDATE: Count=38762, Max=15495, Min=18, Avg=147.06, 90=258, 99=405, 99.9=839, 99.99=4743] 
+2026-08-30 02:04:19:976 20 sec: 160993 operations; 8410.84 current ops/sec; est completion in 24 minutes [READ: Count=42211, Max=2013, Min=4, Avg=100.04, 90=196, 99=300, 99.9=411, 99.99=574] [UPDATE: Count=41872, Max=26431, Min=18, Avg=136.26, 90=231, 99=390, 99.9=2181, 99.99=4779] 
+2026-08-30 02:04:29:976 30 sec: 242692 operations; 8169.9 current ops/sec; est completion in 24 minutes [READ: Count=40806, Max=639, Min=4, Avg=102.62, 90=204, 99=293, 99.9=412, 99.99=545] [UPDATE: Count=40892, Max=12303, Min=18, Avg=140.49, 90=236, 99=391, 99.9=2295, 99.99=4719] 
+2026-08-30 02:04:39:976 40 sec: 327356 operations; 8467.25 current ops/sec; est completion in 23 minutes [READ: Count=42288, Max=2031, Min=4, Avg=99.22, 90=192, 99=303, 99.9=420, 99.99=642] [UPDATE: Count=42377, Max=17135, Min=18, Avg=135.31, 90=231, 99=390, 99.9=1061, 99.99=4843] 
+2026-08-30 02:04:49:976 50 sec: 407876 operations; 8051.19 current ops/sec; est completion in 23 minutes [READ: Count=40285, Max=2139, Min=4, Avg=104.75, 90=204, 99=314, 99.9=425, 99.99=656] [UPDATE: Count=40236, Max=16447, Min=18, Avg=142.06, 90=242, 99=394, 99.9=4235, 99.99=4891] 
+2026-08-30 02:04:59:976 60 sec: 493605 operations; 8573.76 current ops/sec; est completion in 23 minutes [READ: Count=42713, Max=1969, Min=4, Avg=98.22, 90=183, 99=303, 99.9=443, 99.99=738] [UPDATE: Count=43016, Max=22447, Min=17, Avg=133.31, 90=223, 99=388, 99.9=1084, 99.99=4867] 
+2026-08-30 02:05:09:976 70 sec: 573250 operations; 7963.7 current ops/sec; est completion in 23 minutes [READ: Count=39858, Max=2611, Min=4, Avg=105.18, 90=205, 99=325, 99.9=456, 99.99=904] [UPDATE: Count=39788, Max=24847, Min=18, Avg=144.37, 90=248, 99=412, 99.9=953, 99.99=4903] 
+2026-08-30 02:05:19:976 80 sec: 657964 operations; 8472.25 current ops/sec; est completion in 23 minutes [READ: Count=42328, Max=1113, Min=4, Avg=99.54, 90=192, 99=319, 99.9=480, 99.99=933] [UPDATE: Count=42385, Max=14599, Min=18, Avg=134.9, 90=229, 99=390, 99.9=4375, 99.99=4955] 
+2026-08-30 02:05:29:976 90 sec: 737687 operations; 7971.5 current ops/sec; est completion in 22 minutes [READ: Count=39895, Max=7299, Min=4, Avg=105.11, 90=205, 99=325, 99.9=499, 99.99=903] [UPDATE: Count=39829, Max=30543, Min=18, Avg=144.19, 90=245, 99=403, 99.9=1551, 99.99=5079] 
+2026-08-30 02:05:39:976 100 sec: 821332 operations; 8364.5 current ops/sec; est completion in 22 minutes [READ: Count=41738, Max=1927, Min=4, Avg=100.54, 90=192, 99=326, 99.9=475, 99.99=1037] [UPDATE: Count=41907, Max=23119, Min=18, Avg=136.89, 90=230, 99=393, 99.9=1418, 99.99=5099] 
+2026-08-30 02:05:49:976 110 sec: 900556 operations; 7922.4 current ops/sec; est completion in 22 minutes [READ: Count=39490, Max=1550, Min=4, Avg=106.1, 90=205, 99=335, 99.9=519, 99.99=1084] [UPDATE: Count=39735, Max=21487, Min=18, Avg=144.64, 90=257, 99=411, 99.9=1413, 99.99=5215] 
+2026-08-30 02:05:59:976 120 sec: 982598 operations; 8205.02 current ops/sec; est completion in 22 minutes [READ: Count=41202, Max=1666, Min=4, Avg=101.48, 90=193, 99=327, 99.9=507, 99.99=1010] [UPDATE: Count=40838, Max=12607, Min=18, Avg=140.84, 90=237, 99=408, 99.9=1335, 99.99=5191] 
+2026-08-30 02:06:09:976 130 sec: 1062311 operations; 7970.5 current ops/sec; est completion in 22 minutes [READ: Count=39959, Max=1371, Min=4, Avg=104.5, 90=205, 99=338, 99.9=523, 99.99=1101] [UPDATE: Count=39752, Max=28351, Min=18, Avg=144.92, 90=248, 99=413, 99.9=1529, 99.99=5307] 
+2026-08-30 02:06:19:976 140 sec: 1143296 operations; 8099.31 current ops/sec; est completion in 22 minutes [READ: Count=40559, Max=1357, Min=4, Avg=104.33, 90=204, 99=345, 99.9=529, 99.99=1107] [UPDATE: Count=40426, Max=23183, Min=18, Avg=141.06, 90=237, 99=412, 99.9=1797, 99.99=5251] 
+2026-08-30 02:06:29:976 150 sec: 1222781 operations; 7947.71 current ops/sec; est completion in 22 minutes [READ: Count=39702, Max=1773, Min=4, Avg=104.72, 90=205, 99=348, 99.9=533, 99.99=1178] [UPDATE: Count=39784, Max=35039, Min=18, Avg=145.24, 90=251, 99=423, 99.9=1806, 99.99=5339] 
+2026-08-30 02:06:39:976 160 sec: 1302625 operations; 7985.2 current ops/sec; est completion in 21 minutes [READ: Count=39846, Max=1526, Min=4, Avg=103.92, 90=204, 99=340, 99.9=532, 99.99=1043] [UPDATE: Count=39998, Max=20143, Min=18, Avg=144.88, 90=244, 99=417, 99.9=2499, 99.99=5271] 
+2026-08-30 02:06:49:976 170 sec: 1383307 operations; 8067.39 current ops/sec; est completion in 21 minutes [READ: Count=40432, Max=1693, Min=4, Avg=102.86, 90=204, 99=350, 99.9=532, 99.99=1060] [UPDATE: Count=40250, Max=30687, Min=18, Avg=143.5, 90=252, 99=428, 99.9=1843, 99.99=5163] 
+2026-08-30 02:06:59:976 180 sec: 1462905 operations; 7959.8 current ops/sec; est completion in 21 minutes [READ: Count=39843, Max=1871, Min=4, Avg=105.82, 90=205, 99=351, 99.9=551, 99.99=1314] [UPDATE: Count=39754, Max=20095, Min=17, Avg=143.86, 90=243, 99=424, 99.9=1653, 99.99=5223] 
+2026-08-30 02:07:09:976 190 sec: 1543913 operations; 8100.8 current ops/sec; est completion in 21 minutes [READ: Count=40415, Max=1662, Min=4, Avg=102.62, 90=204, 99=349, 99.9=539, 99.99=1376] [UPDATE: Count=40594, Max=30367, Min=18, Avg=142.59, 90=244, 99=424, 99.9=1540, 99.99=5207] 
+2026-08-30 02:07:19:976 200 sec: 1622343 operations; 7843 current ops/sec; est completion in 21 minutes [READ: Count=39265, Max=1776, Min=4, Avg=107.11, 90=205, 99=360, 99.9=540, 99.99=1221] [UPDATE: Count=39166, Max=13791, Min=18, Avg=146.34, 90=254, 99=428, 99.9=1513, 99.99=5239] 
+2026-08-30 02:07:29:976 210 sec: 1704474 operations; 8213.92 current ops/sec; est completion in 21 minutes [READ: Count=40997, Max=1651, Min=4, Avg=101.91, 90=203, 99=350, 99.9=546, 99.99=1254] [UPDATE: Count=41131, Max=30335, Min=18, Avg=139.95, 90=233, 99=415, 99.9=1875, 99.99=5379] 
+2026-08-30 02:07:39:976 220 sec: 1781742 operations; 7726.8 current ops/sec; est completion in 21 minutes [READ: Count=38534, Max=1610, Min=4, Avg=108.45, 90=205, 99=365, 99.9=580, 99.99=1250] [UPDATE: Count=38737, Max=15231, Min=17, Avg=148.68, 90=264, 99=438, 99.9=1946, 99.99=5351] 
+2026-08-30 02:07:49:976 230 sec: 1864130 operations; 8237.98 current ops/sec; est completion in 20 minutes [READ: Count=41175, Max=1722, Min=4, Avg=102.03, 90=200, 99=358, 99.9=567, 99.99=1533] [UPDATE: Count=41213, Max=25407, Min=18, Avg=139.09, 90=232, 99=422, 99.9=1873, 99.99=5323] 
+2026-08-30 02:07:59:976 240 sec: 1941003 operations; 7687.3 current ops/sec; est completion in 20 minutes [READ: Count=38561, Max=1802, Min=4, Avg=108.89, 90=206, 99=363, 99.9=583, 99.99=1343] [UPDATE: Count=38312, Max=35199, Min=17, Avg=149.82, 90=264, 99=441, 99.9=1607, 99.99=5271] 
+2026-08-30 02:08:09:976 250 sec: 2022591 operations; 8158.8 current ops/sec; est completion in 20 minutes [READ: Count=40873, Max=1490, Min=4, Avg=102.38, 90=201, 99=350, 99.9=547, 99.99=1111] [UPDATE: Count=40715, Max=33343, Min=17, Avg=141.22, 90=240, 99=419, 99.9=2353, 99.99=5323] 
+2026-08-30 02:08:19:976 260 sec: 2099315 operations; 7672.4 current ops/sec; est completion in 20 minutes [READ: Count=38486, Max=1672, Min=4, Avg=109.03, 90=206, 99=365, 99.9=576, 99.99=1340] [UPDATE: Count=38236, Max=28287, Min=18, Avg=150.16, 90=268, 99=437, 99.9=1592, 99.99=5339] 
+2026-08-30 02:08:29:976 270 sec: 2181092 operations; 8178.52 current ops/sec; est completion in 20 minutes [READ: Count=41071, Max=1965, Min=4, Avg=103.2, 90=203, 99=350, 99.9=542, 99.99=1195] [UPDATE: Count=40708, Max=28015, Min=18, Avg=139.92, 90=232, 99=416, 99.9=1757, 99.99=5315] 
+2026-08-30 02:08:39:976 280 sec: 2259109 operations; 7801.7 current ops/sec; est completion in 20 minutes [READ: Count=39037, Max=1291, Min=4, Avg=106.77, 90=205, 99=370, 99.9=597, 99.99=1204] [UPDATE: Count=38979, Max=15239, Min=18, Avg=148.02, 90=266, 99=443, 99.9=2267, 99.99=5331] 
+2026-08-30 02:08:49:976 290 sec: 2338902 operations; 7979.3 current ops/sec; est completion in 19 minutes [READ: Count=40041, Max=1655, Min=4, Avg=104.39, 90=204, 99=354, 99.9=556, 99.99=1358] [UPDATE: Count=39751, Max=17151, Min=17, Avg=144.8, 90=244, 99=433, 99.9=2327, 99.99=5435] 
+2026-08-30 02:08:59:976 300 sec: 2416690 operations; 7778.8 current ops/sec; est completion in 19 minutes [READ: Count=38919, Max=1582, Min=4, Avg=107.42, 90=206, 99=359, 99.9=585, 99.99=1231] [UPDATE: Count=38869, Max=8487, Min=18, Avg=148.11, 90=268, 99=449, 99.9=1994, 99.99=5427] 
+2026-08-30 02:09:09:976 310 sec: 2495586 operations; 7888.81 current ops/sec; est completion in 19 minutes [READ: Count=39635, Max=1617, Min=4, Avg=105.97, 90=205, 99=366, 99.9=608, 99.99=1356] [UPDATE: Count=39262, Max=25407, Min=18, Avg=146.11, 90=244, 99=429, 99.9=1729, 99.99=5403] 
+2026-08-30 02:09:19:976 320 sec: 2575278 operations; 7969.2 current ops/sec; est completion in 19 minutes [READ: Count=39728, Max=1524, Min=4, Avg=105.14, 90=205, 99=360, 99.9=574, 99.99=1357] [UPDATE: Count=39962, Max=32015, Min=18, Avg=144.1, 90=245, 99=426, 99.9=2024, 99.99=5347] 
+2026-08-30 02:09:29:976 330 sec: 2655020 operations; 7974.2 current ops/sec; est completion in 19 minutes [READ: Count=39867, Max=1610, Min=4, Avg=104.42, 90=204, 99=357, 99.9=582, 99.99=1274] [UPDATE: Count=39879, Max=10887, Min=17, Avg=144.78, 90=248, 99=432, 99.9=2063, 99.99=5319] 
+2026-08-30 02:09:39:976 340 sec: 2734724 operations; 7970.4 current ops/sec; est completion in 19 minutes [READ: Count=39809, Max=1591, Min=4, Avg=104.24, 90=205, 99=360, 99.9=561, 99.99=1369] [UPDATE: Count=39893, Max=20015, Min=18, Avg=145.03, 90=256, 99=434, 99.9=1915, 99.99=5327] 
+2026-08-30 02:09:49:976 350 sec: 2814616 operations; 7989.2 current ops/sec; est completion in 19 minutes [READ: Count=39751, Max=1459, Min=4, Avg=105.5, 90=205, 99=348, 99.9=558, 99.99=1168] [UPDATE: Count=40144, Max=30447, Min=17, Avg=143.05, 90=243, 99=425, 99.9=1892, 99.99=5343] 
+2026-08-30 02:09:59:976 360 sec: 2895953 operations; 8134.51 current ops/sec; est completion in 18 minutes [READ: Count=40653, Max=1758, Min=4, Avg=103.51, 90=204, 99=351, 99.9=582, 99.99=1210] [UPDATE: Count=40680, Max=31135, Min=18, Avg=140.75, 90=243, 99=429, 99.9=1366, 99.99=5307] 
+2026-08-30 02:10:09:976 370 sec: 2973959 operations; 7800.6 current ops/sec; est completion in 18 minutes [READ: Count=39083, Max=1548, Min=4, Avg=107.29, 90=205, 99=358, 99.9=565, 99.99=1200] [UPDATE: Count=38925, Max=6467, Min=18, Avg=147.6, 90=260, 99=436, 99.9=1828, 99.99=5299] 
+2026-08-30 02:10:19:976 380 sec: 3056310 operations; 8234.28 current ops/sec; est completion in 18 minutes [READ: Count=41191, Max=1706, Min=4, Avg=101.99, 90=204, 99=350, 99.9=561, 99.99=1382] [UPDATE: Count=41158, Max=32959, Min=17, Avg=139.26, 90=234, 99=425, 99.9=1534, 99.99=5283] 
+2026-08-30 02:10:29:976 390 sec: 3134290 operations; 7798 current ops/sec; est completion in 18 minutes [READ: Count=38943, Max=1943, Min=4, Avg=107.59, 90=206, 99=358, 99.9=589, 99.99=1352] [UPDATE: Count=39037, Max=35071, Min=18, Avg=147.24, 90=255, 99=426, 99.9=1722, 99.99=5391] 
+2026-08-30 02:10:39:976 400 sec: 3216145 operations; 8186.32 current ops/sec; est completion in 18 minutes [READ: Count=40648, Max=1681, Min=4, Avg=102.19, 90=203, 99=350, 99.9=546, 99.99=1157] [UPDATE: Count=41210, Max=18399, Min=18, Avg=140.25, 90=239, 99=428, 99.9=4715, 99.99=5235] 
+2026-08-30 02:10:49:976 410 sec: 3293237 operations; 7709.2 current ops/sec; est completion in 18 minutes [READ: Count=38584, Max=1495, Min=4, Avg=108.74, 90=207, 99=358, 99.9=551, 99.99=1374] [UPDATE: Count=38506, Max=27119, Min=18, Avg=149.11, 90=262, 99=440, 99.9=1613, 99.99=5347] 
+2026-08-30 02:10:59:976 420 sec: 3374636 operations; 8139.9 current ops/sec; est completion in 17 minutes [READ: Count=40539, Max=1440, Min=4, Avg=102.66, 90=203, 99=356, 99.9=559, 99.99=1101] [UPDATE: Count=40861, Max=25567, Min=18, Avg=141.27, 90=243, 99=425, 99.9=1487, 99.99=5315] 
+2026-08-30 02:11:09:976 430 sec: 3451289 operations; 7664.53 current ops/sec; est completion in 17 minutes [READ: Count=38463, Max=1514, Min=4, Avg=107.6, 90=206, 99=350, 99.9=564, 99.99=1259] [UPDATE: Count=38187, Max=34111, Min=18, Avg=151.88, 90=265, 99=435, 99.9=1626, 99.99=5387] 
+2026-08-30 02:11:19:976 440 sec: 3531808 operations; 8051.9 current ops/sec; est completion in 17 minutes [READ: Count=40203, Max=1586, Min=4, Avg=102.85, 90=203, 99=349, 99.9=555, 99.99=1314] [UPDATE: Count=40318, Max=28015, Min=18, Avg=143.87, 90=242, 99=426, 99.9=4607, 99.99=5343] 
+2026-08-30 02:11:29:976 450 sec: 3609267 operations; 7745.9 current ops/sec; est completion in 17 minutes [READ: Count=38668, Max=1692, Min=4, Avg=106.45, 90=206, 99=350, 99.9=539, 99.99=1287] [UPDATE: Count=38791, Max=27599, Min=17, Avg=150.05, 90=265, 99=436, 99.9=1733, 99.99=5351] 
+2026-08-30 02:11:39:976 460 sec: 3689529 operations; 8026.2 current ops/sec; est completion in 17 minutes [READ: Count=40086, Max=1573, Min=4, Avg=104.09, 90=204, 99=341, 99.9=566, 99.99=1131] [UPDATE: Count=40174, Max=23327, Min=18, Avg=143.44, 90=239, 99=431, 99.9=1506, 99.99=5331] 
+2026-08-30 02:11:49:976 470 sec: 3768002 operations; 7847.3 current ops/sec; est completion in 17 minutes [READ: Count=38959, Max=1666, Min=4, Avg=106.59, 90=206, 99=366, 99.9=556, 99.99=1218] [UPDATE: Count=39514, Max=13263, Min=18, Avg=146.41, 90=260, 99=429, 99.9=1501, 99.99=5383] 
+2026-08-30 02:11:59:976 480 sec: 3849396 operations; 8139.4 current ops/sec; est completion in 16 minutes [READ: Count=40786, Max=1438, Min=4, Avg=104.47, 90=204, 99=349, 99.9=567, 99.99=1227] [UPDATE: Count=40610, Max=29087, Min=18, Avg=139.7, 90=234, 99=413, 99.9=1610, 99.99=5331] 
+2026-08-30 02:12:09:976 490 sec: 3928227 operations; 7883.1 current ops/sec; est completion in 16 minutes [READ: Count=39426, Max=1668, Min=4, Avg=106.13, 90=206, 99=355, 99.9=542, 99.99=1273] [UPDATE: Count=39404, Max=11295, Min=18, Avg=145.98, 90=260, 99=435, 99.9=1424, 99.99=5215] 
+2026-08-30 02:12:19:976 500 sec: 4008893 operations; 8066.6 current ops/sec; est completion in 16 minutes [READ: Count=40588, Max=1412, Min=4, Avg=104.97, 90=205, 99=349, 99.9=550, 99.99=1058] [UPDATE: Count=40079, Max=19791, Min=18, Avg=141.58, 90=243, 99=420, 99.9=1909, 99.99=5355] 
+2026-08-30 02:12:29:976 510 sec: 4088649 operations; 7975.6 current ops/sec; est completion in 16 minutes [READ: Count=39855, Max=1913, Min=4, Avg=105.54, 90=205, 99=356, 99.9=539, 99.99=1188] [UPDATE: Count=39900, Max=29039, Min=18, Avg=143.6, 90=256, 99=435, 99.9=1803, 99.99=5351] 
+2026-08-30 02:12:39:976 520 sec: 4168046 operations; 7939.7 current ops/sec; est completion in 16 minutes [READ: Count=39730, Max=1682, Min=4, Avg=106.65, 90=205, 99=357, 99.9=555, 99.99=1447] [UPDATE: Count=39669, Max=31999, Min=18, Avg=143.66, 90=244, 99=415, 99.9=1766, 99.99=5299] 
+2026-08-30 02:12:49:976 530 sec: 4249807 operations; 8176.1 current ops/sec; est completion in 16 minutes [READ: Count=40903, Max=2201, Min=4, Avg=104, 90=205, 99=352, 99.9=564, 99.99=1448] [UPDATE: Count=40856, Max=31151, Min=18, Avg=139.03, 90=243, 99=420, 99.9=1414, 99.99=5375] 
+2026-08-30 02:12:59:976 540 sec: 4328257 operations; 7845 current ops/sec; est completion in 15 minutes [READ: Count=39337, Max=1775, Min=4, Avg=107.33, 90=206, 99=349, 99.9=561, 99.99=1131] [UPDATE: Count=39113, Max=9311, Min=18, Avg=146.1, 90=256, 99=426, 99.9=1399, 99.99=5371] 
+2026-08-30 02:13:09:976 550 sec: 4410871 operations; 8261.4 current ops/sec; est completion in 15 minutes [READ: Count=41377, Max=1751, Min=4, Avg=102.35, 90=204, 99=356, 99.9=541, 99.99=1089] [UPDATE: Count=41237, Max=24143, Min=18, Avg=138.21, 90=240, 99=419, 99.9=1574, 99.99=5219] 
+2026-08-30 02:13:19:976 560 sec: 4488102 operations; 7723.1 current ops/sec; est completion in 15 minutes [READ: Count=38804, Max=1854, Min=4, Avg=109.1, 90=206, 99=363, 99.9=561, 99.99=1266] [UPDATE: Count=38428, Max=7951, Min=18, Avg=148.41, 90=265, 99=435, 99.9=1781, 99.99=5395] 
+2026-08-30 02:13:29:976 570 sec: 4570273 operations; 8217.1 current ops/sec; est completion in 15 minutes [READ: Count=41229, Max=1721, Min=4, Avg=102.04, 90=197, 99=349, 99.9=561, 99.99=1227] [UPDATE: Count=40942, Max=21343, Min=18, Avg=139.86, 90=241, 99=418, 99.9=1659, 99.99=5287] 
+2026-08-30 02:13:39:976 580 sec: 4647493 operations; 7722.77 current ops/sec; est completion in 15 minutes [READ: Count=38660, Max=1657, Min=4, Avg=108.89, 90=207, 99=362, 99.9=567, 99.99=1282] [UPDATE: Count=38562, Max=18751, Min=18, Avg=148.55, 90=262, 99=433, 99.9=1396, 99.99=5311] 
+2026-08-30 02:13:49:976 590 sec: 4728539 operations; 8103.79 current ops/sec; est completion in 15 minutes [READ: Count=40271, Max=1707, Min=4, Avg=102.94, 90=204, 99=357, 99.9=565, 99.99=1270] [UPDATE: Count=40774, Max=27775, Min=18, Avg=141.98, 90=242, 99=436, 99.9=1584, 99.99=5267] 
+2026-08-30 02:13:59:976 600 sec: 4806140 operations; 7760.1 current ops/sec; est completion in 14 minutes [READ: Count=38870, Max=1553, Min=4, Avg=107.56, 90=207, 99=364, 99.9=547, 99.99=1296] [UPDATE: Count=38729, Max=26287, Min=18, Avg=148.64, 90=265, 99=438, 99.9=1562, 99.99=5399] 
+2026-08-30 02:14:09:976 610 sec: 4887420 operations; 8128 current ops/sec; est completion in 14 minutes [READ: Count=40816, Max=1573, Min=4, Avg=103.74, 90=204, 99=348, 99.9=557, 99.99=1412] [UPDATE: Count=40466, Max=30991, Min=18, Avg=140.89, 90=239, 99=417, 99.9=4623, 99.99=5243] 
+2026-08-30 02:14:19:976 620 sec: 4964242 operations; 7682.97 current ops/sec; est completion in 14 minutes [READ: Count=38505, Max=1854, Min=4, Avg=108.51, 90=216, 99=357, 99.9=562, 99.99=1539] [UPDATE: Count=38315, Max=18511, Min=18, Avg=150.31, 90=266, 99=448, 99.9=2111, 99.99=5447] 
+2026-08-30 02:14:29:976 630 sec: 5044284 operations; 8003.4 current ops/sec; est completion in 14 minutes [READ: Count=40104, Max=1496, Min=4, Avg=103.84, 90=204, 99=345, 99.9=550, 99.99=1218] [UPDATE: Count=39939, Max=17727, Min=18, Avg=144.5, 90=243, 99=433, 99.9=1676, 99.99=5267] 
+2026-08-30 02:14:39:976 640 sec: 5122976 operations; 7869.99 current ops/sec; est completion in 14 minutes [READ: Count=39226, Max=1466, Min=4, Avg=105.82, 90=206, 99=350, 99.9=553, 99.99=1021] [UPDATE: Count=39464, Max=27999, Min=18, Avg=146.59, 90=258, 99=437, 99.9=4635, 99.99=5351] 
+2026-08-30 02:14:49:976 650 sec: 5203002 operations; 8002.6 current ops/sec; est completion in 14 minutes [READ: Count=39979, Max=1543, Min=4, Avg=104.7, 90=204, 99=358, 99.9=546, 99.99=1234] [UPDATE: Count=40048, Max=26847, Min=17, Avg=143.55, 90=243, 99=422, 99.9=1916, 99.99=5335] 
+2026-08-30 02:14:59:976 660 sec: 5281979 operations; 7897.7 current ops/sec; est completion in 14 minutes [READ: Count=39624, Max=1522, Min=4, Avg=105.75, 90=206, 99=348, 99.9=528, 99.99=1369] [UPDATE: Count=39352, Max=10055, Min=17, Avg=145.99, 90=266, 99=433, 99.9=1549, 99.99=5303] 
+2026-08-30 02:15:09:976 670 sec: 5361298 operations; 7931.11 current ops/sec; est completion in 13 minutes [READ: Count=39832, Max=1785, Min=4, Avg=105.82, 90=205, 99=349, 99.9=548, 99.99=1343] [UPDATE: Count=39489, Max=30175, Min=18, Avg=144.87, 90=246, 99=421, 99.9=1806, 99.99=5359] 
+2026-08-30 02:15:19:976 680 sec: 5440017 operations; 7871.9 current ops/sec; est completion in 13 minutes [READ: Count=39368, Max=2125, Min=4, Avg=105.03, 90=206, 99=349, 99.9=547, 99.99=1113] [UPDATE: Count=39350, Max=7467, Min=18, Avg=147.4, 90=267, 99=450, 99.9=4735, 99.99=5495] 
+2026-08-30 02:15:29:976 690 sec: 5519010 operations; 7899.3 current ops/sec; est completion in 13 minutes [READ: Count=39399, Max=1864, Min=4, Avg=106.17, 90=205, 99=356, 99.9=564, 99.99=1174] [UPDATE: Count=39594, Max=27087, Min=18, Avg=145.32, 90=245, 99=434, 99.9=1569, 99.99=5363] 
+2026-08-30 02:15:39:976 700 sec: 5598895 operations; 7988.5 current ops/sec; est completion in 13 minutes [READ: Count=39718, Max=1485, Min=4, Avg=104.18, 90=205, 99=353, 99.9=562, 99.99=1285] [UPDATE: Count=40166, Max=13927, Min=18, Avg=144.04, 90=256, 99=439, 99.9=1620, 99.99=5463] 
+2026-08-30 02:15:49:976 710 sec: 5676472 operations; 7758.48 current ops/sec; est completion in 13 minutes [READ: Count=38577, Max=1716, Min=4, Avg=108.2, 90=206, 99=369, 99.9=554, 99.99=1234] [UPDATE: Count=39002, Max=12511, Min=18, Avg=148.04, 90=257, 99=440, 99.9=4759, 99.99=5567] 
+2026-08-30 02:15:59:976 720 sec: 5758446 operations; 8197.4 current ops/sec; est completion in 13 minutes [READ: Count=40974, Max=3897, Min=4, Avg=102.46, 90=204, 99=356, 99.9=544, 99.99=1421] [UPDATE: Count=40998, Max=14951, Min=18, Avg=139.78, 90=242, 99=427, 99.9=1650, 99.99=5283] 
+2026-08-30 02:16:09:976 730 sec: 5835702 operations; 7724.83 current ops/sec; est completion in 12 minutes [READ: Count=38642, Max=1999, Min=4, Avg=108.64, 90=207, 99=354, 99.9=576, 99.99=1433] [UPDATE: Count=38618, Max=24943, Min=18, Avg=148.77, 90=252, 99=433, 99.9=1767, 99.99=5399] 
+2026-08-30 02:16:19:976 740 sec: 5917297 operations; 8160.32 current ops/sec; est completion in 12 minutes [READ: Count=40570, Max=1585, Min=4, Avg=101.86, 90=194, 99=349, 99.9=547, 99.99=1267] [UPDATE: Count=41021, Max=5527, Min=18, Avg=141.44, 90=245, 99=427, 99.9=1897, 99.99=5251] 
+2026-08-30 02:16:29:976 750 sec: 5994303 operations; 7699.83 current ops/sec; est completion in 12 minutes [READ: Count=38461, Max=1602, Min=4, Avg=109.81, 90=214, 99=364, 99.9=606, 99.99=1209] [UPDATE: Count=38545, Max=14359, Min=18, Avg=148.28, 90=262, 99=435, 99.9=1821, 99.99=5363] 
+2026-08-30 02:16:39:976 760 sec: 6076416 operations; 8212.12 current ops/sec; est completion in 12 minutes [READ: Count=40971, Max=3063, Min=4, Avg=102.51, 90=203, 99=350, 99.9=539, 99.99=1185] [UPDATE: Count=41144, Max=31823, Min=18, Avg=139.37, 90=232, 99=421, 99.9=2185, 99.99=5231] 
+2026-08-30 02:16:49:976 770 sec: 6153825 operations; 7740.9 current ops/sec; est completion in 12 minutes [READ: Count=38824, Max=1531, Min=4, Avg=107.83, 90=206, 99=355, 99.9=535, 99.99=1192] [UPDATE: Count=38584, Max=10743, Min=18, Avg=149.09, 90=268, 99=441, 99.9=1561, 99.99=5363] 
+2026-08-30 02:16:59:976 780 sec: 6234611 operations; 8077.79 current ops/sec; est completion in 12 minutes [READ: Count=40304, Max=2111, Min=4, Avg=103.73, 90=204, 99=355, 99.9=561, 99.99=1258] [UPDATE: Count=40483, Max=11463, Min=18, Avg=142.12, 90=244, 99=428, 99.9=4563, 99.99=5391] 
+2026-08-30 02:17:09:976 790 sec: 6312455 operations; 7785.18 current ops/sec; est completion in 11 minutes [READ: Count=38703, Max=1288, Min=4, Avg=107.07, 90=206, 99=361, 99.9=585, 99.99=1077] [UPDATE: Count=39142, Max=21983, Min=18, Avg=148.01, 90=262, 99=443, 99.9=1730, 99.99=5419] 
+2026-08-30 02:17:19:976 800 sec: 6393500 operations; 8103.69 current ops/sec; est completion in 11 minutes [READ: Count=40579, Max=1736, Min=4, Avg=104.04, 90=204, 99=355, 99.9=546, 99.99=1200] [UPDATE: Count=40464, Max=26527, Min=18, Avg=141.18, 90=241, 99=423, 99.9=4563, 99.99=5203] 
+2026-08-30 02:17:29:976 810 sec: 6472118 operations; 7861.8 current ops/sec; est completion in 11 minutes [READ: Count=39300, Max=2337, Min=4, Avg=106.47, 90=206, 99=356, 99.9=562, 99.99=1374] [UPDATE: Count=39318, Max=12439, Min=18, Avg=146.32, 90=261, 99=435, 99.9=1842, 99.99=5391] 
+2026-08-30 02:17:39:976 820 sec: 6552499 operations; 8038.1 current ops/sec; est completion in 11 minutes [READ: Count=40151, Max=1418, Min=4, Avg=104.84, 90=204, 99=357, 99.9=538, 99.99=1111] [UPDATE: Count=40232, Max=20175, Min=18, Avg=142.33, 90=242, 99=424, 99.9=1926, 99.99=5235] 
+2026-08-30 02:17:49:976 830 sec: 6632210 operations; 7971.1 current ops/sec; est completion in 11 minutes [READ: Count=39775, Max=1762, Min=4, Avg=105.3, 90=205, 99=363, 99.9=552, 99.99=1325] [UPDATE: Count=39934, Max=30271, Min=18, Avg=143.95, 90=251, 99=425, 99.9=1763, 99.99=5291] 
+2026-08-30 02:17:59:976 840 sec: 6712168 operations; 7996.6 current ops/sec; est completion in 11 minutes [READ: Count=39889, Max=1627, Min=4, Avg=104.68, 90=204, 99=350, 99.9=548, 99.99=1175] [UPDATE: Count=40069, Max=18511, Min=18, Avg=143.74, 90=243, 99=419, 99.9=1817, 99.99=5275] 
+2026-08-30 02:18:09:976 850 sec: 6792082 operations; 7990.6 current ops/sec; est completion in 10 minutes [READ: Count=39970, Max=1553, Min=4, Avg=104.44, 90=205, 99=353, 99.9=526, 99.99=1347] [UPDATE: Count=39943, Max=8727, Min=18, Avg=144.27, 90=262, 99=430, 99.9=1571, 99.99=5331] 
+2026-08-30 02:18:19:976 860 sec: 6872260 operations; 8017.8 current ops/sec; est completion in 10 minutes [READ: Count=40198, Max=1343, Min=4, Avg=106.17, 90=205, 99=352, 99.9=556, 99.99=1257] [UPDATE: Count=39981, Max=20127, Min=18, Avg=141.74, 90=243, 99=420, 99.9=1850, 99.99=5391] 
+2026-08-30 02:18:29:976 870 sec: 6953912 operations; 8166.02 current ops/sec; est completion in 10 minutes [READ: Count=40683, Max=1530, Min=4, Avg=103.12, 90=204, 99=354, 99.9=531, 99.99=1271] [UPDATE: Count=40971, Max=34879, Min=18, Avg=140.09, 90=241, 99=419, 99.9=1777, 99.99=5375] 
+2026-08-30 02:18:39:976 880 sec: 7033528 operations; 7960.8 current ops/sec; est completion in 10 minutes [READ: Count=39930, Max=1543, Min=4, Avg=106.53, 90=205, 99=362, 99.9=557, 99.99=1132] [UPDATE: Count=39684, Max=16359, Min=18, Avg=143.18, 90=246, 99=427, 99.9=1774, 99.99=5239] 
+2026-08-30 02:18:49:976 890 sec: 7115165 operations; 8163.7 current ops/sec; est completion in 10 minutes [READ: Count=40806, Max=1349, Min=4, Avg=103.01, 90=204, 99=359, 99.9=573, 99.99=1008] [UPDATE: Count=40831, Max=28655, Min=18, Avg=140.35, 90=239, 99=422, 99.9=1252, 99.99=5299] 
+2026-08-30 02:18:59:976 900 sec: 7192226 operations; 7706.1 current ops/sec; est completion in 10 minutes [READ: Count=38577, Max=1827, Min=4, Avg=108.17, 90=206, 99=356, 99.9=543, 99.99=1154] [UPDATE: Count=38485, Max=29871, Min=18, Avg=149.81, 90=258, 99=438, 99.9=4647, 99.99=5419] 
+2026-08-30 02:19:09:976 910 sec: 7272932 operations; 8070.6 current ops/sec; est completion in 9 minutes [READ: Count=40540, Max=1615, Min=4, Avg=102.83, 90=203, 99=349, 99.9=564, 99.99=1192] [UPDATE: Count=40166, Max=19311, Min=18, Avg=143.58, 90=242, 99=429, 99.9=2099, 99.99=5315] 
+2026-08-30 02:19:19:976 920 sec: 7349109 operations; 7618.46 current ops/sec; est completion in 9 minutes [READ: Count=38135, Max=1763, Min=4, Avg=109.02, 90=207, 99=359, 99.9=578, 99.99=1284] [UPDATE: Count=38041, Max=33855, Min=18, Avg=151.95, 90=269, 99=432, 99.9=1637, 99.99=5319] 
+2026-08-30 02:19:29:976 930 sec: 7429482 operations; 8037.3 current ops/sec; est completion in 9 minutes [READ: Count=40151, Max=1393, Min=4, Avg=103.03, 90=203, 99=352, 99.9=548, 99.99=1240] [UPDATE: Count=40221, Max=25663, Min=18, Avg=144.17, 90=243, 99=431, 99.9=1802, 99.99=5311] 
+2026-08-30 02:19:39:976 940 sec: 7506561 operations; 7707.9 current ops/sec; est completion in 9 minutes [READ: Count=38836, Max=2629, Min=4, Avg=107.78, 90=206, 99=357, 99.9=555, 99.99=1339] [UPDATE: Count=38244, Max=21055, Min=18, Avg=150.41, 90=264, 99=444, 99.9=4679, 99.99=5351] 
+2026-08-30 02:19:49:976 950 sec: 7586962 operations; 8039.3 current ops/sec; est completion in 9 minutes [READ: Count=40110, Max=1235, Min=4, Avg=103.87, 90=204, 99=353, 99.9=591, 99.99=1177] [UPDATE: Count=40292, Max=18751, Min=18, Avg=143.19, 90=240, 99=430, 99.9=1766, 99.99=5307] 
+2026-08-30 02:19:59:976 960 sec: 7664675 operations; 7771.3 current ops/sec; est completion in 9 minutes [READ: Count=39081, Max=1600, Min=4, Avg=107.16, 90=206, 99=358, 99.9=555, 99.99=1143] [UPDATE: Count=38632, Max=10967, Min=18, Avg=148.83, 90=267, 99=435, 99.9=1826, 99.99=5351] 
+2026-08-30 02:20:09:976 970 sec: 7744687 operations; 8001.2 current ops/sec; est completion in 8 minutes [READ: Count=39982, Max=2675, Min=4, Avg=103.99, 90=204, 99=357, 99.9=528, 99.99=1057] [UPDATE: Count=40029, Max=10455, Min=18, Avg=144.31, 90=248, 99=434, 99.9=1705, 99.99=5215] 
+2026-08-30 02:20:19:976 980 sec: 7822819 operations; 7813.2 current ops/sec; est completion in 8 minutes [READ: Count=39353, Max=1593, Min=4, Avg=106.93, 90=207, 99=352, 99.9=572, 99.99=1242] [UPDATE: Count=38779, Max=33727, Min=18, Avg=147.72, 90=259, 99=433, 99.9=1539, 99.99=5471] 
+2026-08-30 02:20:29:976 990 sec: 7901256 operations; 7843.7 current ops/sec; est completion in 8 minutes [READ: Count=39200, Max=1775, Min=4, Avg=105.95, 90=204, 99=353, 99.9=575, 99.99=1229] [UPDATE: Count=39240, Max=15591, Min=18, Avg=147.37, 90=252, 99=438, 99.9=4687, 99.99=5339] 
+2026-08-30 02:20:39:976 1000 sec: 7979411 operations; 7815.5 current ops/sec; est completion in 8 minutes [READ: Count=39057, Max=1972, Min=4, Avg=106.06, 90=206, 99=361, 99.9=571, 99.99=1087] [UPDATE: Count=39095, Max=21919, Min=18, Avg=148.18, 90=264, 99=440, 99.9=1888, 99.99=5467] 
+2026-08-30 02:20:49:976 1010 sec: 8058606 operations; 7920.29 current ops/sec; est completion in 8 minutes [READ: Count=39648, Max=1378, Min=4, Avg=105.54, 90=205, 99=347, 99.9=539, 99.99=1192] [UPDATE: Count=39546, Max=23647, Min=18, Avg=145.43, 90=244, 99=430, 99.9=1525, 99.99=5259] 
+2026-08-30 02:20:59:976 1020 sec: 8138251 operations; 7964.5 current ops/sec; est completion in 8 minutes [READ: Count=39954, Max=1983, Min=4, Avg=105.23, 90=205, 99=363, 99.9=595, 99.99=1401] [UPDATE: Count=39692, Max=29567, Min=18, Avg=144.41, 90=257, 99=429, 99.9=1666, 99.99=5271] 
+2026-08-30 02:21:09:976 1030 sec: 8217092 operations; 7884.1 current ops/sec; est completion in 7 minutes [READ: Count=39434, Max=1541, Min=4, Avg=106.71, 90=205, 99=364, 99.9=594, 99.99=1310] [UPDATE: Count=39406, Max=7479, Min=18, Avg=145.39, 90=255, 99=427, 99.9=1777, 99.99=5235] 
+2026-08-30 02:21:19:976 1040 sec: 8297646 operations; 8055.4 current ops/sec; est completion in 7 minutes [READ: Count=39976, Max=1782, Min=4, Avg=104.13, 90=205, 99=356, 99.9=552, 99.99=1316] [UPDATE: Count=40579, Max=20943, Min=18, Avg=142.26, 90=247, 99=427, 99.9=1511, 99.99=5295] 
+2026-08-30 02:21:29:976 1050 sec: 8376230 operations; 7857.61 current ops/sec; est completion in 7 minutes [READ: Count=39268, Max=1944, Min=4, Avg=106.92, 90=205, 99=355, 99.9=543, 99.99=1248] [UPDATE: Count=39316, Max=27295, Min=18, Avg=145.93, 90=248, 99=435, 99.9=1574, 99.99=5387] 
+2026-08-30 02:21:39:976 1060 sec: 8457474 operations; 8125.21 current ops/sec; est completion in 7 minutes [READ: Count=40484, Max=1773, Min=4, Avg=102.18, 90=204, 99=350, 99.9=566, 99.99=1116] [UPDATE: Count=40760, Max=14223, Min=18, Avg=142.26, 90=244, 99=436, 99.9=1613, 99.99=5235] 
+2026-08-30 02:21:49:976 1070 sec: 8535442 operations; 7796.8 current ops/sec; est completion in 7 minutes [READ: Count=38717, Max=1491, Min=4, Avg=108.36, 90=206, 99=359, 99.9=595, 99.99=1261] [UPDATE: Count=39251, Max=27247, Min=18, Avg=146.3, 90=254, 99=419, 99.9=1432, 99.99=5331] 
+2026-08-30 02:21:59:976 1080 sec: 8617370 operations; 8192.8 current ops/sec; est completion in 7 minutes [READ: Count=40907, Max=1812, Min=4, Avg=102.45, 90=203, 99=356, 99.9=560, 99.99=1391] [UPDATE: Count=41023, Max=12807, Min=18, Avg=139.99, 90=242, 99=423, 99.9=1532, 99.99=5271] 
+2026-08-30 02:22:09:976 1090 sec: 8694284 operations; 7691.4 current ops/sec; est completion in 6 minutes [READ: Count=38452, Max=1598, Min=4, Avg=109.06, 90=209, 99=363, 99.9=552, 99.99=1114] [UPDATE: Count=38459, Max=14351, Min=18, Avg=149.35, 90=264, 99=444, 99.9=4643, 99.99=5519] 
+2026-08-30 02:22:19:976 1100 sec: 8776876 operations; 8259.2 current ops/sec; est completion in 6 minutes [READ: Count=41338, Max=2061, Min=4, Avg=101.49, 90=195, 99=348, 99.9=568, 99.99=1292] [UPDATE: Count=41257, Max=30431, Min=18, Avg=139.09, 90=232, 99=415, 99.9=1755, 99.99=5275] 
+2026-08-30 02:22:29:976 1110 sec: 8854407 operations; 7753.1 current ops/sec; est completion in 6 minutes [READ: Count=38837, Max=1785, Min=4, Avg=108.07, 90=207, 99=366, 99.9=586, 99.99=1347] [UPDATE: Count=38694, Max=14007, Min=18, Avg=148.37, 90=265, 99=444, 99.9=1906, 99.99=5279] 
+2026-08-30 02:22:39:976 1120 sec: 8936422 operations; 8201.5 current ops/sec; est completion in 6 minutes [READ: Count=40974, Max=1677, Min=4, Avg=102.87, 90=203, 99=356, 99.9=535, 99.99=1287] [UPDATE: Count=41041, Max=33663, Min=18, Avg=139.33, 90=232, 99=412, 99.9=1438, 99.99=5291] 
+2026-08-30 02:22:49:976 1130 sec: 9013248 operations; 7682.6 current ops/sec; est completion in 6 minutes [READ: Count=38300, Max=1514, Min=4, Avg=107.94, 90=207, 99=359, 99.9=583, 99.99=1235] [UPDATE: Count=38523, Max=8327, Min=18, Avg=150.64, 90=273, 99=440, 99.9=1406, 99.99=5399] 
+2026-08-30 02:22:59:976 1140 sec: 9093927 operations; 8067.9 current ops/sec; est completion in 6 minutes [READ: Count=40278, Max=1581, Min=4, Avg=104.32, 90=204, 99=350, 99.9=556, 99.99=1399] [UPDATE: Count=40402, Max=6255, Min=18, Avg=141.91, 90=245, 99=428, 99.9=4607, 99.99=5235] 
+2026-08-30 02:23:09:976 1150 sec: 9172363 operations; 7843.6 current ops/sec; est completion in 5 minutes [READ: Count=39060, Max=1409, Min=4, Avg=106.7, 90=206, 99=362, 99.9=526, 99.99=1340] [UPDATE: Count=39376, Max=18863, Min=18, Avg=146.54, 90=259, 99=435, 99.9=1688, 99.99=5427] 
+2026-08-30 02:23:19:976 1160 sec: 9252277 operations; 7990.6 current ops/sec; est completion in 5 minutes [READ: Count=40039, Max=1924, Min=4, Avg=104.53, 90=204, 99=349, 99.9=550, 99.99=1287] [UPDATE: Count=39877, Max=23151, Min=18, Avg=144.21, 90=242, 99=423, 99.9=1927, 99.99=5351] 
+2026-08-30 02:23:29:976 1170 sec: 9332252 operations; 7998.3 current ops/sec; est completion in 5 minutes [READ: Count=39894, Max=1673, Min=4, Avg=104.91, 90=205, 99=365, 99.9=551, 99.99=1059] [UPDATE: Count=40080, Max=23871, Min=18, Avg=143.49, 90=246, 99=428, 99.9=1824, 99.99=5363] 
+2026-08-30 02:23:39:976 1180 sec: 9412301 operations; 8004.9 current ops/sec; est completion in 5 minutes [READ: Count=40090, Max=1538, Min=4, Avg=105.43, 90=205, 99=355, 99.9=542, 99.99=1202] [UPDATE: Count=39959, Max=21663, Min=18, Avg=142.86, 90=243, 99=422, 99.9=1790, 99.99=5379] 
+2026-08-30 02:23:49:976 1190 sec: 9492165 operations; 7985.6 current ops/sec; est completion in 5 minutes [READ: Count=39878, Max=1613, Min=4, Avg=104.06, 90=205, 99=352, 99.9=548, 99.99=1153] [UPDATE: Count=39985, Max=23759, Min=18, Avg=144.72, 90=255, 99=436, 99.9=1920, 99.99=5299] 
+2026-08-30 02:23:59:976 1200 sec: 9571299 operations; 7913.4 current ops/sec; est completion in 5 minutes [READ: Count=39554, Max=1715, Min=4, Avg=106.51, 90=205, 99=357, 99.9=560, 99.99=1259] [UPDATE: Count=39581, Max=12319, Min=18, Avg=144.61, 90=250, 99=428, 99.9=1408, 99.99=5227] 
+2026-08-30 02:24:09:976 1210 sec: 9651992 operations; 8069.3 current ops/sec; est completion in 4 minutes [READ: Count=40369, Max=1687, Min=4, Avg=103.63, 90=204, 99=360, 99.9=578, 99.99=1376] [UPDATE: Count=40323, Max=21647, Min=18, Avg=142.66, 90=245, 99=425, 99.9=4699, 99.99=5355] 
+2026-08-30 02:24:19:976 1220 sec: 9730264 operations; 7827.98 current ops/sec; est completion in 4 minutes [READ: Count=39129, Max=1250, Min=4, Avg=107.6, 90=206, 99=366, 99.9=565, 99.99=998] [UPDATE: Count=39145, Max=23615, Min=18, Avg=146.29, 90=245, 99=429, 99.9=2099, 99.99=5479] 
+2026-08-30 02:24:29:976 1230 sec: 9812032 operations; 8175.98 current ops/sec; est completion in 4 minutes [READ: Count=40771, Max=1612, Min=4, Avg=101.96, 90=203, 99=351, 99.9=555, 99.99=1322] [UPDATE: Count=40995, Max=7971, Min=18, Avg=140.95, 90=243, 99=426, 99.9=1773, 99.99=5323] 
+2026-08-30 02:24:39:976 1240 sec: 9889297 operations; 7726.5 current ops/sec; est completion in 4 minutes [READ: Count=38667, Max=1581, Min=4, Avg=108.8, 90=206, 99=360, 99.9=556, 99.99=1209] [UPDATE: Count=38597, Max=18319, Min=18, Avg=148.47, 90=263, 99=437, 99.9=1554, 99.99=5299] 
+2026-08-30 02:24:49:976 1250 sec: 9971276 operations; 8197.9 current ops/sec; est completion in 4 minutes [READ: Count=40879, Max=1977, Min=4, Avg=102.66, 90=203, 99=349, 99.9=580, 99.99=1372] [UPDATE: Count=41101, Max=24799, Min=18, Avg=139.61, 90=238, 99=425, 99.9=1968, 99.99=5439] 
+2026-08-30 02:24:59:976 1260 sec: 10048439 operations; 7716.3 current ops/sec; est completion in 4 minutes [READ: Count=38548, Max=1708, Min=4, Avg=108.84, 90=207, 99=360, 99.9=557, 99.99=1213] [UPDATE: Count=38617, Max=12799, Min=18, Avg=148.71, 90=268, 99=437, 99.9=1709, 99.99=5343] 
+2026-08-30 02:25:09:976 1270 sec: 10129959 operations; 8152 current ops/sec; est completion in 3 minutes [READ: Count=40804, Max=1437, Min=4, Avg=102.25, 90=203, 99=349, 99.9=537, 99.99=1260] [UPDATE: Count=40716, Max=13727, Min=18, Avg=141.55, 90=242, 99=424, 99.9=1408, 99.99=5303] 
+2026-08-30 02:25:19:976 1280 sec: 10207815 operations; 7785.6 current ops/sec; est completion in 3 minutes [READ: Count=39049, Max=2639, Min=4, Avg=108.25, 90=207, 99=365, 99.9=586, 99.99=1312] [UPDATE: Count=38806, Max=24975, Min=18, Avg=147.16, 90=254, 99=434, 99.9=1801, 99.99=5423] 
+2026-08-30 02:25:29:976 1290 sec: 10288598 operations; 8078.3 current ops/sec; est completion in 3 minutes [READ: Count=40297, Max=1715, Min=4, Avg=104.19, 90=204, 99=350, 99.9=547, 99.99=1325] [UPDATE: Count=40487, Max=23407, Min=18, Avg=141.7, 90=242, 99=427, 99.9=1623, 99.99=5311] 
+2026-08-30 02:25:39:976 1300 sec: 10366717 operations; 7812.68 current ops/sec; est completion in 3 minutes [READ: Count=39320, Max=2020, Min=4, Avg=106.91, 90=206, 99=358, 99.9=567, 99.99=1472] [UPDATE: Count=38797, Max=28943, Min=18, Avg=147.78, 90=257, 99=428, 99.9=2131, 99.99=5511] 
+2026-08-30 02:25:49:976 1310 sec: 10447609 operations; 8089.2 current ops/sec; est completion in 3 minutes [READ: Count=40355, Max=1565, Min=4, Avg=103.78, 90=204, 99=350, 99.9=556, 99.99=1036] [UPDATE: Count=40536, Max=14871, Min=18, Avg=141.79, 90=242, 99=426, 99.9=1803, 99.99=5231] 
+2026-08-30 02:25:59:975 1320 sec: 10526691 operations; 7908.2 current ops/sec; est completion in 3 minutes [READ: Count=39366, Max=1671, Min=4, Avg=105.64, 90=205, 99=353, 99.9=548, 99.99=1191] [UPDATE: Count=39717, Max=20111, Min=18, Avg=145.47, 90=256, 99=434, 99.9=1638, 99.99=5347] 
+2026-08-30 02:26:09:976 1330 sec: 10607366 operations; 8066.69 current ops/sec; est completion in 2 minutes [READ: Count=40089, Max=2539, Min=4, Avg=103.84, 90=204, 99=348, 99.9=501, 99.99=1084] [UPDATE: Count=40589, Max=20303, Min=18, Avg=142.21, 90=242, 99=424, 99.9=1674, 99.99=5291] 
+2026-08-30 02:26:19:976 1340 sec: 10686501 operations; 7914.29 current ops/sec; est completion in 2 minutes [READ: Count=39791, Max=1576, Min=4, Avg=105.54, 90=205, 99=352, 99.9=583, 99.99=1474] [UPDATE: Count=39341, Max=26943, Min=18, Avg=145.8, 90=245, 99=427, 99.9=1780, 99.99=5339] 
+2026-08-30 02:26:29:976 1350 sec: 10766427 operations; 7992.6 current ops/sec; est completion in 2 minutes [READ: Count=40125, Max=1585, Min=4, Avg=105.06, 90=204, 99=351, 99.9=567, 99.99=1147] [UPDATE: Count=39801, Max=29727, Min=18, Avg=143.74, 90=244, 99=426, 99.9=2067, 99.99=5287] 
+2026-08-30 02:26:39:976 1360 sec: 10846152 operations; 7972.5 current ops/sec; est completion in 2 minutes [READ: Count=39703, Max=1722, Min=4, Avg=104.1, 90=205, 99=357, 99.9=549, 99.99=1107] [UPDATE: Count=40021, Max=13063, Min=17, Avg=144.98, 90=261, 99=438, 99.9=2435, 99.99=5239] 
+2026-08-30 02:26:49:976 1370 sec: 10924257 operations; 7810.5 current ops/sec; est completion in 2 minutes [READ: Count=39062, Max=1470, Min=4, Avg=106.14, 90=205, 99=355, 99.9=537, 99.99=1204] [UPDATE: Count=39043, Max=10143, Min=18, Avg=148.36, 90=261, 99=433, 99.9=1611, 99.99=5319] 
+2026-08-30 02:26:59:976 1380 sec: 11004603 operations; 8034.6 current ops/sec; est completion in 2 minutes [READ: Count=40235, Max=1359, Min=4, Avg=103.7, 90=205, 99=347, 99.9=523, 99.99=1161] [UPDATE: Count=40112, Max=11135, Min=18, Avg=143.65, 90=256, 99=431, 99.9=1593, 99.99=5295] 
+2026-08-30 02:27:09:976 1390 sec: 11082305 operations; 7770.2 current ops/sec; est completion in 1 minute [READ: Count=38506, Max=1920, Min=4, Avg=108.15, 90=206, 99=355, 99.9=593, 99.99=1165] [UPDATE: Count=39198, Max=15295, Min=18, Avg=147.29, 90=257, 99=431, 99.9=2141, 99.99=5347] 
+2026-08-30 02:27:19:976 1400 sec: 11164434 operations; 8212.08 current ops/sec; est completion in 1 minute [READ: Count=41063, Max=1360, Min=4, Avg=101.79, 90=195, 99=350, 99.9=536, 99.99=1261] [UPDATE: Count=41063, Max=25967, Min=18, Avg=139.4, 90=235, 99=420, 99.9=1537, 99.99=5299] 
+2026-08-30 02:27:29:976 1410 sec: 11241908 operations; 7747.4 current ops/sec; est completion in 1 minute [READ: Count=38921, Max=1405, Min=4, Avg=109.35, 90=207, 99=369, 99.9=593, 99.99=1255] [UPDATE: Count=38555, Max=33311, Min=18, Avg=148.13, 90=257, 99=426, 99.9=2024, 99.99=5307] 
+2026-08-30 02:27:39:976 1420 sec: 11323805 operations; 8189.7 current ops/sec; est completion in 1 minute [READ: Count=40765, Max=1899, Min=4, Avg=102.7, 90=201, 99=353, 99.9=555, 99.99=1290] [UPDATE: Count=41131, Max=15839, Min=18, Avg=139.75, 90=241, 99=427, 99.9=2053, 99.99=5151] 
+2026-08-30 02:27:49:976 1430 sec: 11401338 operations; 7754.08 current ops/sec; est completion in 1 minute [READ: Count=38831, Max=1685, Min=4, Avg=108.72, 90=207, 99=358, 99.9=562, 99.99=1444] [UPDATE: Count=38701, Max=31263, Min=18, Avg=147.68, 90=256, 99=426, 99.9=1598, 99.99=5363] 
+2026-08-30 02:27:59:976 1440 sec: 11482706 operations; 8136.8 current ops/sec; est completion in 1 minute [READ: Count=40536, Max=1557, Min=4, Avg=102.23, 90=199, 99=343, 99.9=546, 99.99=1187] [UPDATE: Count=40833, Max=10679, Min=18, Avg=141.81, 90=243, 99=427, 99.9=1918, 99.99=5267] 
+2026-08-30 02:28:09:976 1450 sec: 11560354 operations; 7764.8 current ops/sec; est completion in 56 seconds [READ: Count=38604, Max=1455, Min=4, Avg=108.14, 90=207, 99=358, 99.9=568, 99.99=1191] [UPDATE: Count=39047, Max=21903, Min=18, Avg=147.6, 90=257, 99=435, 99.9=1715, 99.99=5351] 
+2026-08-30 02:28:19:976 1460 sec: 11641952 operations; 8158.98 current ops/sec; est completion in 45 seconds [READ: Count=40697, Max=1451, Min=4, Avg=102.78, 90=203, 99=344, 99.9=555, 99.99=1207] [UPDATE: Count=40900, Max=31839, Min=18, Avg=140.64, 90=237, 99=419, 99.9=1836, 99.99=5359] 
+2026-08-30 02:28:29:976 1470 sec: 11721073 operations; 7912.1 current ops/sec; est completion in 35 seconds [READ: Count=39261, Max=1729, Min=4, Avg=106.58, 90=206, 99=364, 99.9=559, 99.99=1222] [UPDATE: Count=39860, Max=23423, Min=18, Avg=144.28, 90=253, 99=435, 99.9=2349, 99.99=5283] 
+2026-08-30 02:28:39:976 1480 sec: 11802431 operations; 8135.8 current ops/sec; est completion in 25 seconds [READ: Count=40658, Max=1964, Min=4, Avg=104.27, 90=204, 99=349, 99.9=533, 99.99=982] [UPDATE: Count=40699, Max=26751, Min=18, Avg=139.93, 90=234, 99=424, 99.9=1647, 99.99=5387] 
+2026-08-30 02:28:49:976 1490 sec: 11880671 operations; 7824 current ops/sec; est completion in 15 seconds [READ: Count=39399, Max=1716, Min=4, Avg=106.92, 90=206, 99=355, 99.9=572, 99.99=1320] [UPDATE: Count=38841, Max=6931, Min=18, Avg=147.36, 90=268, 99=444, 99.9=2025, 99.99=5251] 
+2026-08-30 02:28:59:976 1500 sec: 11960806 operations; 8013.5 current ops/sec; est completion in 5 second [READ: Count=40260, Max=1588, Min=4, Avg=104.6, 90=204, 99=353, 99.9=544, 99.99=1235] [UPDATE: Count=39875, Max=33279, Min=17, Avg=143.56, 90=241, 99=419, 99.9=1884, 99.99=5251] 
+2026-08-30 02:29:04:774 1504 sec: 12000000 operations; 8168.82 current ops/sec; [READ: Count=19468, Max=1449, Min=4, Avg=101.4, 90=203, 99=347, 99.9=563, 99.99=1438] [CLEANUP: Count=1, Max=2057, Min=2056, Avg=2057, 90=2057, 99=2057, 99.9=2057, 99.99=2057] [UPDATE: Count=19724, Max=5527, Min=18, Avg=141.48, 90=245, 99=423, 99.9=1603, 99.99=5387] 
+[OVERALL], RunTime(ms), 1504799
+[OVERALL], Throughput(ops/sec), 7974.48695805885
+[TOTAL_GCS_G1_Young_Generation], Count, 263
+[TOTAL_GC_TIME_G1_Young_Generation], Time(ms), 146
+[TOTAL_GC_TIME_%_G1_Young_Generation], Time(%), 0.009702292465638267
+[TOTAL_GCS_G1_Old_Generation], Count, 0
+[TOTAL_GC_TIME_G1_Old_Generation], Time(ms), 0
+[TOTAL_GC_TIME_%_G1_Old_Generation], Time(%), 0.0
+[TOTAL_GCs], Count, 263
+[TOTAL_GC_TIME], Time(ms), 146
+[TOTAL_GC_TIME_%], Time(%), 0.009702292465638267
+[READ], Operations, 5998835
+[READ], AverageLatency(us), 105.04165842201027
+[READ], MinLatency(us), 4
+[READ], MaxLatency(us), 7299
+[READ], 95thPercentileLatency(us), 227
+[READ], 99thPercentileLatency(us), 351
+[READ], 99.9PercentileLatency(us), 552
+[READ], 99.99PercentileLatency(us), 1269
+[READ], 99.999PercentileLatency(us), 1762
+[READ], 99.9999PercentileLatency(us), 2629
+[READ], Return=OK, 5998835
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 2057.0
+[CLEANUP], MinLatency(us), 2056
+[CLEANUP], MaxLatency(us), 2057
+[CLEANUP], 95thPercentileLatency(us), 2057
+[CLEANUP], 99thPercentileLatency(us), 2057
+[CLEANUP], 99.9PercentileLatency(us), 2057
+[CLEANUP], 99.99PercentileLatency(us), 2057
+[CLEANUP], 99.999PercentileLatency(us), 2057
+[CLEANUP], 99.9999PercentileLatency(us), 2057
+[UPDATE], Operations, 6001165
+[UPDATE], AverageLatency(us), 144.12210695756573
+[UPDATE], MinLatency(us), 17
+[UPDATE], MaxLatency(us), 35199
+[UPDATE], 95thPercentileLatency(us), 296
+[UPDATE], 99thPercentileLatency(us), 427
+[UPDATE], 99.9PercentileLatency(us), 2499
+[UPDATE], 99.99PercentileLatency(us), 5347
+[UPDATE], 99.999PercentileLatency(us), 25663
+[UPDATE], 99.9999PercentileLatency(us), 33727
+[UPDATE], Return=OK, 6001165
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/sqlite/workloada/summary.txt
+[RESULT] app=/home/meen/iCAT/result/sqlite/workloada/cat-fig7-k07-s050-r04.txt
+[RESULT] dmesg=/home/meen/iCAT/result/sqlite/workloada/dmesg-cat-fig7-k07-s050-r04.log
+[RESULT] flush_summary=/home/meen/iCAT/result/sqlite/workloada/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/sqlite/workloada/summary.txt

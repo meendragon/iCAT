@@ -1,0 +1,30 @@
+[START] module=cat-fig7-k02-s100-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 250bbdae-0bdd-47bf-9011-2e190d791f9f
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        80.87 ± 10.54 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s100-r07.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s100-r07.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s100-r07.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s100-r07 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt

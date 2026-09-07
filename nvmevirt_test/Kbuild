@@ -6,8 +6,10 @@ CONFIG_NVMEVIRT_SSD := y
 # GC victim policy: GREEDY or CAT_FIG7
 NVMEVIRT_GC_POLICY ?= GREEDY
 # CAT Fig. 7 compile-time tuning parameters
+NVMEVIRT_CAT_K ?= 7
 NVMEVIRT_CAT_SCALE_PCT ?= 100
 NVMEVIRT_CAT_AGE_RATIO ?= 7
+VALID_CAT_KS := 2 4 7 10
 VALID_CAT_SCALE_PCTS := 25 50 100 200 400
 VALID_CAT_AGE_RATIOS := 4 7 16
 obj-m := nvmev.o
@@ -26,6 +28,9 @@ ifeq ($(CONFIG_NVMEVIRT_SSD),y)
 ifeq ($(NVMEVIRT_GC_POLICY),GREEDY)
 ccflags-y += -DCONV_GC_POLICY=0
 else ifeq ($(NVMEVIRT_GC_POLICY),CAT_FIG7)
+ifeq ($(filter $(NVMEVIRT_CAT_K),$(VALID_CAT_KS)),)
+$(error Invalid NVMEVIRT_CAT_K="$(NVMEVIRT_CAT_K)". Use 2, 4, 7, or 10)
+endif
 ifeq ($(filter $(NVMEVIRT_CAT_SCALE_PCT),$(VALID_CAT_SCALE_PCTS)),)
 $(error Invalid NVMEVIRT_CAT_SCALE_PCT="$(NVMEVIRT_CAT_SCALE_PCT)". Use 25, 50, 100, 200, or 400)
 endif
@@ -33,6 +38,7 @@ ifeq ($(filter $(NVMEVIRT_CAT_AGE_RATIO),$(VALID_CAT_AGE_RATIOS)),)
 $(error Invalid NVMEVIRT_CAT_AGE_RATIO="$(NVMEVIRT_CAT_AGE_RATIO)". Use 4, 7, or 16)
 endif
 ccflags-y += -DCONV_GC_POLICY=1
+ccflags-y += -DCAT_FIG7_K=$(NVMEVIRT_CAT_K)
 ccflags-y += -DCAT_FIG7_SCALE_PCT=$(NVMEVIRT_CAT_SCALE_PCT)
 ccflags-y += -DCAT_FIG7_AGE_RATIO=$(NVMEVIRT_CAT_AGE_RATIO)
 else

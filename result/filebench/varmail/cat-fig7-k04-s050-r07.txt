@@ -1,0 +1,50 @@
+[START] module=cat-fig7-k04-s050-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 635f5811-138c-46d0-9cfd-7be8acbf3463
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[WORKLOAD] source=/home/meen/iCAT/workloads/filebench/varmail.f runtime=60s
+Filebench Version 1.5-alpha3
+0.000: Allocated 177MB of shared memory
+0.003: Varmail Version 3.0 personality successfully loaded
+0.003: Populating and pre-allocating filesets
+0.011: bigfileset populated: 24000 files, avg. dir. width = 1000000, avg. dir. depth = 0.7, 0 leafdirs, 5957.171MB total size
+0.011: Removing bigfileset tree (if exists)
+0.012: Pre-allocating directories in bigfileset tree
+0.012: Pre-allocating files in bigfileset tree
+1.991: Waiting for pre-allocation to finish (in case of a parallel pre-allocation)
+1.991: Population and pre-allocation of filesets completed
+1.991: Starting 1 filereader instances
+2.994: Running...
+62.998: Run took 60 seconds...
+62.998: Per-Operation Breakdown
+closefile4           987663ops    16460ops/s   0.0mb/s    0.001ms/op [0.000ms - 0.535ms]
+readfile4            987663ops    16460ops/s 330.6mb/s    0.067ms/op [0.001ms - 3.317ms]
+openfile4            987663ops    16460ops/s   0.0mb/s    0.009ms/op [0.001ms - 3.078ms]
+closefile3           987663ops    16460ops/s   0.0mb/s    0.001ms/op [0.000ms - 0.302ms]
+fsyncfile3           987667ops    16460ops/s   0.0mb/s    0.223ms/op [0.001ms - 3.574ms]
+appendfilerand3      987668ops    16460ops/s 128.5mb/s    0.013ms/op [0.001ms - 0.783ms]
+readfile3            987668ops    16460ops/s 330.5mb/s    0.067ms/op [0.001ms - 3.150ms]
+openfile3            987668ops    16460ops/s   0.0mb/s    0.009ms/op [0.001ms - 2.106ms]
+closefile2           987668ops    16460ops/s   0.0mb/s    0.001ms/op [0.000ms - 0.288ms]
+fsyncfile2           987669ops    16460ops/s   0.0mb/s    0.240ms/op [0.048ms - 6.448ms]
+appendfilerand2      987669ops    16460ops/s 128.6mb/s    0.007ms/op [0.002ms - 0.289ms]
+createfile2          987672ops    16460ops/s   0.0mb/s    0.101ms/op [0.006ms - 3.111ms]
+deletefile1          987677ops    16460ops/s   0.0mb/s    0.205ms/op [0.009ms - 3.173ms]
+62.998: IO Summary: 12839678 ops 213981.670 ops/s 32920/32920 rd/wr 918.1mb/s 0.073ms/op
+62.998: Shutting down processes
+[DURABLE] sync + NVMe flush
+[FLUSH] phase=run-durable-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/filebench/varmail/summary.txt
+[RESULT] app=/home/meen/iCAT/result/filebench/varmail/cat-fig7-k04-s050-r07.txt
+[RESULT] dmesg=/home/meen/iCAT/result/filebench/varmail/dmesg-cat-fig7-k04-s050-r07.log
+[RESULT] summary=/home/meen/iCAT/result/filebench/varmail/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/filebench/varmail/summary.txt
+[WAF] module=cat-fig7-k04-s050-r07 WAF=1.348 host_pages=17697549 gc_copied=N/A -> /home/meen/iCAT/result/filebench/varmail/summary.txt

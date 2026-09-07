@@ -1,141 +1,574 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
 #include <linux/vmalloc.h>
+#include <linux/slab.h>
 #include <linux/ktime.h>
 #include <linux/math64.h>
 #include <linux/sched/clock.h>
 #include <linux/time64.h>
+#include <linux/string.h>
 
 #include "nvmev.h"
 #include "conv_ftl.h"
 
-#if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
-#ifndef CAT_FIG7_SCALE_PCT
-#define CAT_FIG7_SCALE_PCT 100
-#endif
-
-#ifndef CAT_FIG7_AGE_RATIO
-#define CAT_FIG7_AGE_RATIO 7
-#endif
-
-#if CAT_FIG7_SCALE_PCT != 25 && CAT_FIG7_SCALE_PCT != 50 && \
-	CAT_FIG7_SCALE_PCT != 100 && CAT_FIG7_SCALE_PCT != 200 && \
-	CAT_FIG7_SCALE_PCT != 400
-#error "CAT_FIG7_SCALE_PCT must be 25, 50, 100, 200, or 400"
-#endif
-
-#if CAT_FIG7_AGE_RATIO != 4 && CAT_FIG7_AGE_RATIO != 7 && \
-	CAT_FIG7_AGE_RATIO != 16
-#error "CAT_FIG7_AGE_RATIO must be 4, 7, or 16"
-#endif
-
-#define CAT_FIG7_SCALED_NS(seconds) \
-	((uint64_t)(seconds) * NSEC_PER_SEC * CAT_FIG7_SCALE_PCT / 100ULL)
-
 /*
- * Keep the seven outputs linear and change only max/min age influence.
- * The factor 6 provides exact integer steps for ratios 4, 7, and 16.
- * For ratio 7, {6,12,...,42} is order-equivalent to Fig. 7's {1,...,7}.
+ * WA-AT GC v2: the original experimental staircase grid is now an online
+ * action space.  No experimental WAF values or artificial pulls are seeded.
+ * The CAT score, invalidation clock and FTL data path retain their meaning.
  */
-#define CAT_FIG7_AGE_VALUE(level) \
-	(6U + (CAT_FIG7_AGE_RATIO - 1U) * (level))
+static void watgc_v2_decode(uint32_t arm, uint32_t *k,
+			   uint32_t *scale_pct, uint32_t *age_ratio)
+{
+	static const uint32_t levels[WATGC_V2_K_N] = { 2, 4, 7, 10 };
+	static const uint32_t scales[WATGC_V2_SCALE_N] = { 25, 50, 100, 200, 400 };
+	static const uint32_t ratios[WATGC_V2_RATIO_N] = { 4, 7, 16 };
 
-/* Fig. 7: raw segment age (seconds) -> normalized age level. */
-static const uint64_t cat_fig7_age_threshold_ns[] = {
-	CAT_FIG7_SCALED_NS(10),
-	CAT_FIG7_SCALED_NS(20),
-	CAT_FIG7_SCALED_NS(45),
-	CAT_FIG7_SCALED_NS(90),
-	CAT_FIG7_SCALED_NS(180),
-	CAT_FIG7_SCALED_NS(360),
-};
+	NVMEV_ASSERT(arm < WATGC_V2_ARM_N);
+	*age_ratio = ratios[arm % WATGC_V2_RATIO_N];
+	arm /= WATGC_V2_RATIO_N;
+	*scale_pct = scales[arm % WATGC_V2_SCALE_N];
+	*k = levels[arm / WATGC_V2_SCALE_N];
+}
 
-static const uint32_t cat_fig7_age_value[] = {
-	CAT_FIG7_AGE_VALUE(0),
-	CAT_FIG7_AGE_VALUE(1),
-	CAT_FIG7_AGE_VALUE(2),
-	CAT_FIG7_AGE_VALUE(3),
-	CAT_FIG7_AGE_VALUE(4),
-	CAT_FIG7_AGE_VALUE(5),
-	CAT_FIG7_AGE_VALUE(6),
-};
+static void watgc_v2_set_arm(struct conv_ftl *ftl, uint32_t arm)
+{
+	/* Thresholds in thirds of a second; scale BEFORE rounding to ns. */
+	static const uint32_t threshold_thirds[WATGC_V2_K_N][9] = {
+		{ 1080 },
+		{ 60, 270, 1080 },
+		{ 30, 60, 135, 270, 540, 1080 },
+		{ 20, 40, 60, 110, 180, 270, 450, 720, 1080 },
+	};
+	struct watgc_v2_param *p = &ftl->tuner.param;
+	uint32_t ki = arm / (WATGC_V2_SCALE_N * WATGC_V2_RATIO_N);
+	uint32_t i;
 
-static uint32_t cat_fig7_transform_age(const struct line *line, uint64_t now_ns)
+	watgc_v2_decode(arm, &p->k, &p->scale_pct, &p->age_ratio);
+	ftl->tuner.current_arm = arm;
+	memset(p->threshold_ns, 0, sizeof(p->threshold_ns));
+	memset(p->age_value, 0, sizeof(p->age_value));
+	for (i = 0; i + 1 < p->k; i++)
+		p->threshold_ns[i] =
+			div64_u64((uint64_t)threshold_thirds[ki][i] *
+				  NSEC_PER_SEC * p->scale_pct, 300ULL);
+	for (i = 0; i < p->k; i++)
+		p->age_value[i] = 18U + (p->age_ratio - 1U) * 18U * i / (p->k - 1U);
+}
+
+static uint32_t __maybe_unused
+cat_fig7_transform_age(const struct watgc_v2_param *p,
+		      const struct line *line, uint64_t now_ns)
 {
 	uint64_t age_ns;
-	size_t i;
+	uint32_t i;
 
-	if (!line->created_at_ns || now_ns < line->created_at_ns)
-		return cat_fig7_age_value[0];
-
-	age_ns = now_ns - line->created_at_ns;
-	for (i = 0; i < ARRAY_SIZE(cat_fig7_age_threshold_ns); i++) {
-		if (age_ns < cat_fig7_age_threshold_ns[i])
-			return cat_fig7_age_value[i];
-	}
-
-	return cat_fig7_age_value[ARRAY_SIZE(cat_fig7_age_value) - 1];
+	if (!line->last_invalidated_at_ns || now_ns < line->last_invalidated_at_ns)
+		return p->age_value[0];
+	age_ns = now_ns - line->last_invalidated_at_ns;
+	for (i = 0; i + 1 < p->k; i++)
+		if (age_ns < p->threshold_ns[i])
+			return p->age_value[i];
+	return p->age_value[p->k - 1U];
 }
 
-/*
- * Erase count is intentionally excluded.  With u = vpc / pages_per_line,
- * the requested CAT-Fig.7 score is
- *
- *                  u                 vpc
- *     score = ----------- / age = ----------- .
- *                1 - u             ipc * age
- *
- * Lower is better.  Cross multiplication avoids floating point in the
- * kernel and preserves the exact ordering of the two rational scores.
- */
-static bool cat_fig7_line_is_better(const struct line *candidate,
-				    const struct line *best_line, uint64_t now_ns)
+/* Exact rational comparison, including geometries that overflow cross products. */
+static int __maybe_unused
+watgc_v2_fraction_cmp(uint64_t an, uint64_t ad, uint64_t bn, uint64_t bd)
 {
-	uint64_t candidate_age = cat_fig7_transform_age(candidate, now_ns);
-	uint64_t best_age = cat_fig7_transform_age(best_line, now_ns);
-	uint64_t candidate_side;
-	uint64_t best_side;
+	bool reverse = false;
 
-	NVMEV_ASSERT(candidate->ipc > 0);
-	NVMEV_ASSERT(best_line->ipc > 0);
+	NVMEV_ASSERT(ad && bd);
+	if ((!an || bd <= (~0ULL / an)) && (!bn || ad <= (~0ULL / bn))) {
+		uint64_t left = an * bd;
+		uint64_t right = bn * ad;
 
-	candidate_side = (uint64_t)candidate->vpc * best_line->ipc * best_age;
-	best_side = (uint64_t)best_line->vpc * candidate->ipc * candidate_age;
+		return left < right ? -1 : (left > right ? 1 : 0);
+	}
+	for (;;) {
+		uint64_t ar, br;
+		uint64_t aq = div64_u64_rem(an, ad, &ar);
+		uint64_t bq = div64_u64_rem(bn, bd, &br);
+		int cmp;
 
-	if (candidate_side != best_side)
-		return candidate_side < best_side;
-
-	/* Deterministic tie-breaker; it adds no extra policy input. */
-	return candidate->id < best_line->id;
+		if (aq != bq) {
+			cmp = aq < bq ? -1 : 1;
+			return reverse ? -cmp : cmp;
+		}
+		if (!ar || !br) {
+			cmp = !ar ? (!br ? 0 : -1) : 1;
+			return reverse ? -cmp : cmp;
+		}
+		an = ad;
+		ad = ar;
+		bn = bd;
+		bd = br;
+		reverse = !reverse;
+	}
 }
-#endif
+
+/* Lower vpc / (ipc * staircase_age) is better; no erase-count input. */
+static bool __maybe_unused
+cat_fig7_line_is_better(const struct watgc_v2_param *p,
+		       const struct line *candidate, const struct line *best_line,
+		       uint64_t now_ns)
+{
+	uint64_t candidate_den, best_den;
+	int cmp;
+
+	NVMEV_ASSERT(candidate->ipc > 0 && best_line->ipc > 0);
+	candidate_den = (uint64_t)candidate->ipc *
+			cat_fig7_transform_age(p, candidate, now_ns);
+	best_den = (uint64_t)best_line->ipc *
+		   cat_fig7_transform_age(p, best_line, now_ns);
+	cmp = watgc_v2_fraction_cmp(candidate->vpc, candidate_den,
+				    best_line->vpc, best_den);
+	return cmp < 0 || (cmp == 0 && candidate->id < best_line->id);
+}
 
 static const char *conv_gc_policy_name(void)
 {
 #if CONV_GC_POLICY == CONV_GC_POLICY_GREEDY
 	return "greedy";
+#elif CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
+	return "cat-fig7-fixed";
 #else
-	return "cat-fig7";
+	return "watgc-v2";
 #endif
 }
 
-static uint32_t conv_gc_policy_scale_pct(void)
+/* WATGC_V2_CORE_BEGIN */
+#if CONV_GC_POLICY == CONV_GC_POLICY_WATGC_V2
+/*
+ * Online, globally exploring discounted bandit.  Confidence bonuses and the
+ * settled flag are engineering heuristics: a stateful SSD is not an iid
+ * bandit, and neither proves a global optimum or eliminates policy carryover.
+ */
+static bool watgc_v2_waf_q16(uint64_t host, uint64_t gc, uint32_t *out)
 {
-#if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
-	return CAT_FIG7_SCALE_PCT;
-#else
-	return 0;
-#endif
+	uint64_t whole, rem, fraction = 0;
+	uint32_t i;
+
+	if (!host)
+		return false;
+	whole = div64_u64_rem(gc, host, &rem);
+	if (whole >= 65535ULL)
+		return false;
+	/* Binary long division avoids overflowing rem << 16. */
+	for (i = 0; i < WATGC_V2_Q; i++) {
+		fraction <<= 1;
+		if (rem >= host - rem) {
+			rem -= host - rem;
+			fraction |= 1;
+		} else {
+			rem += rem;
+		}
+	}
+	*out = (uint32_t)(((whole + 1) << WATGC_V2_Q) | fraction);
+	return true;
 }
 
-static uint32_t conv_gc_policy_age_ratio(void)
+static uint64_t watgc_v2_discount(uint64_t value)
 {
-#if CONV_GC_POLICY == CONV_GC_POLICY_CAT_FIG7
-	return CAT_FIG7_AGE_RATIO;
-#else
-	return 0;
-#endif
+	return (value >> WATGC_V2_Q) * WATGC_V2_GAMMA_Q16 +
+	       (((value & (WATGC_V2_ONE - 1)) * WATGC_V2_GAMMA_Q16) >>
+		WATGC_V2_Q);
 }
+
+static uint64_t watgc_v2_sqrt(uint64_t value)
+{
+	uint64_t root = 0, bit = 1ULL << 62;
+
+	while (bit > value)
+		bit >>= 2;
+	while (bit) {
+		if (value >= root + bit) {
+			value -= root + bit;
+			root = (root >> 1) + bit;
+		} else {
+			root >>= 1;
+		}
+		bit >>= 2;
+	}
+	return root;
+}
+
+/* ln(count), Q16; normalize then use the first three atanh-series terms. */
+static uint64_t watgc_v2_log_q16(uint64_t count_q16)
+{
+	uint64_t integral = 0, z, z2, z3, z5;
+
+	if (count_q16 <= WATGC_V2_ONE)
+		return 0;
+	while (count_q16 >= 2 * WATGC_V2_ONE) {
+		count_q16 >>= 1;
+		integral += 45426; /* ln(2) in Q16 */
+	}
+	z = div64_u64((count_q16 - WATGC_V2_ONE) * WATGC_V2_ONE,
+		      count_q16 + WATGC_V2_ONE);
+	z2 = (z * z) >> WATGC_V2_Q;
+	z3 = (z2 * z) >> WATGC_V2_Q;
+	z5 = (z3 * z2) >> WATGC_V2_Q;
+	return integral + 2 * (z + div64_u64(z3, 3) + div64_u64(z5, 5));
+}
+
+static void watgc_v2_begin_phase(struct conv_ftl *ftl,
+				enum watgc_v2_phase phase, uint64_t now_ns)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+
+	t->phase = phase;
+	t->phase_host_start = ftl->stats.total_host_page_writes;
+	t->phase_gcpage_start = ftl->stats.total_gc_page_writes;
+	t->phase_gc_start = ftl->stats.total_gc_count;
+	t->phase_start_ns = now_ns;
+}
+
+static uint32_t watgc_v2_oldest(const struct watgc_v2_tuner *t, bool omit_best)
+{
+	uint32_t i, oldest = WATGC_V2_ARM_N;
+
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		if (omit_best && i == t->best_arm)
+			continue;
+		if (oldest == WATGC_V2_ARM_N ||
+		    t->arm[i].last_window < t->arm[oldest].last_window)
+			oldest = i;
+	}
+	return oldest;
+}
+
+static bool watgc_v2_covered(const struct watgc_v2_tuner *t)
+{
+	uint32_t i;
+
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		if (t->arm[i].visits < WATGC_V2_MIN_VISITS)
+			return false;
+	}
+	return true;
+}
+
+static uint32_t watgc_v2_choose_search(const struct watgc_v2_tuner *t)
+{
+	uint64_t total = 0, log_total, ratio, bonus;
+	uint32_t i, choice = 0, oldest;
+	uint32_t mean;
+	int64_t score, lowest = 0;
+	bool have_score = false;
+
+	/* Three real observations per arm, with deterministic balanced coverage. */
+	for (i = 1; i < WATGC_V2_ARM_N; i++) {
+		if (t->arm[i].visits < t->arm[choice].visits)
+			choice = i;
+	}
+	if (t->arm[choice].visits < WATGC_V2_MIN_VISITS)
+		return choice;
+	oldest = watgc_v2_oldest(t, false);
+	if (t->windows - t->arm[oldest].last_window >= WATGC_V2_STALE_WINDOWS)
+		return oldest;
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		if (!t->arm[i].count_q16 ||
+		    !watgc_v2_waf_q16(t->arm[i].host_pages,
+				     t->arm[i].gc_pages, &mean))
+			return i;
+		if (~0ULL - total < t->arm[i].count_q16)
+			total = ~0ULL;
+		else
+			total += t->arm[i].count_q16;
+	}
+	log_total = watgc_v2_log_q16(total);
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		watgc_v2_waf_q16(t->arm[i].host_pages, t->arm[i].gc_pages, &mean);
+		ratio = div64_u64(2 * log_total * WATGC_V2_ONE,
+				  t->arm[i].count_q16);
+		bonus = (WATGC_V2_UCB_C_Q16 *
+			 watgc_v2_sqrt(ratio * WATGC_V2_ONE)) >> WATGC_V2_Q;
+		score = (int64_t)mean - (int64_t)bonus;
+		if (!have_score || score < lowest) {
+			choice = i;
+			lowest = score;
+			have_score = true;
+		}
+	}
+	return choice;
+}
+
+static void watgc_v2_reset_epoch(struct conv_ftl *ftl, uint32_t sample_waf)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+	uint32_t i;
+
+	NVMEV_INFO("WATGC_V2 reset ns=%u part=%u epoch=%llu window=%llu "
+		   "arm=%u reason=waf-drift reference_q16=%u sample_q16=%u\n",
+		   t->ns_id, t->part_id, t->epoch, t->windows,
+		   t->current_arm, t->reference_waf_q16, sample_waf);
+	for (i = 0; i < WATGC_V2_ARM_N; i++)
+		t->arm[i] = (struct watgc_v2_arm){ 0 };
+	t->epoch++;
+	t->epoch_windows = 0;
+	t->best_arm = t->current_arm;
+	t->stable_windows = 0;
+	t->best_confirmations = 0;
+	t->exploit_windows = 0;
+	t->drift_windows = 0;
+	t->reference_waf_q16 = 0;
+	t->settled = false;
+}
+
+static void watgc_v2_update_best(struct conv_ftl *ftl)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+	uint32_t i, candidate = t->best_arm, mean, minimum = ~0U, incumbent;
+	bool had_incumbent;
+
+	had_incumbent = watgc_v2_waf_q16(t->arm[t->best_arm].host_pages,
+					 t->arm[t->best_arm].gc_pages, &incumbent);
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		if (!t->arm[i].visits ||
+		    !watgc_v2_waf_q16(t->arm[i].host_pages, t->arm[i].gc_pages, &mean))
+			continue;
+		if (mean < minimum) {
+			minimum = mean;
+			candidate = i;
+		}
+	}
+	/* Retain the incumbent unless the alternative improves by over 0.5%. */
+	if (had_incumbent && candidate != t->best_arm &&
+	    (incumbent <= minimum ||
+	     (uint64_t)(incumbent - minimum) * WATGC_V2_ONE <=
+	     (uint64_t)incumbent * WATGC_V2_TOLERANCE_Q16))
+		candidate = t->best_arm;
+	if (candidate != t->best_arm) {
+		t->best_arm = candidate;
+		t->stable_windows = 0;
+		t->best_confirmations = 0;
+		t->exploit_windows = 0;
+		t->drift_windows = 0;
+		t->reference_waf_q16 = 0;
+		t->settled = false;
+	} else if (t->stable_windows != ~0U) {
+		t->stable_windows++;
+	}
+	if (t->current_arm == t->best_arm && t->best_confirmations != ~0U)
+		t->best_confirmations++;
+	if (!t->settled && watgc_v2_covered(t) &&
+	    t->stable_windows >= WATGC_V2_STABLE_WINDOWS &&
+	    t->best_confirmations >= WATGC_V2_BEST_CONFIRMATIONS) {
+		t->settled = true;
+		t->exploit_windows = 0;
+		t->drift_windows = 0;
+		watgc_v2_waf_q16(t->arm[t->best_arm].host_pages,
+				 t->arm[t->best_arm].gc_pages, &t->reference_waf_q16);
+		NVMEV_INFO("WATGC_V2 settled ns=%u part=%u epoch=%llu window=%llu "
+			   "best=%u waf_q16=%u meaning=empirical-stability\n",
+			   t->ns_id, t->part_id, t->epoch, t->windows,
+			   t->best_arm, t->reference_waf_q16);
+	}
+}
+
+static uint32_t watgc_v2_observe(struct conv_ftl *ftl, uint64_t host,
+				uint64_t gc_pages, uint32_t sample_waf)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+	struct watgc_v2_arm *a;
+	uint64_t delta, weighted_host = host << WATGC_V2_Q;
+	uint64_t weighted_gc = gc_pages << WATGC_V2_Q;
+	uint32_t i;
+	bool had_coverage, first_coverage;
+
+	t->windows++;
+	if (t->settled && t->current_arm == t->best_arm) {
+		delta = sample_waf > t->reference_waf_q16 ?
+			sample_waf - t->reference_waf_q16 :
+			t->reference_waf_q16 - sample_waf;
+		if (delta * WATGC_V2_ONE >
+		    (uint64_t)t->reference_waf_q16 * WATGC_V2_DRIFT_Q16)
+			t->drift_windows++;
+		else
+			t->drift_windows = 0;
+		if (t->drift_windows >= WATGC_V2_DRIFT_WINDOWS)
+			watgc_v2_reset_epoch(ftl, sample_waf);
+	}
+	had_coverage = watgc_v2_covered(t);
+	t->epoch_windows++;
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		a = &t->arm[i];
+		a->host_pages = watgc_v2_discount(a->host_pages);
+		a->gc_pages = watgc_v2_discount(a->gc_pages);
+		a->count_q16 = watgc_v2_discount(a->count_q16);
+	}
+	a = &t->arm[t->current_arm];
+	/* Preserve paired sums if exceptionally long counters need rescaling. */
+	while (~0ULL - a->host_pages < weighted_host ||
+	       ~0ULL - a->gc_pages < weighted_gc ||
+	       ~0ULL - a->count_q16 < WATGC_V2_ONE) {
+		a->host_pages >>= 1;
+		a->gc_pages >>= 1;
+		a->count_q16 >>= 1;
+	}
+	/* Q16 page sums retain fractional pages during every discount step. */
+	a->host_pages += weighted_host;
+	a->gc_pages += weighted_gc;
+	a->count_q16 += WATGC_V2_ONE;
+	if (a->visits != ~0ULL)
+		a->visits++;
+	a->last_window = t->windows;
+	first_coverage = !had_coverage && watgc_v2_covered(t);
+	if (first_coverage) {
+		t->stable_windows = 0;
+		t->best_confirmations = 0;
+	}
+	watgc_v2_update_best(ftl);
+	/* Bootstrap observations do not establish post-coverage stability. */
+	if (first_coverage) {
+		t->stable_windows = 0;
+		t->best_confirmations = 0;
+	}
+	if (!t->settled)
+		return watgc_v2_choose_search(t);
+	/* Every eight incumbent observations, validate the oldest other arm. */
+	if (t->current_arm != t->best_arm) {
+		t->exploit_windows = 0;
+		return t->best_arm;
+	}
+	if (++t->exploit_windows >= WATGC_V2_PROBE_EVERY) {
+		t->exploit_windows = 0;
+		return watgc_v2_oldest(t, true);
+	}
+	return t->best_arm;
+}
+
+static void watgc_v2_init(struct conv_ftl *ftl, uint32_t ns_id, uint32_t part_id)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+
+	memset(t, 0, sizeof(*t));
+	t->ns_id = ns_id;
+	t->part_id = part_id;
+	t->epoch = 1;
+	t->best_arm = WATGC_V2_INITIAL_ARM;
+	watgc_v2_set_arm(ftl, WATGC_V2_INITIAL_ARM);
+	t->phase = WATGC_V2_WARMUP;
+	NVMEV_INFO("WATGC_V2 init ns=%u part=%u arms=%u initial=%u "
+		   "prior=none gamma_q16=%llu exploration_q16=%llu\n",
+		   ns_id, part_id, WATGC_V2_ARM_N, t->current_arm,
+		   WATGC_V2_GAMMA_Q16, WATGC_V2_UCB_C_Q16);
+}
+
+static void watgc_v2_on_gc(struct conv_ftl *ftl, uint64_t now_ns)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+	uint64_t host, gc_pages, gc_count;
+	uint32_t sample, evaluated, next, k, scale, ratio;
+	bool ready;
+
+	if (t->phase == WATGC_V2_WARMUP) {
+		if (ftl->stats.total_gc_count >= WATGC_V2_WARMUP_GC) {
+			watgc_v2_begin_phase(ftl, WATGC_V2_BURNIN, now_ns);
+			NVMEV_INFO("WATGC_V2 warmup-done ns=%u part=%u gc_count=%llu\n",
+				   t->ns_id, t->part_id, ftl->stats.total_gc_count);
+		}
+		return;
+	}
+	host = ftl->stats.total_host_page_writes - t->phase_host_start;
+	gc_pages = ftl->stats.total_gc_page_writes - t->phase_gcpage_start;
+	gc_count = ftl->stats.total_gc_count - t->phase_gc_start;
+	if (t->phase == WATGC_V2_BURNIN)
+		ready = host >= WATGC_V2_BURNIN_HOST_PAGES &&
+			gc_count >= WATGC_V2_BURNIN_GC;
+	else
+		ready = host >= WATGC_V2_WINDOW_HOST_PAGES &&
+			gc_count >= WATGC_V2_WINDOW_GC;
+	if (!ready) {
+		if (gc_count < WATGC_V2_MAX_WINDOW_GC &&
+		    (now_ns < t->phase_start_ns ||
+		     now_ns - t->phase_start_ns < WATGC_V2_MAX_WINDOW_NS))
+			return;
+		t->discarded_windows++;
+		NVMEV_INFO("WATGC_V2 discard ns=%u part=%u epoch=%llu phase=%u "
+			   "arm=%u host=%llu gc_pages=%llu gc_count=%llu reason=undersized\n",
+			   t->ns_id, t->part_id, t->epoch, (uint32_t)t->phase,
+			   t->current_arm, host, gc_pages, gc_count);
+		watgc_v2_begin_phase(ftl, WATGC_V2_BURNIN, now_ns);
+		return;
+	}
+	if (t->phase == WATGC_V2_BURNIN) {
+		watgc_v2_begin_phase(ftl, WATGC_V2_MEASURE, now_ns);
+		return;
+	}
+	if (host > (~0ULL >> WATGC_V2_Q) ||
+	    gc_pages > (~0ULL >> WATGC_V2_Q) ||
+	    !watgc_v2_waf_q16(host, gc_pages, &sample)) {
+		t->discarded_windows++;
+		NVMEV_INFO("WATGC_V2 discard ns=%u part=%u epoch=%llu "
+			   "arm=%u host=%llu gc_pages=%llu reason=numeric-range\n",
+			   t->ns_id, t->part_id, t->epoch, t->current_arm, host, gc_pages);
+		watgc_v2_begin_phase(ftl, WATGC_V2_BURNIN, now_ns);
+		return;
+	}
+	evaluated = t->current_arm;
+	watgc_v2_decode(evaluated, &k, &scale, &ratio);
+	next = watgc_v2_observe(ftl, host, gc_pages, sample);
+	NVMEV_INFO("WATGC_V2 sample ns=%u part=%u epoch=%llu window=%llu "
+		   "phase=measure evaluated=%u k=%u scale_pct=%u age_ratio=%u "
+		   "host=%llu gc_pages=%llu gc_count=%llu waf_q16=%u "
+		   "best=%u next=%u settled=%u\n",
+		   t->ns_id, t->part_id, t->epoch, t->windows,
+		   evaluated, k, scale, ratio, host, gc_pages, gc_count, sample,
+		   t->best_arm, next, (uint32_t)t->settled);
+	if (next != evaluated) {
+		watgc_v2_set_arm(ftl, next);
+		watgc_v2_begin_phase(ftl, WATGC_V2_BURNIN, now_ns);
+	} else {
+		watgc_v2_begin_phase(ftl, WATGC_V2_MEASURE, now_ns);
+	}
+}
+
+static void watgc_v2_report(struct conv_ftl *ftl)
+{
+	struct watgc_v2_tuner *t = &ftl->tuner;
+	uint32_t k, scale, ratio, mean = 0, i, visited = 0;
+	bool valid;
+
+	for (i = 0; i < WATGC_V2_ARM_N; i++) {
+		if (t->arm[i].visits)
+			visited++;
+	}
+	valid = watgc_v2_waf_q16(t->arm[t->best_arm].host_pages,
+				t->arm[t->best_arm].gc_pages, &mean);
+	watgc_v2_decode(t->best_arm, &k, &scale, &ratio);
+	NVMEV_INFO("WATGC_V2 summary ns=%u part=%u epoch=%llu windows=%llu "
+		   "epoch_windows=%llu discarded=%llu visited=%u covered=%u "
+		   "settled=%u phase=%u current=%u best=%u k=%u scale_pct=%u "
+		   "age_ratio=%u best_waf_valid=%u best_waf_q16=%u\n",
+		   t->ns_id, t->part_id, t->epoch, t->windows,
+		   t->epoch_windows, t->discarded_windows, visited,
+		   (uint32_t)watgc_v2_covered(t), (uint32_t)t->settled,
+		   (uint32_t)t->phase, t->current_arm, t->best_arm, k, scale, ratio,
+		   (uint32_t)valid, mean);
+}
+#else
+static void watgc_v2_init(struct conv_ftl *ftl, uint32_t ns_id, uint32_t part_id)
+{
+	memset(&ftl->tuner, 0, sizeof(ftl->tuner));
+	ftl->tuner.ns_id = ns_id;
+	ftl->tuner.part_id = part_id;
+	ftl->tuner.best_arm = WATGC_V2_INITIAL_ARM;
+	watgc_v2_set_arm(ftl, WATGC_V2_INITIAL_ARM);
+}
+
+static void watgc_v2_on_gc(struct conv_ftl *ftl, uint64_t now_ns)
+{
+	(void)ftl;
+	(void)now_ns;
+}
+
+static void watgc_v2_report(struct conv_ftl *ftl)
+{
+	(void)ftl;
+}
+#endif /* CONV_GC_POLICY_WATGC_V2 */
+/* WATGC_V2_CORE_END */
 
 static inline bool last_pg_in_wordline(struct conv_ftl *conv_ftl, struct ppa *ppa)
 {
@@ -261,7 +694,7 @@ static void init_lines(struct conv_ftl *conv_ftl)
 			.id = i,
 			.ipc = 0,
 			.vpc = 0,
-			.created_at_ns = 0,
+			.last_invalidated_at_ns = 0,
 			.pos = 0,
 			.entry = LIST_HEAD_INIT(lm->lines[i].entry),
 		};
@@ -460,13 +893,15 @@ static void remove_rmap(struct conv_ftl *conv_ftl)
 	vfree(conv_ftl->rmap);
 }
 
-static void conv_init_ftl(struct conv_ftl *conv_ftl, struct convparams *cpp, struct ssd *ssd)
+static void conv_init_ftl(struct conv_ftl *conv_ftl, struct convparams *cpp,
+			  struct ssd *ssd, uint32_t ns_id, uint32_t part_id)
 {
 	/*copy convparams*/
 	conv_ftl->cp = *cpp;
 
 	conv_ftl->ssd = ssd;
 	conv_ftl->stats = (struct conv_gc_stats){ 0 };
+	watgc_v2_init(conv_ftl, ns_id, part_id);
 
 	/* initialize maptbl */
 	init_maptbl(conv_ftl); // mapping table
@@ -485,9 +920,11 @@ static void conv_init_ftl(struct conv_ftl *conv_ftl, struct convparams *cpp, str
 
 	NVMEV_INFO("Init FTL instance with %d channels (%ld pages)\n", conv_ftl->ssd->sp.nchs,
 		   conv_ftl->ssd->sp.tt_pgs);
-	NVMEV_INFO("GC victim policy: %s scale_pct=%u age_ratio=%u\n",
-		   conv_gc_policy_name(), conv_gc_policy_scale_pct(),
-		   conv_gc_policy_age_ratio());
+	NVMEV_INFO("GC victim policy: %s ns=%u part=%u initial_k=%u "
+		   "initial_scale_pct=%u initial_age_ratio=%u warmup_gc=%llu\n",
+		   conv_gc_policy_name(), ns_id, part_id, conv_ftl->tuner.param.k,
+		   conv_ftl->tuner.param.scale_pct, conv_ftl->tuner.param.age_ratio,
+		   WATGC_V2_WARMUP_GC);
 
 	return;
 }
@@ -521,12 +958,14 @@ void conv_init_namespace(struct nvmev_ns *ns, uint32_t id, uint64_t size, void *
 	ssd_init_params(&spp, size, nr_parts);
 	conv_init_params(&cpp);
 
-	conv_ftls = kmalloc(sizeof(struct conv_ftl) * nr_parts, GFP_KERNEL);
+	/* The per-partition 60-arm tables need not be physically contiguous. */
+	conv_ftls = vmalloc(sizeof(struct conv_ftl) * nr_parts);
+	NVMEV_ASSERT(conv_ftls);
 
 	for (i = 0; i < nr_parts; i++) {
 		ssd = kmalloc(sizeof(struct ssd), GFP_KERNEL);
 		ssd_init(ssd, &spp, cpu_nr_dispatcher);
-		conv_init_ftl(&conv_ftls[i], &cpp, ssd);
+		conv_init_ftl(&conv_ftls[i], &cpp, ssd, id, i);
 	}
 
 	/* PCIe, Write buffer are shared by all instances*/
@@ -571,22 +1010,22 @@ void conv_remove_namespace(struct nvmev_ns *ns)
 		host_page_writes += conv_ftls[i].stats.host_page_writes;
 		gc_page_writes += conv_ftls[i].stats.gc_page_writes;
 		gc_count += conv_ftls[i].stats.gc_count;
+		watgc_v2_report(&conv_ftls[i]);
 	}
 
 	total_page_writes = host_page_writes + gc_page_writes;
 	if (host_page_writes) {
 		waf_integer = div64_u64_rem(total_page_writes, host_page_writes, &remainder);
 		waf_milli = div64_u64(remainder * 1000, host_page_writes);
-		NVMEV_INFO("GC stats: policy=%s host_pages=%llu gc_pages=%llu gc_count=%llu "
-			   "WAF=%llu.%03llu scale_pct=%u age_ratio=%u\n",
-			   conv_gc_policy_name(), host_page_writes, gc_page_writes, gc_count,
-			   waf_integer, waf_milli, conv_gc_policy_scale_pct(),
-			   conv_gc_policy_age_ratio());
+		NVMEV_INFO("GC stats: ns=%u policy=%s host_pages=%llu gc_pages=%llu "
+			   "gc_count=%llu WAF=%llu.%03llu warmup_gc=%llu-per-part\n",
+			   ns->id, conv_gc_policy_name(), host_page_writes, gc_page_writes,
+			   gc_count, waf_integer, waf_milli, WATGC_V2_WARMUP_GC);
 	} else {
-		NVMEV_INFO("GC stats: policy=%s host_pages=0 gc_pages=%llu gc_count=%llu "
-			   "WAF=N/A scale_pct=%u age_ratio=%u\n",
-			   conv_gc_policy_name(), gc_page_writes, gc_count,
-			   conv_gc_policy_scale_pct(), conv_gc_policy_age_ratio());
+		NVMEV_INFO("GC stats: ns=%u policy=%s host_pages=0 gc_pages=%llu "
+			   "gc_count=%llu WAF=N/A warmup_gc=%llu-per-part\n",
+			   ns->id, conv_gc_policy_name(), gc_page_writes, gc_count,
+			   WATGC_V2_WARMUP_GC);
 	}
 
 	/* PCIe, Write buffer are shared by all instances*/
@@ -605,7 +1044,7 @@ void conv_remove_namespace(struct nvmev_ns *ns)
 		kfree(conv_ftls[i].ssd);
 	}
 
-	kfree(conv_ftls);
+	vfree(conv_ftls);
 	ns->ftls = NULL;
 }
 
@@ -672,6 +1111,8 @@ static void mark_page_invalid(struct conv_ftl *conv_ftl, struct ppa *ppa)
 
 	/* update corresponding line status */
 	line = get_line(conv_ftl, ppa);
+	/* Age restarts whenever a page in this line is invalidated. */
+	line->last_invalidated_at_ns = ktime_get_ns();
 	NVMEV_ASSERT(line->ipc >= 0 && line->ipc < spp->pgs_per_line);
 	if (line->vpc == spp->pgs_per_line) {
 		NVMEV_ASSERT(line->ipc == 0);
@@ -716,11 +1157,6 @@ static void mark_page_valid(struct conv_ftl *conv_ftl, struct ppa *ppa)
 	/* update corresponding line status */
 	line = get_line(conv_ftl, ppa);
 	NVMEV_ASSERT(line->vpc >= 0 && line->vpc < spp->pgs_per_line);
-	if (line->vpc == 0 && line->ipc == 0) {
-		/* An empty line reserved by a write pointer is not created yet. */
-		NVMEV_ASSERT(line->created_at_ns == 0);
-		line->created_at_ns = ktime_get_ns();
-	}
 	line->vpc++;
 }
 
@@ -779,6 +1215,7 @@ static uint64_t gc_write_page(struct conv_ftl *conv_ftl, struct ppa *old_ppa)
 	set_rmap_ent(conv_ftl, lpn, &new_ppa);
 
 	mark_page_valid(conv_ftl, &new_ppa);
+	conv_ftl->stats.total_gc_page_writes++;
 	if (conv_ftl->stats.measurement_started)
 		conv_ftl->stats.gc_page_writes++;
 
@@ -847,7 +1284,9 @@ static struct line *select_victim_line(struct conv_ftl *conv_ftl, bool force)
 			continue;
 		if (!force && candidate->vpc > (spp->pgs_per_line / 8))
 			continue;
-		if (!victim_line || cat_fig7_line_is_better(candidate, victim_line, now_ns))
+		if (!victim_line ||
+		    cat_fig7_line_is_better(&conv_ftl->tuner.param,
+					candidate, victim_line, now_ns))
 			victim_line = candidate;
 	}
 
@@ -943,7 +1382,7 @@ static void mark_line_free(struct conv_ftl *conv_ftl, struct ppa *ppa)
 	struct line *line = get_line(conv_ftl, ppa);
 	line->ipc = 0;
 	line->vpc = 0;
-	line->created_at_ns = 0;
+	line->last_invalidated_at_ns = 0;
 	/* move this line to free line list */
 	list_add_tail(&line->entry, &lm->free_line_list);
 	lm->free_line_cnt++;
@@ -1007,12 +1446,15 @@ static int do_gc(struct conv_ftl *conv_ftl, bool force)
 
 	/* update line status */
 	mark_line_free(conv_ftl, &ppa);
+	conv_ftl->stats.total_gc_count++;
 	if (conv_ftl->stats.measurement_started) {
 		conv_ftl->stats.gc_count++;
-	} else {
-		/* Exclude initial fill and the first GC from the measured WAF. */
+	} else if (conv_ftl->stats.total_gc_count >= WATGC_V2_WARMUP_GC) {
+		/* Start AFTER the whole boundary GC, including all its page copies. */
 		conv_ftl->stats.measurement_started = true;
 	}
+	/* The arm that performed this entire GC remains installed until here. */
+	watgc_v2_on_gc(conv_ftl, ktime_get_ns());
 
 	return 0;
 }
@@ -1198,6 +1640,7 @@ static bool conv_write(struct nvmev_ns *ns, struct nvmev_request *req, struct nv
 		set_rmap_ent(conv_ftl, local_lpn, &ppa);
 
 		mark_page_valid(conv_ftl, &ppa);
+		conv_ftl->stats.total_host_page_writes++;
 		if (conv_ftl->stats.measurement_started)
 			conv_ftl->stats.host_page_writes++;
 

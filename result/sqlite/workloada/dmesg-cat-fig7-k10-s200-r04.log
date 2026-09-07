@@ -1,0 +1,423 @@
+[135453.515207] NVMeVirt: Version 1.10 for >> Samsung 970 Pro SSD <<
+[135453.515216] NVMeVirt: Storage: 0x100100000-0x300000000 (8191 MiB)
+[135453.522624] NVMeVirt: Total Capacity(GiB,MiB)=2,2048 chs=2 luns=4 lines=8192 blk-size(MiB,KiB)=0,64 line-size(MiB,KiB)=0,256
+[135453.532033] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.538769] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.538783] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[135453.540008] NVMeVirt: pqueue: Copyright (c) 2014, Volkan Yazıcı <volkan.yazici@gmail.com>. All rights reserved.
+[135453.540044] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[135453.540046] NVMeVirt: GC victim policy: cat-fig7 k=10 scale_pct=200 age_ratio=4
+[135453.546581] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.553070] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.553084] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[135453.554364] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[135453.554365] NVMeVirt: GC victim policy: cat-fig7 k=10 scale_pct=200 age_ratio=4
+[135453.560828] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.567302] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.567316] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[135453.568572] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[135453.568573] NVMeVirt: GC victim policy: cat-fig7 k=10 scale_pct=200 age_ratio=4
+[135453.575029] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.581481] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[135453.581495] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[135453.582756] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[135453.582757] NVMeVirt: GC victim policy: cat-fig7 k=10 scale_pct=200 age_ratio=4
+[135453.582762] NVMeVirt: FTL physical space: 8588886016, logical space: 8026996276 (physical/logical * 100 = 107)
+[135453.582763] NVMeVirt: ns 0/1: size 7655 MiB
+[135453.582803] PCI host bridge to bus 0001:10
+[135453.582805] pci_bus 0001:10: root bus resource [io  0x0000-0xffff]
+[135453.582807] pci_bus 0001:10: root bus resource [mem 0x00000000-0x3fffffffffff]
+[135453.582809] pci_bus 0001:10: root bus resource [bus 00-ff]
+[135453.582815] pci 0001:10:00.0: [0c51:0110] type 00 class 0x010802 PCIe Endpoint
+[135453.582817] pci 0001:10:00.0: BAR 0 [mem 0x100000000-0x100003fff 64bit]
+[135453.582819] pci 0001:10:00.0: enabling Extended Tags
+[135453.582928] NVMeVirt: Virtual PCI bus created (node 0)
+[135453.583423] NVMeVirt: nvmev_io_worker_0 started on cpu 2 (node 0)
+[135453.583507] NVMeVirt: nvmev_dispatcher started on cpu 1 (node 0)
+[135453.583685] nvme nvme1: pci function 0001:10:00.0
+[135453.587916] nvme nvme1: 20/0/0 default/read/poll queues
+[135453.591331] NVMeVirt: Virtual NVMe device created
+[135454.652494] EXT4-fs (nvme1n1): mounted filesystem b3c9411a-4bea-4a8f-aba0-a112b6e4c579 r/w with ordered data mode. Quota mode: none.
+[135454.682014] iCAT_SQLITE_LOAD_START run=20260830-111610-140884
+[135533.204075] iCAT_SQLITE_LOAD_END run=20260830-111610-140884
+[135533.626008] sh (141012): drop_caches: 3
+[135533.654759] iCAT_SQLITE_RUN_START run=20260830-111610-140884
+[135537.247310] sh (141014): drop_caches: 3
+[135541.292115] sh (141014): drop_caches: 3
+[135545.336603] sh (141014): drop_caches: 3
+[135549.380310] sh (141014): drop_caches: 3
+[135553.423837] sh (141014): drop_caches: 3
+[135557.468118] sh (141014): drop_caches: 3
+[135561.511715] sh (141014): drop_caches: 3
+[135565.556398] sh (141014): drop_caches: 3
+[135569.602135] sh (141014): drop_caches: 3
+[135573.648050] sh (141014): drop_caches: 3
+[135577.691422] sh (141014): drop_caches: 3
+[135581.734508] sh (141014): drop_caches: 3
+[135585.773345] sh (141014): drop_caches: 3
+[135589.812874] sh (141014): drop_caches: 3
+[135593.857256] sh (141014): drop_caches: 3
+[135597.894824] sh (141014): drop_caches: 3
+[135601.933274] sh (141014): drop_caches: 3
+[135605.971790] sh (141014): drop_caches: 3
+[135610.016249] sh (141014): drop_caches: 3
+[135614.059707] sh (141014): drop_caches: 3
+[135618.105454] sh (141014): drop_caches: 3
+[135622.149389] sh (141014): drop_caches: 3
+[135626.196514] sh (141014): drop_caches: 3
+[135630.240630] sh (141014): drop_caches: 3
+[135634.285355] sh (141014): drop_caches: 3
+[135638.330974] sh (141014): drop_caches: 3
+[135642.374327] sh (141014): drop_caches: 3
+[135646.420141] sh (141014): drop_caches: 3
+[135650.463031] sh (141014): drop_caches: 3
+[135654.507836] sh (141014): drop_caches: 3
+[135658.551570] sh (141014): drop_caches: 3
+[135662.595768] sh (141014): drop_caches: 3
+[135666.640703] sh (141014): drop_caches: 3
+[135670.683913] sh (141014): drop_caches: 3
+[135674.729431] sh (141014): drop_caches: 3
+[135678.767139] sh (141014): drop_caches: 3
+[135682.806392] sh (141014): drop_caches: 3
+[135686.851746] sh (141014): drop_caches: 3
+[135690.897196] sh (141014): drop_caches: 3
+[135694.939765] sh (141014): drop_caches: 3
+[135698.986392] sh (141014): drop_caches: 3
+[135703.029574] sh (141014): drop_caches: 3
+[135707.072990] sh (141014): drop_caches: 3
+[135711.118136] sh (141014): drop_caches: 3
+[135715.160805] sh (141014): drop_caches: 3
+[135719.204957] sh (141014): drop_caches: 3
+[135723.248882] sh (141014): drop_caches: 3
+[135727.293768] sh (141014): drop_caches: 3
+[135731.338954] sh (141014): drop_caches: 3
+[135735.382981] sh (141014): drop_caches: 3
+[135739.427573] sh (141014): drop_caches: 3
+[135743.473754] sh (141014): drop_caches: 3
+[135747.516761] sh (141014): drop_caches: 3
+[135751.560253] sh (141014): drop_caches: 3
+[135755.605213] sh (141014): drop_caches: 3
+[135759.648470] sh (141014): drop_caches: 3
+[135763.692321] sh (141014): drop_caches: 3
+[135767.729934] sh (141014): drop_caches: 3
+[135771.773281] sh (141014): drop_caches: 3
+[135775.818976] sh (141014): drop_caches: 3
+[135779.869130] sh (141014): drop_caches: 3
+[135783.915603] sh (141014): drop_caches: 3
+[135787.954999] sh (141014): drop_caches: 3
+[135791.998348] sh (141014): drop_caches: 3
+[135796.042826] sh (141014): drop_caches: 3
+[135800.088387] sh (141014): drop_caches: 3
+[135804.134506] sh (141014): drop_caches: 3
+[135808.177586] sh (141014): drop_caches: 3
+[135812.220239] sh (141014): drop_caches: 3
+[135816.266487] sh (141014): drop_caches: 3
+[135820.313102] sh (141014): drop_caches: 3
+[135824.356492] sh (141014): drop_caches: 3
+[135828.400583] sh (141014): drop_caches: 3
+[135832.446559] sh (141014): drop_caches: 3
+[135836.493324] sh (141014): drop_caches: 3
+[135840.537382] sh (141014): drop_caches: 3
+[135844.576786] sh (141014): drop_caches: 3
+[135848.620035] sh (141014): drop_caches: 3
+[135852.666001] sh (141014): drop_caches: 3
+[135856.707305] sh (141014): drop_caches: 3
+[135860.750355] sh (141014): drop_caches: 3
+[135864.795013] sh (141014): drop_caches: 3
+[135868.840268] sh (141014): drop_caches: 3
+[135872.884522] sh (141014): drop_caches: 3
+[135876.926427] sh (141014): drop_caches: 3
+[135880.972123] sh (141014): drop_caches: 3
+[135885.016978] sh (141014): drop_caches: 3
+[135889.060263] sh (141014): drop_caches: 3
+[135893.103804] sh (141014): drop_caches: 3
+[135897.148908] sh (141014): drop_caches: 3
+[135901.194466] sh (141014): drop_caches: 3
+[135905.241672] sh (141014): drop_caches: 3
+[135909.283760] sh (141014): drop_caches: 3
+[135913.325873] sh (141014): drop_caches: 3
+[135917.368957] sh (141014): drop_caches: 3
+[135921.412226] sh (141014): drop_caches: 3
+[135925.455477] sh (141014): drop_caches: 3
+[135929.500883] sh (141014): drop_caches: 3
+[135933.544326] sh (141014): drop_caches: 3
+[135937.589108] sh (141014): drop_caches: 3
+[135941.633230] sh (141014): drop_caches: 3
+[135945.678477] sh (141014): drop_caches: 3
+[135949.723312] sh (141014): drop_caches: 3
+[135953.763247] sh (141014): drop_caches: 3
+[135957.800764] sh (141014): drop_caches: 3
+[135961.845488] sh (141014): drop_caches: 3
+[135965.888789] sh (141014): drop_caches: 3
+[135969.929378] sh (141014): drop_caches: 3
+[135973.966488] sh (141014): drop_caches: 3
+[135978.014336] sh (141014): drop_caches: 3
+[135982.059308] sh (141014): drop_caches: 3
+[135986.107366] sh (141014): drop_caches: 3
+[135990.151878] sh (141014): drop_caches: 3
+[135994.195941] sh (141014): drop_caches: 3
+[135998.239172] sh (141014): drop_caches: 3
+[136002.282350] sh (141014): drop_caches: 3
+[136006.326859] sh (141014): drop_caches: 3
+[136010.371035] sh (141014): drop_caches: 3
+[136014.414146] sh (141014): drop_caches: 3
+[136018.458398] sh (141014): drop_caches: 3
+[136022.502487] sh (141014): drop_caches: 3
+[136026.547008] sh (141014): drop_caches: 3
+[136030.593836] sh (141014): drop_caches: 3
+[136034.640165] sh (141014): drop_caches: 3
+[136038.686793] sh (141014): drop_caches: 3
+[136042.732621] sh (141014): drop_caches: 3
+[136046.773270] sh (141014): drop_caches: 3
+[136050.818299] sh (141014): drop_caches: 3
+[136054.863710] sh (141014): drop_caches: 3
+[136058.906551] sh (141014): drop_caches: 3
+[136062.948461] sh (141014): drop_caches: 3
+[136066.991608] sh (141014): drop_caches: 3
+[136071.036460] sh (141014): drop_caches: 3
+[136075.079256] sh (141014): drop_caches: 3
+[136079.124574] sh (141014): drop_caches: 3
+[136083.170733] sh (141014): drop_caches: 3
+[136087.216795] sh (141014): drop_caches: 3
+[136091.261801] sh (141014): drop_caches: 3
+[136095.310366] sh (141014): drop_caches: 3
+[136099.354128] sh (141014): drop_caches: 3
+[136103.397578] sh (141014): drop_caches: 3
+[136107.443152] sh (141014): drop_caches: 3
+[136111.487351] sh (141014): drop_caches: 3
+[136115.531951] sh (141014): drop_caches: 3
+[136119.576053] sh (141014): drop_caches: 3
+[136123.620873] sh (141014): drop_caches: 3
+[136127.665185] sh (141014): drop_caches: 3
+[136131.708751] sh (141014): drop_caches: 3
+[136135.752314] sh (141014): drop_caches: 3
+[136139.795394] sh (141014): drop_caches: 3
+[136143.838870] sh (141014): drop_caches: 3
+[136147.877792] sh (141014): drop_caches: 3
+[136151.922083] sh (141014): drop_caches: 3
+[136155.966670] sh (141014): drop_caches: 3
+[136160.011688] sh (141014): drop_caches: 3
+[136164.055854] sh (141014): drop_caches: 3
+[136168.101346] sh (141014): drop_caches: 3
+[136172.146622] sh (141014): drop_caches: 3
+[136176.192826] sh (141014): drop_caches: 3
+[136180.237388] sh (141014): drop_caches: 3
+[136184.280065] sh (141014): drop_caches: 3
+[136188.325157] sh (141014): drop_caches: 3
+[136192.371652] sh (141014): drop_caches: 3
+[136196.414734] sh (141014): drop_caches: 3
+[136200.458553] sh (141014): drop_caches: 3
+[136204.501478] sh (141014): drop_caches: 3
+[136208.547719] sh (141014): drop_caches: 3
+[136212.591975] sh (141014): drop_caches: 3
+[136216.636905] sh (141014): drop_caches: 3
+[136220.684475] sh (141014): drop_caches: 3
+[136224.729108] sh (141014): drop_caches: 3
+[136228.773656] sh (141014): drop_caches: 3
+[136232.820992] sh (141014): drop_caches: 3
+[136236.865975] sh (141014): drop_caches: 3
+[136240.909710] sh (141014): drop_caches: 3
+[136244.953435] sh (141014): drop_caches: 3
+[136248.991720] sh (141014): drop_caches: 3
+[136253.036981] sh (141014): drop_caches: 3
+[136257.081540] sh (141014): drop_caches: 3
+[136261.125819] sh (141014): drop_caches: 3
+[136265.172922] sh (141014): drop_caches: 3
+[136269.216210] sh (141014): drop_caches: 3
+[136273.259820] sh (141014): drop_caches: 3
+[136277.303272] sh (141014): drop_caches: 3
+[136281.345993] sh (141014): drop_caches: 3
+[136285.389483] sh (141014): drop_caches: 3
+[136289.432084] sh (141014): drop_caches: 3
+[136293.474479] sh (141014): drop_caches: 3
+[136297.517935] sh (141014): drop_caches: 3
+[136301.563072] sh (141014): drop_caches: 3
+[136305.606544] sh (141014): drop_caches: 3
+[136309.651341] sh (141014): drop_caches: 3
+[136313.696749] sh (141014): drop_caches: 3
+[136317.741447] sh (141014): drop_caches: 3
+[136321.780304] sh (141014): drop_caches: 3
+[136325.817100] sh (141014): drop_caches: 3
+[136329.861881] sh (141014): drop_caches: 3
+[136333.906213] sh (141014): drop_caches: 3
+[136337.946629] sh (141014): drop_caches: 3
+[136341.992823] sh (141014): drop_caches: 3
+[136346.040277] sh (141014): drop_caches: 3
+[136350.088129] sh (141014): drop_caches: 3
+[136354.136178] sh (141014): drop_caches: 3
+[136358.180042] sh (141014): drop_caches: 3
+[136362.224463] sh (141014): drop_caches: 3
+[136366.267831] sh (141014): drop_caches: 3
+[136370.311634] sh (141014): drop_caches: 3
+[136374.355300] sh (141014): drop_caches: 3
+[136378.400190] sh (141014): drop_caches: 3
+[136382.444951] sh (141014): drop_caches: 3
+[136386.490740] sh (141014): drop_caches: 3
+[136390.534924] sh (141014): drop_caches: 3
+[136394.579987] sh (141014): drop_caches: 3
+[136398.625577] sh (141014): drop_caches: 3
+[136402.667190] sh (141014): drop_caches: 3
+[136406.711480] sh (141014): drop_caches: 3
+[136410.749879] sh (141014): drop_caches: 3
+[136414.787939] sh (141014): drop_caches: 3
+[136418.831528] sh (141014): drop_caches: 3
+[136422.875993] sh (141014): drop_caches: 3
+[136426.919034] sh (141014): drop_caches: 3
+[136430.961743] sh (141014): drop_caches: 3
+[136435.008532] sh (141014): drop_caches: 3
+[136439.053717] sh (141014): drop_caches: 3
+[136443.098501] sh (141014): drop_caches: 3
+[136447.142393] sh (141014): drop_caches: 3
+[136451.187535] sh (141014): drop_caches: 3
+[136455.233111] sh (141014): drop_caches: 3
+[136459.279292] sh (141014): drop_caches: 3
+[136463.324726] sh (141014): drop_caches: 3
+[136467.372813] sh (141014): drop_caches: 3
+[136471.419402] sh (141014): drop_caches: 3
+[136475.464881] sh (141014): drop_caches: 3
+[136479.509034] sh (141014): drop_caches: 3
+[136483.552410] sh (141014): drop_caches: 3
+[136487.596711] sh (141014): drop_caches: 3
+[136491.644185] sh (141014): drop_caches: 3
+[136495.691453] sh (141014): drop_caches: 3
+[136499.735093] sh (141014): drop_caches: 3
+[136503.781133] sh (141014): drop_caches: 3
+[136507.827510] sh (141014): drop_caches: 3
+[136511.872488] sh (141014): drop_caches: 3
+[136515.915648] sh (141014): drop_caches: 3
+[136519.960546] sh (141014): drop_caches: 3
+[136524.003571] sh (141014): drop_caches: 3
+[136528.047449] sh (141014): drop_caches: 3
+[136532.091891] sh (141014): drop_caches: 3
+[136536.134909] sh (141014): drop_caches: 3
+[136540.178328] sh (141014): drop_caches: 3
+[136544.221545] sh (141014): drop_caches: 3
+[136548.266439] sh (141014): drop_caches: 3
+[136552.309866] sh (141014): drop_caches: 3
+[136556.355491] sh (141014): drop_caches: 3
+[136560.398686] sh (141014): drop_caches: 3
+[136564.443249] sh (141014): drop_caches: 3
+[136568.487273] sh (141014): drop_caches: 3
+[136572.532789] sh (141014): drop_caches: 3
+[136576.577157] sh (141014): drop_caches: 3
+[136580.621673] sh (141014): drop_caches: 3
+[136584.666505] sh (141014): drop_caches: 3
+[136588.708875] sh (141014): drop_caches: 3
+[136592.752968] sh (141014): drop_caches: 3
+[136596.795628] sh (141014): drop_caches: 3
+[136600.842102] sh (141014): drop_caches: 3
+[136604.885504] sh (141014): drop_caches: 3
+[136608.928873] sh (141014): drop_caches: 3
+[136612.973524] sh (141014): drop_caches: 3
+[136617.019236] sh (141014): drop_caches: 3
+[136621.063318] sh (141014): drop_caches: 3
+[136625.107840] sh (141014): drop_caches: 3
+[136629.153664] sh (141014): drop_caches: 3
+[136633.196395] sh (141014): drop_caches: 3
+[136637.240180] sh (141014): drop_caches: 3
+[136641.283893] sh (141014): drop_caches: 3
+[136645.329355] sh (141014): drop_caches: 3
+[136649.373855] sh (141014): drop_caches: 3
+[136653.416510] sh (141014): drop_caches: 3
+[136657.459902] sh (141014): drop_caches: 3
+[136661.504852] sh (141014): drop_caches: 3
+[136665.549198] sh (141014): drop_caches: 3
+[136669.592713] sh (141014): drop_caches: 3
+[136673.635211] sh (141014): drop_caches: 3
+[136677.680028] sh (141014): drop_caches: 3
+[136681.723635] sh (141014): drop_caches: 3
+[136685.762281] sh (141014): drop_caches: 3
+[136689.801983] sh (141014): drop_caches: 3
+[136693.846097] sh (141014): drop_caches: 3
+[136697.883990] sh (141014): drop_caches: 3
+[136701.921207] sh (141014): drop_caches: 3
+[136705.959980] sh (141014): drop_caches: 3
+[136710.004198] sh (141014): drop_caches: 3
+[136714.047552] sh (141014): drop_caches: 3
+[136718.092470] sh (141014): drop_caches: 3
+[136722.135324] sh (141014): drop_caches: 3
+[136726.180288] sh (141014): drop_caches: 3
+[136730.223386] sh (141014): drop_caches: 3
+[136734.268114] sh (141014): drop_caches: 3
+[136738.312583] sh (141014): drop_caches: 3
+[136742.356942] sh (141014): drop_caches: 3
+[136746.402065] sh (141014): drop_caches: 3
+[136750.445701] sh (141014): drop_caches: 3
+[136754.489211] sh (141014): drop_caches: 3
+[136758.532879] sh (141014): drop_caches: 3
+[136762.575887] sh (141014): drop_caches: 3
+[136766.619554] sh (141014): drop_caches: 3
+[136770.663454] sh (141014): drop_caches: 3
+[136774.708219] sh (141014): drop_caches: 3
+[136778.746371] sh (141014): drop_caches: 3
+[136782.783774] sh (141014): drop_caches: 3
+[136786.827100] sh (141014): drop_caches: 3
+[136790.871225] sh (141014): drop_caches: 3
+[136794.914964] sh (141014): drop_caches: 3
+[136798.958598] sh (141014): drop_caches: 3
+[136803.002008] sh (141014): drop_caches: 3
+[136807.045226] sh (141014): drop_caches: 3
+[136811.088971] sh (141014): drop_caches: 3
+[136815.132386] sh (141014): drop_caches: 3
+[136819.175761] sh (141014): drop_caches: 3
+[136823.219517] sh (141014): drop_caches: 3
+[136827.263561] sh (141014): drop_caches: 3
+[136831.307182] sh (141014): drop_caches: 3
+[136835.350347] sh (141014): drop_caches: 3
+[136839.395961] sh (141014): drop_caches: 3
+[136843.439520] sh (141014): drop_caches: 3
+[136847.484707] sh (141014): drop_caches: 3
+[136851.528853] sh (141014): drop_caches: 3
+[136855.574871] sh (141014): drop_caches: 3
+[136859.622262] sh (141014): drop_caches: 3
+[136863.667376] sh (141014): drop_caches: 3
+[136867.710206] sh (141014): drop_caches: 3
+[136871.754651] sh (141014): drop_caches: 3
+[136875.800584] sh (141014): drop_caches: 3
+[136879.845121] sh (141014): drop_caches: 3
+[136883.881914] sh (141014): drop_caches: 3
+[136887.918549] sh (141014): drop_caches: 3
+[136891.963523] sh (141014): drop_caches: 3
+[136896.006299] sh (141014): drop_caches: 3
+[136900.052337] sh (141014): drop_caches: 3
+[136904.096342] sh (141014): drop_caches: 3
+[136908.140631] sh (141014): drop_caches: 3
+[136912.185918] sh (141014): drop_caches: 3
+[136916.231079] sh (141014): drop_caches: 3
+[136920.275220] sh (141014): drop_caches: 3
+[136924.320494] sh (141014): drop_caches: 3
+[136928.366284] sh (141014): drop_caches: 3
+[136932.410271] sh (141014): drop_caches: 3
+[136936.453868] sh (141014): drop_caches: 3
+[136940.497724] sh (141014): drop_caches: 3
+[136944.543181] sh (141014): drop_caches: 3
+[136948.587816] sh (141014): drop_caches: 3
+[136952.633965] sh (141014): drop_caches: 3
+[136956.678578] sh (141014): drop_caches: 3
+[136960.715378] sh (141014): drop_caches: 3
+[136964.758555] sh (141014): drop_caches: 3
+[136968.803786] sh (141014): drop_caches: 3
+[136972.847157] sh (141014): drop_caches: 3
+[136976.891666] sh (141014): drop_caches: 3
+[136980.936303] sh (141014): drop_caches: 3
+[136984.981261] sh (141014): drop_caches: 3
+[136989.025265] sh (141014): drop_caches: 3
+[136993.070682] sh (141014): drop_caches: 3
+[136997.114992] sh (141014): drop_caches: 3
+[137001.158116] sh (141014): drop_caches: 3
+[137005.202789] sh (141014): drop_caches: 3
+[137009.248137] sh (141014): drop_caches: 3
+[137013.292531] sh (141014): drop_caches: 3
+[137017.336598] sh (141014): drop_caches: 3
+[137021.380401] sh (141014): drop_caches: 3
+[137025.425132] sh (141014): drop_caches: 3
+[137029.469720] sh (141014): drop_caches: 3
+[137033.514409] sh (141014): drop_caches: 3
+[137037.555030] sh (141014): drop_caches: 3
+[137041.597513] sh (141014): drop_caches: 3
+[137045.625834] sh (141014): drop_caches: 3
+[137045.673838] iCAT_SQLITE_RUN_END run=20260830-111610-140884
+[137045.694057] EXT4-fs (nvme1n1): unmounting filesystem b3c9411a-4bea-4a8f-aba0-a112b6e4c579.
+[137045.801473] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[137045.801522] NVMeVirt: GC stats: policy=cat-fig7 host_pages=32424579 gc_pages=14165195 gc_count=727958 WAF=1.436 k=10 scale_pct=200 age_ratio=4
+[137045.871684] NVMeVirt: Virtual NVMe device closed

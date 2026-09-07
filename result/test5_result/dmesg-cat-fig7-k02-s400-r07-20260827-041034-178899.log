@@ -1,0 +1,44 @@
+[130737.289198] NVMeVirt: Version 1.10 for >> Samsung 970 Pro SSD <<
+[130737.289207] NVMeVirt: Storage: 0x100100000-0x300000000 (8191 MiB)
+[130737.296408] NVMeVirt: Total Capacity(GiB,MiB)=2,2048 chs=2 luns=4 lines=8192 blk-size(MiB,KiB)=0,64 line-size(MiB,KiB)=0,256
+[130737.305821] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.312593] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.312608] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[130737.313867] NVMeVirt: pqueue: Copyright (c) 2014, Volkan Yazıcı <volkan.yazici@gmail.com>. All rights reserved.
+[130737.313904] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[130737.313905] NVMeVirt: GC victim policy: cat-fig7 k=2 scale_pct=400 age_ratio=7
+[130737.320493] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.326916] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.326930] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[130737.328174] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[130737.328175] NVMeVirt: GC victim policy: cat-fig7 k=2 scale_pct=400 age_ratio=7
+[130737.334599] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.341021] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.341034] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[130737.342288] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[130737.342289] NVMeVirt: GC victim policy: cat-fig7 k=2 scale_pct=400 age_ratio=7
+[130737.348674] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.354982] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[130737.354995] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[130737.356240] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[130737.356241] NVMeVirt: GC victim policy: cat-fig7 k=2 scale_pct=400 age_ratio=7
+[130737.356245] NVMeVirt: FTL physical space: 8588886016, logical space: 8026996276 (physical/logical * 100 = 107)
+[130737.356246] NVMeVirt: ns 0/1: size 7655 MiB
+[130737.356287] PCI host bridge to bus 0001:10
+[130737.356288] pci_bus 0001:10: root bus resource [io  0x0000-0xffff]
+[130737.356291] pci_bus 0001:10: root bus resource [mem 0x00000000-0x3fffffffffff]
+[130737.356293] pci_bus 0001:10: root bus resource [bus 00-ff]
+[130737.356299] pci 0001:10:00.0: [0c51:0110] type 00 class 0x010802 PCIe Endpoint
+[130737.356302] pci 0001:10:00.0: BAR 0 [mem 0x100000000-0x100003fff 64bit]
+[130737.356304] pci 0001:10:00.0: enabling Extended Tags
+[130737.356418] NVMeVirt: Virtual PCI bus created (node 0)
+[130737.356980] NVMeVirt: nvmev_io_worker_0 started on cpu 2 (node 0)
+[130737.357043] NVMeVirt: nvmev_dispatcher started on cpu 1 (node 0)
+[130737.357201] nvme nvme1: pci function 0001:10:00.0
+[130737.361134] nvme nvme1: 20/0/0 default/read/poll queues
+[130737.363697] NVMeVirt: Virtual NVMe device created
+[130738.418134] EXT4-fs (nvme1n1): mounted filesystem 66cbcfef-bca3-42f8-b63e-70aec813178a r/w with ordered data mode. Quota mode: none.
+[131342.081678] EXT4-fs (nvme1n1): unmounting filesystem 66cbcfef-bca3-42f8-b63e-70aec813178a.
+[131342.145230] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[131342.145260] NVMeVirt: GC stats: policy=cat-fig7 host_pages=23526081 gc_pages=14396540 gc_count=592535 WAF=1.611 k=2 scale_pct=400 age_ratio=7
+[131342.208596] NVMeVirt: Virtual NVMe device closed

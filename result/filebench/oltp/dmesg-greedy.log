@@ -1,0 +1,63 @@
+[  511.772218] nvmev: loading out-of-tree module taints kernel.
+[  511.772231] nvmev: module verification failed: signature and/or required key missing - tainting kernel
+[  511.773996] NVMeVirt: Version 1.10 for >> Samsung 970 Pro SSD <<
+[  511.774024] NVMeVirt: Storage: 0x100100000-0x300000000 (8191 MiB)
+[  511.783968] NVMeVirt: Total Capacity(GiB,MiB)=2,2048 chs=2 luns=4 lines=8192 blk-size(MiB,KiB)=0,64 line-size(MiB,KiB)=0,256
+[  511.793382] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.799827] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.799841] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[  511.800981] NVMeVirt: pqueue: Copyright (c) 2014, Volkan Yazıcı <volkan.yazici@gmail.com>. All rights reserved.
+[  511.801023] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[  511.801025] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[  511.807481] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.813884] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.813897] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[  511.815081] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[  511.815082] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[  511.821535] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.827923] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.827936] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[  511.829190] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[  511.829191] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[  511.835568] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.841957] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[  511.841971] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[  511.843180] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[  511.843181] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[  511.843185] NVMeVirt: FTL physical space: 8588886016, logical space: 8026996276 (physical/logical * 100 = 107)
+[  511.843186] NVMeVirt: ns 0/1: size 7655 MiB
+[  511.843226] PCI host bridge to bus 0001:10
+[  511.843228] pci_bus 0001:10: root bus resource [io  0x0000-0xffff]
+[  511.843230] pci_bus 0001:10: root bus resource [mem 0x00000000-0x3fffffffffff]
+[  511.843231] pci_bus 0001:10: root bus resource [bus 00-ff]
+[  511.843237] pci 0001:10:00.0: [0c51:0110] type 00 class 0x010802 PCIe Endpoint
+[  511.843239] pci 0001:10:00.0: BAR 0 [mem 0x100000000-0x100003fff 64bit]
+[  511.843241] pci 0001:10:00.0: enabling Extended Tags
+[  511.843349] NVMeVirt: Virtual PCI bus created (node 0)
+[  511.843888] NVMeVirt: nvmev_io_worker_0 started on cpu 2 (node 0)
+[  511.843900] NVMeVirt: nvmev_dispatcher started on cpu 1 (node 0)
+[  511.844148] nvme nvme1: pci function 0001:10:00.0
+[  511.846773] nvme nvme1: 20/0/0 default/read/poll queues
+[  511.849237] NVMeVirt: Virtual NVMe device created
+[  512.911633] EXT4-fs (nvme1n1): mounted filesystem b647a42d-36c7-4c9e-acf7-bae0a2de6ef9 r/w with ordered data mode. Quota mode: none.
+[  516.108675] iCAT_FILEBENCH_MEASURE_START run=20260830-224917-2817
+[  517.412768] sh (2924): drop_caches: 3
+[  521.576784] sh (2924): drop_caches: 3
+[  525.730534] sh (2924): drop_caches: 3
+[  529.858583] sh (2924): drop_caches: 3
+[  533.983126] sh (2924): drop_caches: 3
+[  538.101974] sh (2924): drop_caches: 3
+[  542.227858] sh (2924): drop_caches: 3
+[  546.353671] sh (2924): drop_caches: 3
+[  550.480088] sh (2924): drop_caches: 3
+[  554.600166] sh (2924): drop_caches: 3
+[  558.719877] sh (2924): drop_caches: 3
+[  562.841338] sh (2924): drop_caches: 3
+[  566.970355] sh (2924): drop_caches: 3
+[  571.096852] sh (2924): drop_caches: 3
+[  575.227928] sh (2924): drop_caches: 3
+[  578.307638] iCAT_FILEBENCH_MEASURE_END run=20260830-224917-2817
+[  579.280625] EXT4-fs (nvme1n1): unmounting filesystem b647a42d-36c7-4c9e-acf7-bae0a2de6ef9.
+[  579.366688] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[  579.366718] NVMeVirt: GC stats: policy=greedy host_pages=3157998 gc_pages=2081228 gc_count=81854 WAF=1.659 k=0 scale_pct=0 age_ratio=0
+[  579.430517] NVMeVirt: Virtual NVMe device closed

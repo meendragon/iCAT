@@ -1,0 +1,55 @@
+[START] module=cat-fig7-k07-s025-r16
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: bfc0a220-58d8-4620-8ace-074d4d888a29
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[WORKLOAD] source=/home/meen/iCAT/workloads/filebench/oltp.f runtime=60s
+Filebench Version 1.5-alpha3
+0.000: Allocated 177MB of shared memory
+0.002: OLTP Version 3.0 personality successfully loaded
+0.002: Populating and pre-allocating filesets
+0.003: logfile populated: 1 files, avg. dir. width = 1024, avg. dir. depth = 0.0, 0 leafdirs, 10.000MB total size
+0.003: Removing logfile tree (if exists)
+0.004: Pre-allocating directories in logfile tree
+0.004: Pre-allocating files in logfile tree
+0.007: datafiles populated: 10 files, avg. dir. width = 1024, avg. dir. depth = 0.3, 0 leafdirs, 5120.000MB total size
+0.007: Removing datafiles tree (if exists)
+0.008: Pre-allocating directories in datafiles tree
+0.008: Pre-allocating files in datafiles tree
+2.105: Waiting for pre-allocation to finish (in case of a parallel pre-allocation)
+2.105: Population and pre-allocation of filesets completed
+2.105: Starting 200 shadow instances
+2.159: Starting 10 dbwr instances
+2.161: Starting 1 lgwr instances
+3.162: Running...
+63.227: Run took 60 seconds...
+63.230: Per-Operation Breakdown
+random-rate          0ops        0ops/s   0.0mb/s    0.000ms/op [0.000ms - 0.000ms]
+shadow-post-dbwr     2944659ops    49026ops/s   0.0mb/s    3.576ms/op [0.005ms - 131.425ms]
+shadow-post-lg       2944660ops    49026ops/s   0.0mb/s    0.009ms/op [0.000ms - 27.262ms]
+shadowhog            2944686ops    49026ops/s   0.0mb/s    0.182ms/op [0.050ms - 37.632ms]
+shadowread           2970317ops    49453ops/s  95.8mb/s    0.233ms/op [0.001ms - 80.729ms]
+dbwr-aiowait         29438ops      490ops/s   0.0mb/s    0.042ms/op [0.001ms - 18.188ms]
+dbwr-block           29439ops      490ops/s   0.0mb/s   18.673ms/op [0.001ms - 127.252ms]
+dbwr-hog             29448ops      490ops/s   0.0mb/s    0.004ms/op [0.002ms - 2.878ms]
+dbwrite-a            2946080ops    49049ops/s  95.8mb/s    0.001ms/op [0.000ms - 15.975ms]
+lg-block             920ops       15ops/s   0.0mb/s   65.225ms/op [14.642ms - 213.565ms]
+lg-aiowait           921ops       15ops/s   0.0mb/s    0.000ms/op [0.000ms - 0.004ms]
+lg-write             922ops       15ops/s   3.8mb/s    0.004ms/op [0.001ms - 0.160ms]
+63.230: IO Summary: 5947678 ops 99022.757 ops/s 49453/49065 rd/wr 195.3mb/s 0.117ms/op
+63.230: Shutting down processes
+[DURABLE] sync + NVMe flush
+[FLUSH] phase=run-durable-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/filebench/oltp/summary.txt
+[RESULT] app=/home/meen/iCAT/result/filebench/oltp/cat-fig7-k07-s025-r16.txt
+[RESULT] dmesg=/home/meen/iCAT/result/filebench/oltp/dmesg-cat-fig7-k07-s025-r16.log
+[RESULT] summary=/home/meen/iCAT/result/filebench/oltp/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/filebench/oltp/summary.txt
+[WAF] module=cat-fig7-k07-s025-r16 WAF=1.675 host_pages=2928318 gc_copied=N/A -> /home/meen/iCAT/result/filebench/oltp/summary.txt

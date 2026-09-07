@@ -15,7 +15,7 @@ readonly RESULT_DIR="/home/meen/iCAT/result"
 readonly START_SCRIPT="${SCRIPT_DIR}/start_virt.sh"
 readonly END_SCRIPT="${SCRIPT_DIR}/end_virt.sh"
 readonly PRESET_JOB="${WORKLOAD_DIR}/preset.fio"
-readonly TEST_JOB="${WORKLOAD_DIR}/test3.fio"
+readonly TEST_JOB="${WORKLOAD_DIR}/test5.fio"
 readonly DEVICE="/dev/nvme1n1"
 
 readonly SUDO_BIN="/usr/bin/sudo"

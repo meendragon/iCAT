@@ -1,0 +1,1891 @@
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:50:24 +0900
+module      : greedy
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:50:25 +0900
+module      : greedy
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:50:25 +0900
+module      : greedy
+workload    : oltp
+source      : dmesg
+WAF         : 1.659
+waf_x1000   : N/A
+host_pages  : 3157998
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  579.366718] NVMeVirt: GC stats: policy=greedy host_pages=3157998 gc_pages=2081228 gc_count=81854 WAF=1.659 k=0 scale_pct=0 age_ratio=0
+--- all current-run WAF lines ---
+[  579.366718] NVMeVirt: GC stats: policy=greedy host_pages=3157998 gc_pages=2081228 gc_count=81854 WAF=1.659 k=0 scale_pct=0 age_ratio=0
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:51:32 +0900
+module      : cat-fig7-k02-s025-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:51:33 +0900
+module      : cat-fig7-k02-s025-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:51:33 +0900
+module      : cat-fig7-k02-s025-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.665
+waf_x1000   : N/A
+host_pages  : 2750743
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  647.287040] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2750743 gc_pages=1831564 gc_count=71588 WAF=1.665 k=2 scale_pct=25 age_ratio=4
+--- all current-run WAF lines ---
+[  647.287040] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2750743 gc_pages=1831564 gc_count=71588 WAF=1.665 k=2 scale_pct=25 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:52:40 +0900
+module      : cat-fig7-k02-s025-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:52:41 +0900
+module      : cat-fig7-k02-s025-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:52:41 +0900
+module      : cat-fig7-k02-s025-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.654
+waf_x1000   : N/A
+host_pages  : 3085920
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  715.256289] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3085920 gc_pages=2020713 gc_count=79781 WAF=1.654 k=2 scale_pct=25 age_ratio=7
+--- all current-run WAF lines ---
+[  715.256289] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3085920 gc_pages=2020713 gc_count=79781 WAF=1.654 k=2 scale_pct=25 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:53:48 +0900
+module      : cat-fig7-k02-s025-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:53:49 +0900
+module      : cat-fig7-k02-s025-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:53:49 +0900
+module      : cat-fig7-k02-s025-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.639
+waf_x1000   : N/A
+host_pages  : 3209160
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  783.113633] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3209160 gc_pages=2052540 gc_count=82205 WAF=1.639 k=2 scale_pct=25 age_ratio=16
+--- all current-run WAF lines ---
+[  783.113633] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3209160 gc_pages=2052540 gc_count=82205 WAF=1.639 k=2 scale_pct=25 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:54:55 +0900
+module      : cat-fig7-k02-s050-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:54:57 +0900
+module      : cat-fig7-k02-s050-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:54:57 +0900
+module      : cat-fig7-k02-s050-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.643
+waf_x1000   : N/A
+host_pages  : 3117980
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  851.085879] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117980 gc_pages=2006327 gc_count=80058 WAF=1.643 k=2 scale_pct=50 age_ratio=4
+--- all current-run WAF lines ---
+[  851.085879] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117980 gc_pages=2006327 gc_count=80058 WAF=1.643 k=2 scale_pct=50 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:56:03 +0900
+module      : cat-fig7-k02-s050-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:56:05 +0900
+module      : cat-fig7-k02-s050-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:56:05 +0900
+module      : cat-fig7-k02-s050-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.620
+waf_x1000   : N/A
+host_pages  : 3055398
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  919.197186] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3055398 gc_pages=1894753 gc_count=77336 WAF=1.620 k=2 scale_pct=50 age_ratio=7
+--- all current-run WAF lines ---
+[  919.197186] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3055398 gc_pages=1894753 gc_count=77336 WAF=1.620 k=2 scale_pct=50 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:57:12 +0900
+module      : cat-fig7-k02-s050-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:57:13 +0900
+module      : cat-fig7-k02-s050-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:57:13 +0900
+module      : cat-fig7-k02-s050-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.680
+waf_x1000   : N/A
+host_pages  : 3140558
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[  987.259656] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3140558 gc_pages=2137346 gc_count=82458 WAF=1.680 k=2 scale_pct=50 age_ratio=16
+--- all current-run WAF lines ---
+[  987.259656] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3140558 gc_pages=2137346 gc_count=82458 WAF=1.680 k=2 scale_pct=50 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:58:20 +0900
+module      : cat-fig7-k02-s100-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:58:21 +0900
+module      : cat-fig7-k02-s100-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:58:21 +0900
+module      : cat-fig7-k02-s100-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.618
+waf_x1000   : N/A
+host_pages  : 3285817
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1055.183983] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3285817 gc_pages=2033732 gc_count=83109 WAF=1.618 k=2 scale_pct=100 age_ratio=4
+--- all current-run WAF lines ---
+[ 1055.183983] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3285817 gc_pages=2033732 gc_count=83109 WAF=1.618 k=2 scale_pct=100 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:59:28 +0900
+module      : cat-fig7-k02-s100-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 22:59:29 +0900
+module      : cat-fig7-k02-s100-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 22:59:29 +0900
+module      : cat-fig7-k02-s100-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.639
+waf_x1000   : N/A
+host_pages  : 2990865
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1123.047168] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2990865 gc_pages=1913043 gc_count=76614 WAF=1.639 k=2 scale_pct=100 age_ratio=7
+--- all current-run WAF lines ---
+[ 1123.047168] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2990865 gc_pages=1913043 gc_count=76614 WAF=1.639 k=2 scale_pct=100 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:00:35 +0900
+module      : cat-fig7-k02-s100-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:00:37 +0900
+module      : cat-fig7-k02-s100-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:00:37 +0900
+module      : cat-fig7-k02-s100-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.625
+waf_x1000   : N/A
+host_pages  : 3532613
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1191.206616] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3532613 gc_pages=2208796 gc_count=89700 WAF=1.625 k=2 scale_pct=100 age_ratio=16
+--- all current-run WAF lines ---
+[ 1191.206616] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3532613 gc_pages=2208796 gc_count=89700 WAF=1.625 k=2 scale_pct=100 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:01:44 +0900
+module      : cat-fig7-k02-s200-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:01:44 +0900
+module      : cat-fig7-k02-s200-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:01:45 +0900
+module      : cat-fig7-k02-s200-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.599
+waf_x1000   : N/A
+host_pages  : 2978723
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1258.961873] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2978723 gc_pages=1785536 gc_count=74432 WAF=1.599 k=2 scale_pct=200 age_ratio=4
+--- all current-run WAF lines ---
+[ 1258.961873] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2978723 gc_pages=1785536 gc_count=74432 WAF=1.599 k=2 scale_pct=200 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:02:51 +0900
+module      : cat-fig7-k02-s200-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:02:52 +0900
+module      : cat-fig7-k02-s200-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:02:53 +0900
+module      : cat-fig7-k02-s200-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.613
+waf_x1000   : N/A
+host_pages  : 3121573
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1326.813395] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3121573 gc_pages=1915696 gc_count=78697 WAF=1.613 k=2 scale_pct=200 age_ratio=7
+--- all current-run WAF lines ---
+[ 1326.813395] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3121573 gc_pages=1915696 gc_count=78697 WAF=1.613 k=2 scale_pct=200 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:03:59 +0900
+module      : cat-fig7-k02-s200-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:04:00 +0900
+module      : cat-fig7-k02-s200-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:04:00 +0900
+module      : cat-fig7-k02-s200-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.593
+waf_x1000   : N/A
+host_pages  : 3153606
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1394.685568] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3153606 gc_pages=1871612 gc_count=78509 WAF=1.593 k=2 scale_pct=200 age_ratio=16
+--- all current-run WAF lines ---
+[ 1394.685568] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3153606 gc_pages=1871612 gc_count=78509 WAF=1.593 k=2 scale_pct=200 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:05:07 +0900
+module      : cat-fig7-k02-s400-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:05:08 +0900
+module      : cat-fig7-k02-s400-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:05:08 +0900
+module      : cat-fig7-k02-s400-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.600
+waf_x1000   : N/A
+host_pages  : 3089305
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1462.538072] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3089305 gc_pages=1856368 gc_count=77266 WAF=1.600 k=2 scale_pct=400 age_ratio=4
+--- all current-run WAF lines ---
+[ 1462.538072] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3089305 gc_pages=1856368 gc_count=77266 WAF=1.600 k=2 scale_pct=400 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:06:15 +0900
+module      : cat-fig7-k02-s400-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:06:16 +0900
+module      : cat-fig7-k02-s400-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:06:16 +0900
+module      : cat-fig7-k02-s400-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.616
+waf_x1000   : N/A
+host_pages  : 3355829
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1530.520363] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3355829 gc_pages=2069827 gc_count=84766 WAF=1.616 k=2 scale_pct=400 age_ratio=7
+--- all current-run WAF lines ---
+[ 1530.520363] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3355829 gc_pages=2069827 gc_count=84766 WAF=1.616 k=2 scale_pct=400 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:07:23 +0900
+module      : cat-fig7-k02-s400-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:07:24 +0900
+module      : cat-fig7-k02-s400-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:07:24 +0900
+module      : cat-fig7-k02-s400-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.635
+waf_x1000   : N/A
+host_pages  : 2798971
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1598.258616] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2798971 gc_pages=1777697 gc_count=71500 WAF=1.635 k=2 scale_pct=400 age_ratio=16
+--- all current-run WAF lines ---
+[ 1598.258616] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2798971 gc_pages=1777697 gc_count=71500 WAF=1.635 k=2 scale_pct=400 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:08:31 +0900
+module      : cat-fig7-k04-s025-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:08:32 +0900
+module      : cat-fig7-k04-s025-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:08:32 +0900
+module      : cat-fig7-k04-s025-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.660
+waf_x1000   : N/A
+host_pages  : 3045772
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1666.347894] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3045772 gc_pages=2010348 gc_count=78992 WAF=1.660 k=4 scale_pct=25 age_ratio=4
+--- all current-run WAF lines ---
+[ 1666.347894] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3045772 gc_pages=2010348 gc_count=78992 WAF=1.660 k=4 scale_pct=25 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:09:39 +0900
+module      : cat-fig7-k04-s025-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:09:40 +0900
+module      : cat-fig7-k04-s025-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:09:40 +0900
+module      : cat-fig7-k04-s025-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.620
+waf_x1000   : N/A
+host_pages  : 2978410
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1734.195332] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2978410 gc_pages=1847256 gc_count=75391 WAF=1.620 k=4 scale_pct=25 age_ratio=7
+--- all current-run WAF lines ---
+[ 1734.195332] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2978410 gc_pages=1847256 gc_count=75391 WAF=1.620 k=4 scale_pct=25 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:10:47 +0900
+module      : cat-fig7-k04-s025-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:10:48 +0900
+module      : cat-fig7-k04-s025-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:10:48 +0900
+module      : cat-fig7-k04-s025-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.626
+waf_x1000   : N/A
+host_pages  : 3117544
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1802.127468] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117544 gc_pages=1951812 gc_count=79199 WAF=1.626 k=4 scale_pct=25 age_ratio=16
+--- all current-run WAF lines ---
+[ 1802.127468] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117544 gc_pages=1951812 gc_count=79199 WAF=1.626 k=4 scale_pct=25 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:11:55 +0900
+module      : cat-fig7-k04-s050-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:11:56 +0900
+module      : cat-fig7-k04-s050-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:11:56 +0900
+module      : cat-fig7-k04-s050-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.632
+waf_x1000   : N/A
+host_pages  : 3095816
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1870.112775] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3095816 gc_pages=1956779 gc_count=78937 WAF=1.632 k=4 scale_pct=50 age_ratio=4
+--- all current-run WAF lines ---
+[ 1870.112775] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3095816 gc_pages=1956779 gc_count=78937 WAF=1.632 k=4 scale_pct=50 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:13:02 +0900
+module      : cat-fig7-k04-s050-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:13:04 +0900
+module      : cat-fig7-k04-s050-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:13:04 +0900
+module      : cat-fig7-k04-s050-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.659
+waf_x1000   : N/A
+host_pages  : 3125876
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 1938.087212] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3125876 gc_pages=2062501 gc_count=81058 WAF=1.659 k=4 scale_pct=50 age_ratio=7
+--- all current-run WAF lines ---
+[ 1938.087212] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3125876 gc_pages=2062501 gc_count=81058 WAF=1.659 k=4 scale_pct=50 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:14:10 +0900
+module      : cat-fig7-k04-s050-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:14:12 +0900
+module      : cat-fig7-k04-s050-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:14:12 +0900
+module      : cat-fig7-k04-s050-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.684
+waf_x1000   : N/A
+host_pages  : 3003174
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2006.073581] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3003174 gc_pages=2054181 gc_count=79012 WAF=1.684 k=4 scale_pct=50 age_ratio=16
+--- all current-run WAF lines ---
+[ 2006.073581] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3003174 gc_pages=2054181 gc_count=79012 WAF=1.684 k=4 scale_pct=50 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:15:18 +0900
+module      : cat-fig7-k04-s100-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:15:19 +0900
+module      : cat-fig7-k04-s100-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:15:20 +0900
+module      : cat-fig7-k04-s100-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.596
+waf_x1000   : N/A
+host_pages  : 3007222
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2073.948801] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3007222 gc_pages=1793624 gc_count=75003 WAF=1.596 k=4 scale_pct=100 age_ratio=4
+--- all current-run WAF lines ---
+[ 2073.948801] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3007222 gc_pages=1793624 gc_count=75003 WAF=1.596 k=4 scale_pct=100 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:16:26 +0900
+module      : cat-fig7-k04-s100-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:16:27 +0900
+module      : cat-fig7-k04-s100-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:16:28 +0900
+module      : cat-fig7-k04-s100-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.627
+waf_x1000   : N/A
+host_pages  : 3099868
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2141.839471] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3099868 gc_pages=1945512 gc_count=78824 WAF=1.627 k=4 scale_pct=100 age_ratio=7
+--- all current-run WAF lines ---
+[ 2141.839471] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3099868 gc_pages=1945512 gc_count=78824 WAF=1.627 k=4 scale_pct=100 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:17:34 +0900
+module      : cat-fig7-k04-s100-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:17:35 +0900
+module      : cat-fig7-k04-s100-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:17:36 +0900
+module      : cat-fig7-k04-s100-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.658
+waf_x1000   : N/A
+host_pages  : 3117477
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2209.794189] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117477 gc_pages=2053216 gc_count=80782 WAF=1.658 k=4 scale_pct=100 age_ratio=16
+--- all current-run WAF lines ---
+[ 2209.794189] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3117477 gc_pages=2053216 gc_count=80782 WAF=1.658 k=4 scale_pct=100 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:18:42 +0900
+module      : cat-fig7-k04-s200-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:18:43 +0900
+module      : cat-fig7-k04-s200-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:18:44 +0900
+module      : cat-fig7-k04-s200-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.696
+waf_x1000   : N/A
+host_pages  : 3034224
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2277.890014] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3034224 gc_pages=2114217 gc_count=80435 WAF=1.696 k=4 scale_pct=200 age_ratio=4
+--- all current-run WAF lines ---
+[ 2277.890014] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3034224 gc_pages=2114217 gc_count=80435 WAF=1.696 k=4 scale_pct=200 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:19:50 +0900
+module      : cat-fig7-k04-s200-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:19:51 +0900
+module      : cat-fig7-k04-s200-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:19:52 +0900
+module      : cat-fig7-k04-s200-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.639
+waf_x1000   : N/A
+host_pages  : 2987216
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2345.857951] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2987216 gc_pages=1909366 gc_count=76499 WAF=1.639 k=4 scale_pct=200 age_ratio=7
+--- all current-run WAF lines ---
+[ 2345.857951] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2987216 gc_pages=1909366 gc_count=76499 WAF=1.639 k=4 scale_pct=200 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:20:58 +0900
+module      : cat-fig7-k04-s200-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:20:59 +0900
+module      : cat-fig7-k04-s200-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:21:00 +0900
+module      : cat-fig7-k04-s200-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.616
+waf_x1000   : N/A
+host_pages  : 3020020
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2413.772947] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3020020 gc_pages=1860888 gc_count=76255 WAF=1.616 k=4 scale_pct=200 age_ratio=16
+--- all current-run WAF lines ---
+[ 2413.772947] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3020020 gc_pages=1860888 gc_count=76255 WAF=1.616 k=4 scale_pct=200 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:22:06 +0900
+module      : cat-fig7-k04-s400-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:22:07 +0900
+module      : cat-fig7-k04-s400-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:22:08 +0900
+module      : cat-fig7-k04-s400-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.620
+waf_x1000   : N/A
+host_pages  : 3197407
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2481.873895] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3197407 gc_pages=1984905 gc_count=80964 WAF=1.620 k=4 scale_pct=400 age_ratio=4
+--- all current-run WAF lines ---
+[ 2481.873895] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3197407 gc_pages=1984905 gc_count=80964 WAF=1.620 k=4 scale_pct=400 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:23:14 +0900
+module      : cat-fig7-k04-s400-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:23:16 +0900
+module      : cat-fig7-k04-s400-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:23:16 +0900
+module      : cat-fig7-k04-s400-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.681
+waf_x1000   : N/A
+host_pages  : 3330282
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2550.137856] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3330282 gc_pages=2267972 gc_count=87462 WAF=1.681 k=4 scale_pct=400 age_ratio=7
+--- all current-run WAF lines ---
+[ 2550.137856] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3330282 gc_pages=2267972 gc_count=87462 WAF=1.681 k=4 scale_pct=400 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:24:23 +0900
+module      : cat-fig7-k04-s400-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:24:24 +0900
+module      : cat-fig7-k04-s400-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:24:24 +0900
+module      : cat-fig7-k04-s400-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.686
+waf_x1000   : N/A
+host_pages  : 3120287
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2618.204024] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3120287 gc_pages=2143319 gc_count=82234 WAF=1.686 k=4 scale_pct=400 age_ratio=16
+--- all current-run WAF lines ---
+[ 2618.204024] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3120287 gc_pages=2143319 gc_count=82234 WAF=1.686 k=4 scale_pct=400 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:25:31 +0900
+module      : cat-fig7-k07-s025-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:25:32 +0900
+module      : cat-fig7-k07-s025-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:25:32 +0900
+module      : cat-fig7-k07-s025-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.647
+waf_x1000   : N/A
+host_pages  : 3098110
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2686.200131] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3098110 gc_pages=2004967 gc_count=79726 WAF=1.647 k=7 scale_pct=25 age_ratio=4
+--- all current-run WAF lines ---
+[ 2686.200131] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3098110 gc_pages=2004967 gc_count=79726 WAF=1.647 k=7 scale_pct=25 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:26:39 +0900
+module      : cat-fig7-k07-s025-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:26:40 +0900
+module      : cat-fig7-k07-s025-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:26:40 +0900
+module      : cat-fig7-k07-s025-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.582
+waf_x1000   : N/A
+host_pages  : 3139807
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2754.217156] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3139807 gc_pages=1829654 gc_count=77638 WAF=1.582 k=7 scale_pct=25 age_ratio=7
+--- all current-run WAF lines ---
+[ 2754.217156] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3139807 gc_pages=1829654 gc_count=77638 WAF=1.582 k=7 scale_pct=25 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:27:47 +0900
+module      : cat-fig7-k07-s025-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:27:48 +0900
+module      : cat-fig7-k07-s025-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:27:48 +0900
+module      : cat-fig7-k07-s025-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.675
+waf_x1000   : N/A
+host_pages  : 2928318
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2822.212449] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2928318 gc_pages=1978038 gc_count=76653 WAF=1.675 k=7 scale_pct=25 age_ratio=16
+--- all current-run WAF lines ---
+[ 2822.212449] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2928318 gc_pages=1978038 gc_count=76653 WAF=1.675 k=7 scale_pct=25 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:28:55 +0900
+module      : cat-fig7-k07-s050-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:28:56 +0900
+module      : cat-fig7-k07-s050-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:28:56 +0900
+module      : cat-fig7-k07-s050-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.601
+waf_x1000   : N/A
+host_pages  : 3146809
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2890.116460] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3146809 gc_pages=1891747 gc_count=78718 WAF=1.601 k=7 scale_pct=50 age_ratio=4
+--- all current-run WAF lines ---
+[ 2890.116460] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3146809 gc_pages=1891747 gc_count=78718 WAF=1.601 k=7 scale_pct=50 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:30:02 +0900
+module      : cat-fig7-k07-s050-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:30:04 +0900
+module      : cat-fig7-k07-s050-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:30:04 +0900
+module      : cat-fig7-k07-s050-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.581
+waf_x1000   : N/A
+host_pages  : 3130775
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 2957.992427] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3130775 gc_pages=1819271 gc_count=77335 WAF=1.581 k=7 scale_pct=50 age_ratio=7
+--- all current-run WAF lines ---
+[ 2957.992427] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3130775 gc_pages=1819271 gc_count=77335 WAF=1.581 k=7 scale_pct=50 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:31:10 +0900
+module      : cat-fig7-k07-s050-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:31:11 +0900
+module      : cat-fig7-k07-s050-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:31:12 +0900
+module      : cat-fig7-k07-s050-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.625
+waf_x1000   : N/A
+host_pages  : 3241047
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3025.925849] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3241047 gc_pages=2028137 gc_count=82321 WAF=1.625 k=7 scale_pct=50 age_ratio=16
+--- all current-run WAF lines ---
+[ 3025.925849] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3241047 gc_pages=2028137 gc_count=82321 WAF=1.625 k=7 scale_pct=50 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:32:18 +0900
+module      : cat-fig7-k07-s100-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:32:19 +0900
+module      : cat-fig7-k07-s100-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:32:20 +0900
+module      : cat-fig7-k07-s100-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.638
+waf_x1000   : N/A
+host_pages  : 3086928
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3093.795922] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3086928 gc_pages=1972108 gc_count=79038 WAF=1.638 k=7 scale_pct=100 age_ratio=4
+--- all current-run WAF lines ---
+[ 3093.795922] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3086928 gc_pages=1972108 gc_count=79038 WAF=1.638 k=7 scale_pct=100 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:33:26 +0900
+module      : cat-fig7-k07-s100-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:33:27 +0900
+module      : cat-fig7-k07-s100-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:33:27 +0900
+module      : cat-fig7-k07-s100-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.615
+waf_x1000   : N/A
+host_pages  : 3228101
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3161.713113] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3228101 gc_pages=1988222 gc_count=81495 WAF=1.615 k=7 scale_pct=100 age_ratio=7
+--- all current-run WAF lines ---
+[ 3161.713113] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3228101 gc_pages=1988222 gc_count=81495 WAF=1.615 k=7 scale_pct=100 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:34:34 +0900
+module      : cat-fig7-k07-s100-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:34:35 +0900
+module      : cat-fig7-k07-s100-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:34:35 +0900
+module      : cat-fig7-k07-s100-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.590
+waf_x1000   : N/A
+host_pages  : 3259639
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3229.575249] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3259639 gc_pages=1925666 gc_count=81010 WAF=1.590 k=7 scale_pct=100 age_ratio=16
+--- all current-run WAF lines ---
+[ 3229.575249] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3259639 gc_pages=1925666 gc_count=81010 WAF=1.590 k=7 scale_pct=100 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:35:42 +0900
+module      : cat-fig7-k07-s200-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:35:43 +0900
+module      : cat-fig7-k07-s200-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:35:43 +0900
+module      : cat-fig7-k07-s200-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.676
+waf_x1000   : N/A
+host_pages  : 3042877
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3297.507482] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3042877 gc_pages=2059710 gc_count=79718 WAF=1.676 k=7 scale_pct=200 age_ratio=4
+--- all current-run WAF lines ---
+[ 3297.507482] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3042877 gc_pages=2059710 gc_count=79718 WAF=1.676 k=7 scale_pct=200 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:36:50 +0900
+module      : cat-fig7-k07-s200-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:36:51 +0900
+module      : cat-fig7-k07-s200-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:36:51 +0900
+module      : cat-fig7-k07-s200-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.628
+waf_x1000   : N/A
+host_pages  : 2828688
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3365.394570] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2828688 gc_pages=1778160 gc_count=71972 WAF=1.628 k=7 scale_pct=200 age_ratio=7
+--- all current-run WAF lines ---
+[ 3365.394570] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2828688 gc_pages=1778160 gc_count=71972 WAF=1.628 k=7 scale_pct=200 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:37:58 +0900
+module      : cat-fig7-k07-s200-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:37:59 +0900
+module      : cat-fig7-k07-s200-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:37:59 +0900
+module      : cat-fig7-k07-s200-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.677
+waf_x1000   : N/A
+host_pages  : 2893180
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3433.407814] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2893180 gc_pages=1959067 gc_count=75807 WAF=1.677 k=7 scale_pct=200 age_ratio=16
+--- all current-run WAF lines ---
+[ 3433.407814] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2893180 gc_pages=1959067 gc_count=75807 WAF=1.677 k=7 scale_pct=200 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:39:06 +0900
+module      : cat-fig7-k07-s400-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:39:07 +0900
+module      : cat-fig7-k07-s400-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:39:07 +0900
+module      : cat-fig7-k07-s400-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.584
+waf_x1000   : N/A
+host_pages  : 3187123
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3501.221026] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3187123 gc_pages=1861979 gc_count=78883 WAF=1.584 k=7 scale_pct=400 age_ratio=4
+--- all current-run WAF lines ---
+[ 3501.221026] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3187123 gc_pages=1861979 gc_count=78883 WAF=1.584 k=7 scale_pct=400 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:40:14 +0900
+module      : cat-fig7-k07-s400-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:40:15 +0900
+module      : cat-fig7-k07-s400-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:40:15 +0900
+module      : cat-fig7-k07-s400-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.640
+waf_x1000   : N/A
+host_pages  : 2702010
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3569.068410] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2702010 gc_pages=1731460 gc_count=69263 WAF=1.640 k=7 scale_pct=400 age_ratio=7
+--- all current-run WAF lines ---
+[ 3569.068410] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2702010 gc_pages=1731460 gc_count=69263 WAF=1.640 k=7 scale_pct=400 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:41:21 +0900
+module      : cat-fig7-k07-s400-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:41:23 +0900
+module      : cat-fig7-k07-s400-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:41:23 +0900
+module      : cat-fig7-k07-s400-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.698
+waf_x1000   : N/A
+host_pages  : 3311172
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3637.286542] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3311172 gc_pages=2312610 gc_count=87862 WAF=1.698 k=7 scale_pct=400 age_ratio=16
+--- all current-run WAF lines ---
+[ 3637.286542] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3311172 gc_pages=2312610 gc_count=87862 WAF=1.698 k=7 scale_pct=400 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:42:30 +0900
+module      : cat-fig7-k10-s025-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:42:31 +0900
+module      : cat-fig7-k10-s025-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:42:31 +0900
+module      : cat-fig7-k10-s025-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.646
+waf_x1000   : N/A
+host_pages  : 3167144
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3705.346895] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3167144 gc_pages=2049020 gc_count=81493 WAF=1.646 k=10 scale_pct=25 age_ratio=4
+--- all current-run WAF lines ---
+[ 3705.346895] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3167144 gc_pages=2049020 gc_count=81493 WAF=1.646 k=10 scale_pct=25 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:43:38 +0900
+module      : cat-fig7-k10-s025-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:43:39 +0900
+module      : cat-fig7-k10-s025-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:43:39 +0900
+module      : cat-fig7-k10-s025-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.583
+waf_x1000   : N/A
+host_pages  : 3228400
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3773.268990] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3228400 gc_pages=1883879 gc_count=79869 WAF=1.583 k=10 scale_pct=25 age_ratio=7
+--- all current-run WAF lines ---
+[ 3773.268990] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3228400 gc_pages=1883879 gc_count=79869 WAF=1.583 k=10 scale_pct=25 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:44:46 +0900
+module      : cat-fig7-k10-s025-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:44:47 +0900
+module      : cat-fig7-k10-s025-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:44:47 +0900
+module      : cat-fig7-k10-s025-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.607
+waf_x1000   : N/A
+host_pages  : 2981218
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3841.154223] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2981218 gc_pages=1811641 gc_count=74879 WAF=1.607 k=10 scale_pct=25 age_ratio=16
+--- all current-run WAF lines ---
+[ 3841.154223] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2981218 gc_pages=1811641 gc_count=74879 WAF=1.607 k=10 scale_pct=25 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:45:54 +0900
+module      : cat-fig7-k10-s050-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:45:55 +0900
+module      : cat-fig7-k10-s050-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:45:55 +0900
+module      : cat-fig7-k10-s050-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.630
+waf_x1000   : N/A
+host_pages  : 3045331
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3909.174480] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3045331 gc_pages=1921079 gc_count=77590 WAF=1.630 k=10 scale_pct=50 age_ratio=4
+--- all current-run WAF lines ---
+[ 3909.174480] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3045331 gc_pages=1921079 gc_count=77590 WAF=1.630 k=10 scale_pct=50 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:47:02 +0900
+module      : cat-fig7-k10-s050-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:47:03 +0900
+module      : cat-fig7-k10-s050-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:47:03 +0900
+module      : cat-fig7-k10-s050-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.576
+waf_x1000   : N/A
+host_pages  : 2950739
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 3977.041748] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2950739 gc_pages=1700658 gc_count=72669 WAF=1.576 k=10 scale_pct=50 age_ratio=7
+--- all current-run WAF lines ---
+[ 3977.041748] NVMeVirt: GC stats: policy=cat-fig7 host_pages=2950739 gc_pages=1700658 gc_count=72669 WAF=1.576 k=10 scale_pct=50 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:48:09 +0900
+module      : cat-fig7-k10-s050-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:48:10 +0900
+module      : cat-fig7-k10-s050-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:48:11 +0900
+module      : cat-fig7-k10-s050-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.577
+waf_x1000   : N/A
+host_pages  : 3095676
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4044.905030] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3095676 gc_pages=1788461 gc_count=76304 WAF=1.577 k=10 scale_pct=50 age_ratio=16
+--- all current-run WAF lines ---
+[ 4044.905030] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3095676 gc_pages=1788461 gc_count=76304 WAF=1.577 k=10 scale_pct=50 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:49:17 +0900
+module      : cat-fig7-k10-s100-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:49:18 +0900
+module      : cat-fig7-k10-s100-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:49:18 +0900
+module      : cat-fig7-k10-s100-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.587
+waf_x1000   : N/A
+host_pages  : 3009525
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4112.715575] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3009525 gc_pages=1767247 gc_count=74627 WAF=1.587 k=10 scale_pct=100 age_ratio=4
+--- all current-run WAF lines ---
+[ 4112.715575] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3009525 gc_pages=1767247 gc_count=74627 WAF=1.587 k=10 scale_pct=100 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:50:25 +0900
+module      : cat-fig7-k10-s100-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:50:26 +0900
+module      : cat-fig7-k10-s100-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:50:27 +0900
+module      : cat-fig7-k10-s100-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.624
+waf_x1000   : N/A
+host_pages  : 3271979
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4180.830559] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3271979 gc_pages=2044407 gc_count=83059 WAF=1.624 k=10 scale_pct=100 age_ratio=7
+--- all current-run WAF lines ---
+[ 4180.830559] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3271979 gc_pages=2044407 gc_count=83059 WAF=1.624 k=10 scale_pct=100 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:51:33 +0900
+module      : cat-fig7-k10-s100-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:51:34 +0900
+module      : cat-fig7-k10-s100-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:51:34 +0900
+module      : cat-fig7-k10-s100-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.593
+waf_x1000   : N/A
+host_pages  : 3250837
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4248.702856] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3250837 gc_pages=1930717 gc_count=80952 WAF=1.593 k=10 scale_pct=100 age_ratio=16
+--- all current-run WAF lines ---
+[ 4248.702856] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3250837 gc_pages=1930717 gc_count=80952 WAF=1.593 k=10 scale_pct=100 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:52:40 +0900
+module      : cat-fig7-k10-s200-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:52:42 +0900
+module      : cat-fig7-k10-s200-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:52:43 +0900
+module      : cat-fig7-k10-s200-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.650
+waf_x1000   : N/A
+host_pages  : 3119962
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4316.742727] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3119962 gc_pages=2029257 gc_count=80446 WAF=1.650 k=10 scale_pct=200 age_ratio=4
+--- all current-run WAF lines ---
+[ 4316.742727] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3119962 gc_pages=2029257 gc_count=80446 WAF=1.650 k=10 scale_pct=200 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:53:49 +0900
+module      : cat-fig7-k10-s200-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:53:50 +0900
+module      : cat-fig7-k10-s200-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:53:51 +0900
+module      : cat-fig7-k10-s200-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.630
+waf_x1000   : N/A
+host_pages  : 3186315
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4384.740744] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3186315 gc_pages=2010204 gc_count=81186 WAF=1.630 k=10 scale_pct=200 age_ratio=7
+--- all current-run WAF lines ---
+[ 4384.740744] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3186315 gc_pages=2010204 gc_count=81186 WAF=1.630 k=10 scale_pct=200 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:54:57 +0900
+module      : cat-fig7-k10-s200-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:54:58 +0900
+module      : cat-fig7-k10-s200-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:54:58 +0900
+module      : cat-fig7-k10-s200-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.642
+waf_x1000   : N/A
+host_pages  : 3207674
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4452.692632] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3207674 gc_pages=2062313 gc_count=82333 WAF=1.642 k=10 scale_pct=200 age_ratio=16
+--- all current-run WAF lines ---
+[ 4452.692632] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3207674 gc_pages=2062313 gc_count=82333 WAF=1.642 k=10 scale_pct=200 age_ratio=16
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:56:05 +0900
+module      : cat-fig7-k10-s400-r04
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:56:06 +0900
+module      : cat-fig7-k10-s400-r04
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:56:06 +0900
+module      : cat-fig7-k10-s400-r04
+workload    : oltp
+source      : dmesg
+WAF         : 1.598
+waf_x1000   : N/A
+host_pages  : 3226397
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4520.647315] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3226397 gc_pages=1930922 gc_count=80573 WAF=1.598 k=10 scale_pct=400 age_ratio=4
+--- all current-run WAF lines ---
+[ 4520.647315] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3226397 gc_pages=1930922 gc_count=80573 WAF=1.598 k=10 scale_pct=400 age_ratio=4
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:57:13 +0900
+module      : cat-fig7-k10-s400-r07
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:57:14 +0900
+module      : cat-fig7-k10-s400-r07
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:57:14 +0900
+module      : cat-fig7-k10-s400-r07
+workload    : oltp
+source      : dmesg
+WAF         : 1.627
+waf_x1000   : N/A
+host_pages  : 3069919
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4588.524114] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3069919 gc_pages=1927774 gc_count=78079 WAF=1.627 k=10 scale_pct=400 age_ratio=7
+--- all current-run WAF lines ---
+[ 4588.524114] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3069919 gc_pages=1927774 gc_count=78079 WAF=1.627 k=10 scale_pct=400 age_ratio=7
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:58:21 +0900
+module      : cat-fig7-k10-s400-r16
+phase       : run-durable-end
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== NVME FLUSH =====
+date        : 2026-08-30 23:58:22 +0900
+module      : cat-fig7-k10-s400-r16
+phase       : cleanup
+device      : /dev/nvme1n1
+exit_status : 0
+output      : NVMe Flush: success
+
+===== GC / WAF RESULT =====
+date        : 2026-08-30 23:58:22 +0900
+module      : cat-fig7-k10-s400-r16
+workload    : oltp
+source      : dmesg
+WAF         : 1.624
+waf_x1000   : N/A
+host_pages  : 3191509
+gc_copied   : N/A
+gc_cnt      : N/A
+--- final WAF source line ---
+[ 4656.409855] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3191509 gc_pages=1992072 gc_count=80984 WAF=1.624 k=10 scale_pct=400 age_ratio=16
+--- all current-run WAF lines ---
+[ 4656.409855] NVMeVirt: GC stats: policy=cat-fig7 host_pages=3191509 gc_pages=1992072 gc_count=80984 WAF=1.624 k=10 scale_pct=400 age_ratio=16

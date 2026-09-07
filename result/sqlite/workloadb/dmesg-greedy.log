@@ -1,0 +1,208 @@
+[   85.066697] nvmev: loading out-of-tree module taints kernel.
+[   85.066707] nvmev: module verification failed: signature and/or required key missing - tainting kernel
+[   85.068047] NVMeVirt: Version 1.10 for >> Samsung 970 Pro SSD <<
+[   85.068053] NVMeVirt: Storage: 0x100100000-0x300000000 (8191 MiB)
+[   85.077348] NVMeVirt: Total Capacity(GiB,MiB)=2,2048 chs=2 luns=4 lines=8192 blk-size(MiB,KiB)=0,64 line-size(MiB,KiB)=0,256
+[   85.086028] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.092451] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.092464] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[   85.093626] NVMeVirt: pqueue: Copyright (c) 2014, Volkan Yazıcı <volkan.yazici@gmail.com>. All rights reserved.
+[   85.093663] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[   85.093664] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[   85.100155] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.106551] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.106564] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[   85.107766] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[   85.107767] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[   85.114239] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.120699] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.120714] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[   85.121953] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[   85.121954] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[   85.128471] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.134906] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[   85.134920] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[   85.136298] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[   85.136300] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[   85.136303] NVMeVirt: FTL physical space: 8588886016, logical space: 8026996276 (physical/logical * 100 = 107)
+[   85.136305] NVMeVirt: ns 0/1: size 7655 MiB
+[   85.136344] PCI host bridge to bus 0001:10
+[   85.136345] pci_bus 0001:10: root bus resource [io  0x0000-0xffff]
+[   85.136347] pci_bus 0001:10: root bus resource [mem 0x00000000-0x3fffffffffff]
+[   85.136349] pci_bus 0001:10: root bus resource [bus 00-ff]
+[   85.136354] pci 0001:10:00.0: [0c51:0110] type 00 class 0x010802 PCIe Endpoint
+[   85.136357] pci 0001:10:00.0: BAR 0 [mem 0x100000000-0x100003fff 64bit]
+[   85.136359] pci 0001:10:00.0: enabling Extended Tags
+[   85.136469] NVMeVirt: Virtual PCI bus created (node 0)
+[   85.136873] NVMeVirt: nvmev_io_worker_0 started on cpu 2 (node 0)
+[   85.136970] NVMeVirt: nvmev_dispatcher started on cpu 1 (node 0)
+[   85.137202] nvme nvme1: pci function 0001:10:00.0
+[   85.141804] nvme nvme1: 20/0/0 default/read/poll queues
+[   85.145237] NVMeVirt: Virtual NVMe device created
+[   86.203419] EXT4-fs (nvme1n1): mounted filesystem fead19b6-47a3-4c6d-838b-267c0d0d387b r/w with ordered data mode. Quota mode: none.
+[   86.232569] iCAT_SQLITE_LOAD_START run=20260901-012842-2688
+[  184.182454] iCAT_SQLITE_LOAD_END run=20260901-012842-2688
+[  184.612955] sh (3954): drop_caches: 3
+[  184.646911] iCAT_SQLITE_RUN_START run=20260901-012842-2688
+[  188.224971] sh (3951): drop_caches: 3
+[  192.266309] sh (3951): drop_caches: 3
+[  196.307909] sh (3951): drop_caches: 3
+[  200.348487] sh (3951): drop_caches: 3
+[  204.392184] sh (3951): drop_caches: 3
+[  208.442855] sh (3951): drop_caches: 3
+[  212.490973] sh (3951): drop_caches: 3
+[  216.538465] sh (3951): drop_caches: 3
+[  220.592186] sh (3951): drop_caches: 3
+[  224.643765] sh (3951): drop_caches: 3
+[  228.690207] sh (3951): drop_caches: 3
+[  232.738934] sh (3951): drop_caches: 3
+[  236.781013] sh (3951): drop_caches: 3
+[  240.830879] sh (3951): drop_caches: 3
+[  244.872348] sh (3951): drop_caches: 3
+[  248.913039] sh (3951): drop_caches: 3
+[  252.961792] sh (3951): drop_caches: 3
+[  257.012354] sh (3951): drop_caches: 3
+[  261.064530] sh (3951): drop_caches: 3
+[  265.116712] sh (3951): drop_caches: 3
+[  269.165013] sh (3951): drop_caches: 3
+[  273.213748] sh (3951): drop_caches: 3
+[  277.262275] sh (3951): drop_caches: 3
+[  281.307255] sh (3951): drop_caches: 3
+[  285.355567] sh (3951): drop_caches: 3
+[  289.406881] sh (3951): drop_caches: 3
+[  293.448582] sh (3951): drop_caches: 3
+[  297.494938] sh (3951): drop_caches: 3
+[  301.545806] sh (3951): drop_caches: 3
+[  305.595337] sh (3951): drop_caches: 3
+[  309.646182] sh (3951): drop_caches: 3
+[  313.695724] sh (3951): drop_caches: 3
+[  317.744370] sh (3951): drop_caches: 3
+[  321.786197] sh (3951): drop_caches: 3
+[  325.835872] sh (3951): drop_caches: 3
+[  329.884535] sh (3951): drop_caches: 3
+[  333.934863] sh (3951): drop_caches: 3
+[  337.985082] sh (3951): drop_caches: 3
+[  342.036529] sh (3951): drop_caches: 3
+[  346.087124] sh (3951): drop_caches: 3
+[  350.131127] sh (3951): drop_caches: 3
+[  354.180662] sh (3951): drop_caches: 3
+[  358.230875] sh (3951): drop_caches: 3
+[  362.277718] sh (3951): drop_caches: 3
+[  366.323895] sh (3951): drop_caches: 3
+[  370.372754] sh (3951): drop_caches: 3
+[  374.420770] sh (3951): drop_caches: 3
+[  378.466676] sh (3951): drop_caches: 3
+[  382.518326] sh (3951): drop_caches: 3
+[  386.565370] sh (3951): drop_caches: 3
+[  390.615521] sh (3951): drop_caches: 3
+[  394.658832] sh (3951): drop_caches: 3
+[  398.710171] sh (3951): drop_caches: 3
+[  402.756342] sh (3951): drop_caches: 3
+[  406.800718] sh (3951): drop_caches: 3
+[  410.848410] sh (3951): drop_caches: 3
+[  414.897901] sh (3951): drop_caches: 3
+[  418.940026] sh (3951): drop_caches: 3
+[  422.986559] sh (3951): drop_caches: 3
+[  427.035782] sh (3951): drop_caches: 3
+[  431.082627] sh (3951): drop_caches: 3
+[  435.130734] sh (3951): drop_caches: 3
+[  439.181358] sh (3951): drop_caches: 3
+[  443.222086] sh (3951): drop_caches: 3
+[  447.263589] sh (3951): drop_caches: 3
+[  451.313541] sh (3951): drop_caches: 3
+[  455.361797] sh (3951): drop_caches: 3
+[  459.404468] sh (3951): drop_caches: 3
+[  463.454315] sh (3951): drop_caches: 3
+[  467.503223] sh (3951): drop_caches: 3
+[  471.549169] sh (3951): drop_caches: 3
+[  475.595131] sh (3951): drop_caches: 3
+[  479.647160] sh (3951): drop_caches: 3
+[  483.695197] sh (3951): drop_caches: 3
+[  487.735374] sh (3951): drop_caches: 3
+[  491.774177] sh (3951): drop_caches: 3
+[  495.822382] sh (3951): drop_caches: 3
+[  499.871222] sh (3951): drop_caches: 3
+[  503.918492] sh (3951): drop_caches: 3
+[  507.967882] sh (3951): drop_caches: 3
+[  512.015888] sh (3951): drop_caches: 3
+[  516.063877] sh (3951): drop_caches: 3
+[  520.112227] sh (3951): drop_caches: 3
+[  524.160706] sh (3951): drop_caches: 3
+[  528.209131] sh (3951): drop_caches: 3
+[  532.261195] sh (3951): drop_caches: 3
+[  536.311593] sh (3951): drop_caches: 3
+[  540.360997] sh (3951): drop_caches: 3
+[  544.406512] sh (3951): drop_caches: 3
+[  548.448953] sh (3951): drop_caches: 3
+[  552.495119] sh (3951): drop_caches: 3
+[  556.545708] sh (3951): drop_caches: 3
+[  560.596182] sh (3951): drop_caches: 3
+[  564.646094] sh (3951): drop_caches: 3
+[  568.696234] sh (3951): drop_caches: 3
+[  572.742428] sh (3951): drop_caches: 3
+[  576.786039] sh (3951): drop_caches: 3
+[  580.832714] sh (3951): drop_caches: 3
+[  584.873423] sh (3951): drop_caches: 3
+[  588.917483] sh (3951): drop_caches: 3
+[  592.966493] sh (3951): drop_caches: 3
+[  597.015272] sh (3951): drop_caches: 3
+[  601.061744] sh (3951): drop_caches: 3
+[  605.108850] sh (3951): drop_caches: 3
+[  609.156770] sh (3951): drop_caches: 3
+[  613.205897] sh (3951): drop_caches: 3
+[  617.251050] sh (3951): drop_caches: 3
+[  621.299089] sh (3951): drop_caches: 3
+[  625.349825] sh (3951): drop_caches: 3
+[  629.398258] sh (3951): drop_caches: 3
+[  633.445852] sh (3951): drop_caches: 3
+[  637.485246] sh (3951): drop_caches: 3
+[  641.532526] sh (3951): drop_caches: 3
+[  645.581737] sh (3951): drop_caches: 3
+[  649.627393] sh (3951): drop_caches: 3
+[  653.674877] sh (3951): drop_caches: 3
+[  657.724195] sh (3951): drop_caches: 3
+[  661.774066] sh (3951): drop_caches: 3
+[  665.820970] sh (3951): drop_caches: 3
+[  669.861636] sh (3951): drop_caches: 3
+[  673.909823] sh (3951): drop_caches: 3
+[  677.959438] sh (3951): drop_caches: 3
+[  682.008505] sh (3951): drop_caches: 3
+[  686.056808] sh (3951): drop_caches: 3
+[  690.098047] sh (3951): drop_caches: 3
+[  694.138741] sh (3951): drop_caches: 3
+[  698.189749] sh (3951): drop_caches: 3
+[  702.240888] sh (3951): drop_caches: 3
+[  706.289962] sh (3951): drop_caches: 3
+[  710.333311] sh (3951): drop_caches: 3
+[  714.372692] sh (3951): drop_caches: 3
+[  718.423256] sh (3951): drop_caches: 3
+[  722.472947] sh (3951): drop_caches: 3
+[  726.516889] sh (3951): drop_caches: 3
+[  730.565467] sh (3951): drop_caches: 3
+[  734.612460] sh (3951): drop_caches: 3
+[  738.665558] sh (3951): drop_caches: 3
+[  742.715332] sh (3951): drop_caches: 3
+[  746.763405] sh (3951): drop_caches: 3
+[  750.812138] sh (3951): drop_caches: 3
+[  754.859420] sh (3951): drop_caches: 3
+[  758.903147] sh (3951): drop_caches: 3
+[  762.951643] sh (3951): drop_caches: 3
+[  767.002966] sh (3951): drop_caches: 3
+[  771.048999] sh (3951): drop_caches: 3
+[  775.099747] sh (3951): drop_caches: 3
+[  779.145786] sh (3951): drop_caches: 3
+[  783.194994] sh (3951): drop_caches: 3
+[  787.242994] sh (3951): drop_caches: 3
+[  791.291215] sh (3951): drop_caches: 3
+[  795.338145] sh (3951): drop_caches: 3
+[  799.387581] sh (3951): drop_caches: 3
+[  803.434410] sh (3951): drop_caches: 3
+[  807.484706] sh (3951): drop_caches: 3
+[  811.532228] sh (3951): drop_caches: 3
+[  815.580413] sh (3951): drop_caches: 3
+[  819.607189] sh (3951): drop_caches: 3
+[  819.654191] iCAT_SQLITE_RUN_END run=20260901-012842-2688
+[  819.674008] EXT4-fs (nvme1n1): unmounting filesystem fead19b6-47a3-4c6d-838b-267c0d0d387b.
+[  819.750091] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[  819.750131] NVMeVirt: GC stats: policy=greedy host_pages=14698345 gc_pages=4141778 gc_count=294370 WAF=1.281 k=0 scale_pct=0 age_ratio=0
+[  819.810497] NVMeVirt: Virtual NVMe device closed

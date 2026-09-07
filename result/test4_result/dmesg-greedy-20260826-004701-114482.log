@@ -1,0 +1,114 @@
+[32125.073973] EXT4-fs (nvme1n1): unmounting filesystem 28011458-726d-4261-beff-4bfd3eeb8ddb.
+[32125.150948] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[32125.150990] NVMeVirt: =============== SARO DEBUG DUMP ===============
+[32125.150992] NVMeVirt: [SARO-DBG] build=ENABLED
+[32125.150992] NVMeVirt: [SARO-DBG] pages: HOST wr=5242932 rd=0 | GC wr=6212412 rd=6212420 | WAF=2.18
+[32125.150994] NVMeVirt: [SARO-BUF] DECISION  : total=436911
+[32125.150995] NVMeVirt: [SARO-BUF]   used   0-  9% |     25687 |  5.8% #
+[32125.150997] NVMeVirt: [SARO-BUF]   used  10- 19% |       214 |  0.0% 
+[32125.150998] NVMeVirt: [SARO-BUF]   used  20- 29% |       450 |  0.1% 
+[32125.150999] NVMeVirt: [SARO-BUF]   used  30- 39% |       229 |  0.0% 
+[32125.151000] NVMeVirt: [SARO-BUF]   used  40- 49% |       442 |  0.1% 
+[32125.151001] NVMeVirt: [SARO-BUF]   used  50- 59% |       452 |  0.1% 
+[32125.151001] NVMeVirt: [SARO-BUF]   used  60- 69% |       251 |  0.0% 
+[32125.151002] NVMeVirt: [SARO-BUF]   used  70- 79% |       583 |  0.1% 
+[32125.151003] NVMeVirt: [SARO-BUF]   used  80- 89% |       707 |  0.1% 
+[32125.151004] NVMeVirt: [SARO-BUF]   used  90- 99% |    407896 | 93.3% ##################
+[32125.151005] NVMeVirt: [SARO-BUF] HOST-CMD  : total=5242919
+[32125.151006] NVMeVirt: [SARO-BUF]   used   0-  9% |    307033 |  5.8% #
+[32125.151007] NVMeVirt: [SARO-BUF]   used  10- 19% |      4331 |  0.0% 
+[32125.151008] NVMeVirt: [SARO-BUF]   used  20- 29% |      4309 |  0.0% 
+[32125.151009] NVMeVirt: [SARO-BUF]   used  30- 39% |      4238 |  0.0% 
+[32125.151009] NVMeVirt: [SARO-BUF]   used  40- 49% |      4280 |  0.0% 
+[32125.151010] NVMeVirt: [SARO-BUF]   used  50- 59% |      4311 |  0.0% 
+[32125.151011] NVMeVirt: [SARO-BUF]   used  60- 69% |      4804 |  0.0% 
+[32125.151012] NVMeVirt: [SARO-BUF]   used  70- 79% |      5491 |  0.1% 
+[32125.151013] NVMeVirt: [SARO-BUF]   used  80- 89% |     58097 |  1.1% 
+[32125.151013] NVMeVirt: [SARO-BUF]   used  90- 99% |   4846025 | 92.4% ##################
+[32125.151015] NVMeVirt: [SARO-MODE] HOST-WRITE : op_total=436911  pg_total=5242932
+[32125.151016] NVMeVirt: [SARO-MODE]   BASE   op=    300892 ( 68.8%)  pg=   3610704 ( 68.8%)
+[32125.151017] NVMeVirt: [SARO-MODE]   WEAK   op=    127856 ( 29.2%)  pg=   1534272 ( 29.2%)
+[32125.151018] NVMeVirt: [SARO-MODE]   STRONG op=      8163 (  1.8%)  pg=     97956 (  1.8%)
+[32125.151020] NVMeVirt: [SARO-MODE]   UNSET  op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151021] NVMeVirt: [SARO-MODE] HOST-READ  : op_total=0  pg_total=0
+[32125.151022] NVMeVirt: [SARO-MODE]   BASE   op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151023] NVMeVirt: [SARO-MODE]   WEAK   op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151023] NVMeVirt: [SARO-MODE]   STRONG op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151024] NVMeVirt: [SARO-MODE]   UNSET  op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151025] NVMeVirt: [SARO-MODE] GC-WRITE   : op_total=517701  pg_total=6212412
+[32125.151026] NVMeVirt: [SARO-MODE]   BASE   op=    257852 ( 49.8%)  pg=   3094224 ( 49.8%)
+[32125.151027] NVMeVirt: [SARO-MODE]   WEAK   op=    104809 ( 20.2%)  pg=   1257708 ( 20.2%)
+[32125.151028] NVMeVirt: [SARO-MODE]   STRONG op=    155040 ( 29.9%)  pg=   1860480 ( 29.9%)
+[32125.151029] NVMeVirt: [SARO-MODE]   UNSET  op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151030] NVMeVirt: [SARO-MODE] GC-READ    : op_total=2417506  pg_total=6212420
+[32125.151031] NVMeVirt: [SARO-MODE]   BASE   op=   1427319 ( 59.0%)  pg=   3734849 ( 60.1%)
+[32125.151032] NVMeVirt: [SARO-MODE]   WEAK   op=    579338 ( 23.9%)  pg=   1512245 ( 24.3%)
+[32125.151032] NVMeVirt: [SARO-MODE]   STRONG op=    410849 ( 16.9%)  pg=    965326 ( 15.5%)
+[32125.151033] NVMeVirt: [SARO-MODE]   UNSET  op=         0 (  0.0%)  pg=         0 (  0.0%)
+[32125.151034] NVMeVirt: [SARO-MU] th=80% call=436911 fire=408603 (93.5%) flip=205258 (46.9%)
+[32125.151036] NVMeVirt: [SARO-MU]   BEST   low=     14686 high=    203345 flip=         0
+[32125.151037] NVMeVirt: [SARO-MU]   GOOD   low=      5459 high=     82861 flip=     82861
+[32125.151038] NVMeVirt: [SARO-MU]   BAD    low=      5258 high=     81782 flip=     81782
+[32125.151039] NVMeVirt: [SARO-MU]   WORST  low=      2905 high=     40615 flip=     40615
+[32125.151039] NVMeVirt: [SARO-QD] qd=LUN 대기(ns), cell=tR/tPROG(ns)
+[32125.151040] NVMeVirt: [SARO-QD]   USER WR BASE   n=    300892 qd_avg=11142656 qd_max= 412973666 cell_avg= 1140000
+[32125.151042] NVMeVirt: [SARO-QD]   USER WR WEAK   n=    127856 qd_avg=11577472 qd_max= 413073655 cell_avg= 1311000
+[32125.151043] NVMeVirt: [SARO-QD]   USER WR STRONG n=      8163 qd_avg=102124907 qd_max= 412120298 cell_avg= 1482000
+[32125.151044] NVMeVirt: [SARO-QD]   GC   RD BASE   n=   1427319 qd_avg=191526918 qd_max= 400419694 cell_avg=   38897
+[32125.151045] NVMeVirt: [SARO-QD]   GC   RD WEAK   n=    579338 qd_avg=120709594 qd_max= 406778991 cell_avg=   36624
+[32125.151046] NVMeVirt: [SARO-QD]   GC   RD STRONG n=    410849 qd_avg=72966701 qd_max= 400216319 cell_avg=   29264
+[32125.151047] NVMeVirt: [SARO-QD]   GC   WR BASE   n=    257852 qd_avg=159968354 qd_max= 406686613 cell_avg= 1140000
+[32125.151048] NVMeVirt: [SARO-QD]   GC   WR WEAK   n=    104809 qd_avg=152690605 qd_max= 394098433 cell_avg= 1311000
+[32125.151049] NVMeVirt: [SARO-QD]   GC   WR STRONG n=    155040 qd_avg=163426223 qd_max= 394283222 cell_avg= 1482000
+[32125.156699] NVMeVirt: [SARO-COV] live_valid=1620960 uniq_read=0 overall_cov=0.0%
+[32125.156702] NVMeVirt: [SARO-COV]   BASE   live=   978388 uniq_rd=        0 cov=  0.0% rd/pg=0.00
+[32125.156703] NVMeVirt: [SARO-COV]   WEAK   live=   424404 uniq_rd=        0 cov=  0.0% rd/pg=0.00
+[32125.156705] NVMeVirt: [SARO-COV]   STRONG live=   218168 uniq_rd=        0 cov=  0.0% rd/pg=0.00
+[32125.156706] NVMeVirt: [SARO-COV]   UNSET  live=        0 uniq_rd=        0 cov=  0.0% rd/pg=0.00
+[32125.156707] NVMeVirt: [SARO-DBG] PROG hw=3610704/1534272/97956 gw=3094224/1257708/1860480 hr=0/0/0/0 gr=3734849/1512245/965326/0 peak=99% fail=821440218 mu=408603/205258
+[32125.156709] NVMeVirt: ===============================================
+[32125.214864] NVMeVirt: Virtual NVMe device closed
+[32126.248776] NVMeVirt: Version 1.10 for >> Samsung 970 Pro SSD <<
+[32126.248787] NVMeVirt: Storage: 0x100100000-0x300000000 (8191 MiB)
+[32126.257056] NVMeVirt: Total Capacity(GiB,MiB)=2,2048 chs=2 luns=4 lines=8192 blk-size(MiB,KiB)=0,64 line-size(MiB,KiB)=0,256
+[32126.268450] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.277926] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.277950] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[32126.279336] NVMeVirt: pqueue: Copyright (c) 2014, Volkan Yazıcı <volkan.yazici@gmail.com>. All rights reserved.
+[32126.279379] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[32126.279380] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[32126.286079] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.292727] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.292741] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[32126.294009] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[32126.294010] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[32126.300510] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.306973] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.306988] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[32126.308234] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[32126.308235] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[32126.314678] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.321094] NVMeVirt: [chmodel_init] bandwidth 800 max_credits 26 tx_time 152
+[32126.321108] NVMeVirt: [chmodel_init] bandwidth 3360 max_credits 110 tx_time 36
+[32126.322359] NVMeVirt: Init FTL instance with 2 channels (524288 pages)
+[32126.322360] NVMeVirt: GC victim policy: greedy k=0 scale_pct=0 age_ratio=0
+[32126.322365] NVMeVirt: FTL physical space: 8588886016, logical space: 8026996276 (physical/logical * 100 = 107)
+[32126.322366] NVMeVirt: ns 0/1: size 7655 MiB
+[32126.322410] PCI host bridge to bus 0001:10
+[32126.322412] pci_bus 0001:10: root bus resource [io  0x0000-0xffff]
+[32126.322414] pci_bus 0001:10: root bus resource [mem 0x00000000-0x3fffffffffff]
+[32126.322415] pci_bus 0001:10: root bus resource [bus 00-ff]
+[32126.322422] pci 0001:10:00.0: [0c51:0110] type 00 class 0x010802 PCIe Endpoint
+[32126.322424] pci 0001:10:00.0: BAR 0 [mem 0x100000000-0x100003fff 64bit]
+[32126.322426] pci 0001:10:00.0: enabling Extended Tags
+[32126.322546] NVMeVirt: Virtual PCI bus created (node 0)
+[32126.323075] NVMeVirt: nvmev_io_worker_0 started on cpu 2 (node 0)
+[32126.323157] NVMeVirt: nvmev_dispatcher started on cpu 1 (node 0)
+[32126.323353] nvme nvme1: pci function 0001:10:00.0
+[32126.326585] nvme nvme1: 20/0/0 default/read/poll queues
+[32126.330689] NVMeVirt: Virtual NVMe device created
+[32127.386062] EXT4-fs (nvme1n1): mounted filesystem bcb6b31a-85cc-47e4-b7ba-40df0010a92d r/w with ordered data mode. Quota mode: none.
+[32730.714841] EXT4-fs (nvme1n1): unmounting filesystem bcb6b31a-85cc-47e4-b7ba-40df0010a92d.
+[32730.792699] pci_bus 0001:10: busn_res: [bus 10-ff] is released
+[32730.792729] NVMeVirt: GC stats: policy=greedy host_pages=23526016 gc_pages=28769039 gc_count=817101 WAF=2.222 k=0 scale_pct=0 age_ratio=0
+[32730.856596] NVMeVirt: Virtual NVMe device closed

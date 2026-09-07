@@ -1,0 +1,25 @@
+[START] module=cat-fig7-k02-s025-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 1238c620-595d-4ec9-9c1e-1c84b9381b53
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[WORKLOAD] source=/home/meen/iCAT/workloads/filebench/varmail.f runtime=60s
+Filebench Version 1.5-alpha3
+0.000: Allocated 177MB of shared memory
+0.002: Varmail Version 3.0 personality successfully loaded
+0.002: Populating and pre-allocating filesets
+0.056: bigfileset populated: 150000 files, avg. dir. width = 1000000, avg. dir. depth = 0.9, 0 leafdirs, 2346.993MB total size
+0.056: Removing bigfileset tree (if exists)
+0.057: Pre-allocating directories in bigfileset tree
+0.057: Pre-allocating files in bigfileset tree
+2.659: Waiting for pre-allocation to finish (in case of a parallel pre-allocation)
+2.659: Population and pre-allocation of filesets completed
+2.659: Starting 1 filereader instances

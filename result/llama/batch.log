@@ -1,0 +1,358 @@
+[BATCH] suite=llama desc=llama
+[BATCH] runner=/home/meen/iCAT/script/llama.sh
+[BATCH] workload_file=N/A (llama-bench uses its configured model)
+[BATCH] repeats=1 policies=61 total_runs=61
+[BATCH] result_dir=/home/meen/iCAT/result/llama
+[BATCH] log=/home/meen/iCAT/result/llama/batch.log
+
+[RUN] suite=llama repeat=1/1 policy=1/61 tag=greedy start=2026-08-31 00:40:48+0900
+[START] module=greedy
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: f4a2dec6-71ed-440e-b72a-7aaae89b8955
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         95.82 ± 0.30 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/greedy.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-greedy.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-greedy.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=greedy WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=greedy end=2026-08-31 00:42:51+0900
+
+[RUN] suite=llama repeat=1/1 policy=2/61 tag=cat-fig7-k02-s025-r04 start=2026-08-31 00:42:51+0900
+[START] module=cat-fig7-k02-s025-r04
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 44727256-7154-4d28-b9ba-2acd150048ae
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         75.85 ± 3.94 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.00 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s025-r04.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s025-r04.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s025-r04.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s025-r04 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s025-r04 end=2026-08-31 00:44:55+0900
+
+[RUN] suite=llama repeat=1/1 policy=3/61 tag=cat-fig7-k02-s025-r07 start=2026-08-31 00:44:55+0900
+[START] module=cat-fig7-k02-s025-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 2aea53bd-38ca-4b4c-8100-60e2fa8aee2a
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        79.84 ± 10.52 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s025-r07.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s025-r07.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s025-r07.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s025-r07 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s025-r07 end=2026-08-31 00:46:58+0900
+
+[RUN] suite=llama repeat=1/1 policy=4/61 tag=cat-fig7-k02-s025-r16 start=2026-08-31 00:46:58+0900
+[START] module=cat-fig7-k02-s025-r16
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: a31e0ade-9276-4db8-8164-034c4a7fc0cc
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         76.43 ± 1.99 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.00 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s025-r16.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s025-r16.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s025-r16.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s025-r16 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s025-r16 end=2026-08-31 00:49:02+0900
+
+[RUN] suite=llama repeat=1/1 policy=5/61 tag=cat-fig7-k02-s050-r04 start=2026-08-31 00:49:02+0900
+[START] module=cat-fig7-k02-s050-r04
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: d4b111db-eec6-49a5-818f-9f53e4832ee4
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        80.07 ± 10.26 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.00 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s050-r04.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s050-r04.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s050-r04.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s050-r04 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s050-r04 end=2026-08-31 00:51:06+0900
+
+[RUN] suite=llama repeat=1/1 policy=6/61 tag=cat-fig7-k02-s050-r07 start=2026-08-31 00:51:06+0900
+[START] module=cat-fig7-k02-s050-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 55895b03-5506-48ba-bcc7-adc94c84bee8
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         77.02 ± 2.38 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.00 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s050-r07.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s050-r07.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s050-r07.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s050-r07 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s050-r07 end=2026-08-31 00:53:09+0900
+
+[RUN] suite=llama repeat=1/1 policy=7/61 tag=cat-fig7-k02-s050-r16 start=2026-08-31 00:53:09+0900
+[START] module=cat-fig7-k02-s050-r16
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 17253e70-f622-4aec-9b8b-8e6803665a95
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        80.40 ± 10.47 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.63 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s050-r16.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s050-r16.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s050-r16.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s050-r16 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s050-r16 end=2026-08-31 00:55:12+0900
+
+[RUN] suite=llama repeat=1/1 policy=8/61 tag=cat-fig7-k02-s100-r04 start=2026-08-31 00:55:12+0900
+[START] module=cat-fig7-k02-s100-r04
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: a08fc3f1-54ad-4eab-a4d2-bbbd1588d241
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        83.27 ± 11.67 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.63 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s100-r04.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s100-r04.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s100-r04.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s100-r04 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s100-r04 end=2026-08-31 00:57:15+0900
+
+[RUN] suite=llama repeat=1/1 policy=9/61 tag=cat-fig7-k02-s100-r07 start=2026-08-31 00:57:15+0900
+[START] module=cat-fig7-k02-s100-r07
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 250bbdae-0bdd-47bf-9011-2e190d791f9f
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |        80.87 ± 10.54 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.62 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s100-r07.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s100-r07.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s100-r07.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s100-r07 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s100-r07 end=2026-08-31 00:59:19+0900
+
+[RUN] suite=llama repeat=1/1 policy=10/61 tag=cat-fig7-k02-s100-r16 start=2026-08-31 00:59:19+0900
+[START] module=cat-fig7-k02-s100-r16
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: 3de57659-7712-4861-aa04-92675c517d04
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         78.33 ± 7.64 |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           tg128 |          3.63 ± 0.01 |
+
+build: f5e85d4 (1)
+[FLUSH] phase=run-end device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RESULT] app=/home/meen/iCAT/result/llama/cat-fig7-k02-s100-r16.txt
+[RESULT] bench=/home/meen/iCAT/result/llama/bench-cat-fig7-k02-s100-r16.txt
+[RESULT] dmesg=/home/meen/iCAT/result/llama/dmesg-cat-fig7-k02-s100-r16.log
+[RESULT] summary=/home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=cleanup device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[WAF] module=cat-fig7-k02-s100-r16 WAF=N/A host_pages=0 gc_copied=N/A -> /home/meen/iCAT/result/llama/summary.txt
+[PASS] suite=llama repeat=1 tag=cat-fig7-k02-s100-r16 end=2026-08-31 01:01:22+0900
+
+[RUN] suite=llama repeat=1/1 policy=11/61 tag=cat-fig7-k02-s200-r04 start=2026-08-31 01:01:22+0900
+[START] module=cat-fig7-k02-s200-r04
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 1959715 4k blocks and 490560 inodes
+Filesystem UUID: d67d2f45-9bd1-4ff7-bf94-4f9af3add9d2
+Superblock backups stored on blocks: 
+	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632
+
+Allocating group tables:  0/60     done                            
+Writing inode tables:  0/60     done                            
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information:  0/60     done
+
+Virt Ready: /home/meen/mnt
+[PREPARE] copy model: /home/meen/models/Llama-3.2-3B-Instruct-Q4_K_M.gguf -> /home/meen/mnt/Llama-3.2-3B-Instruct-Q4_K_M.gguf
+[FLUSH] phase=prepare-before-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[FLUSH] phase=prepare-after-copy device=/dev/nvme1n1 -> /home/meen/iCAT/result/llama/summary.txt
+[RUN] pp=128 tg=128 reps=3 threads=8 MemoryMax=1500M
+| model                          |       size |     params | backend    | threads |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | ------: | --------------: | -------------------: |
+| llama 3B Q4_K - Medium         |   1.87 GiB |     3.21 B | CPU        |       8 |           pp128 |         78.83 ± 6.78 |
